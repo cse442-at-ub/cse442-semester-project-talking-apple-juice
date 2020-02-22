@@ -16,4 +16,7 @@
     <string name="newPassVerify">Verify New</string>
     <string name="confirm">CONFIRM</string>
     <string name="profilepic">profilePic</string>
+    <string name="theme">Theme:</string>
+    <string name="light">LIGHT</string>
+    <string name="dark">DARK</string>
 </resources>
