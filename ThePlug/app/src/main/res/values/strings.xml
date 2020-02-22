@@ -3,4 +3,17 @@
     <string name="edit_username">Enter Username</string>
     <string name="edit_password">Enter Password</string>
     <string name="button_enter">Enter</string>
+    <string name="todo">TODO</string>
+    <string name="yourname">\@string/yourName</string>
+    <string name="yourPic">TODO</string>
+    <string name="username">Username</string>
+    <string name="your_email">Your email</string>
+    <string name="rating">5</string>
+    <string name="your_rating">Your Rating</string>
+    <string name="change_password">Change Password</string>
+    <string name="currentPass">Current</string>
+    <string name="newPass">New</string>
+    <string name="newPassVerify">Verify New</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="profilepic">profilePic</string>
 </resources>
