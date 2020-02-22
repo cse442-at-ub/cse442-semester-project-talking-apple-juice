@@ -1,0 +1,4 @@
+#Sat Feb 22 14:03:53 EST 2020
+base.0=/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
