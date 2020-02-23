@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Account"
+        android:id="@+id/account"/>
+
+    <item
+        android:title="Transaction History"
+        android:id="@+id/transaction_history" />
+
+    <item
+        android:title="Messages"
+        android:id="@+id/message"/>
+
+    <item
+        android:title="Setting"
+        android:id="@+id/setting"/>
+<!--        android:icon=""-->
+<!--        app:showAsAction="always-->
+
+
+
+</menu>
