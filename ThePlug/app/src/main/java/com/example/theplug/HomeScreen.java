@@ -30,6 +30,35 @@ public class HomeScreen extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem page){
+        if(page.getItemId() == R.id.accountButton)
+        {
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if(page.getItemId() == R.id.messageButton)
+        {
+            Intent intent = new Intent(this, MessagesActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if(page.getItemId() == R.id.transaction_historyButton)
+        {
+            Intent intent = new Intent(this, TransactionsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if(page.getItemId() == R.id.settingsButton)
+        {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return false;
+    }
+
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item)
 //        int id = item.getItemId();
