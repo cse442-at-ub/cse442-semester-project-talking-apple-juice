@@ -3,19 +3,19 @@
 
     <item
         android:title="Account"
-        android:id="@+id/account"/>
+        android:id="@+id/accountButton"/>
 
     <item
         android:title="Transaction History"
-        android:id="@+id/transaction_history" />
+        android:id="@+id/transaction_historyButton" />
 
     <item
         android:title="Messages"
-        android:id="@+id/message"/>
+        android:id="@+id/messageButton"/>
 
     <item
-        android:title="Setting"
-        android:id="@+id/setting"/>
+        android:title="Settings"
+        android:id="@+id/settingsButton"/>
 <!--        android:icon=""-->
 <!--        app:showAsAction="always-->
 
