@@ -37,13 +37,13 @@
         </activity>
         <activity
             android:name="com.example.theplug.ProfileActivity"
-            android:parentActivityName="com.example.theplug.MainActivity"
+            android:parentActivityName="com.example.theplug.HomeScreen"
             android:theme="@style/Theme.AppCompat.Light" >
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".HomeScreen" />
         </activity>
         <activity
             android:name="com.example.theplug.SettingsActivity"
@@ -52,7 +52,25 @@
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".HomeScreen" />
+        </activity>
+        <activity
+            android:name="com.example.theplug.MessagesActivity"
+            android:theme="@style/Theme.AppCompat.Light" >
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+        <activity
+            android:name="com.example.theplug.TransactionsActivity"
+            android:theme="@style/Theme.AppCompat.Light" >
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
         </activity>
     </application>
 

@@ -19,4 +19,9 @@
     <string name="theme">Theme:</string>
     <string name="light">LIGHT</string>
     <string name="dark">DARK</string>
+    <string name="bids">Bids</string>
+    <string name="sales">Sales</string>
+    <string name="purchases">Purchases</string>
+    <string name="item_name">Item Name</string>
+    <string name="_6">$6</string>
 </resources>
