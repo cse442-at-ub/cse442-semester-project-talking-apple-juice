@@ -1,27 +1,18 @@
 package com.example.theplug;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-public class HomeScreen extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+public class NewSaleActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_screen);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        setContentView(R.layout.activity_new_sale);
     }
 
     @Override
@@ -64,12 +55,4 @@ public class HomeScreen extends AppCompatActivity {
         }
         return false;
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item)
-//        int id = item.getItemId();
-//
-//        if(id == R.id.account)
-//            Toast.makeText(getApplica)
-//    }
 }

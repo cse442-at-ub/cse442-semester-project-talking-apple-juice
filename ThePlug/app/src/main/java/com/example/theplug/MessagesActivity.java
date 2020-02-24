@@ -6,7 +6,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 public class MessagesActivity extends AppCompatActivity {
 
@@ -45,6 +44,12 @@ public class MessagesActivity extends AppCompatActivity {
         if(page.getItemId() == R.id.settingsButton)
         {
             Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if(page.getItemId() == R.id.newSaleButton)
+        {
+            Intent intent = new Intent(this, NewSaleActivity.class);
             startActivity(intent);
             return true;
         }
