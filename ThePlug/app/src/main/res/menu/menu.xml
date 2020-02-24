@@ -16,6 +16,10 @@
     <item
         android:title="Settings"
         android:id="@+id/settingsButton"/>
+
+    <item
+        android:title="New Sale"
+        android:id="@+id/newSaleButton"/>
 <!--        android:icon=""-->
 <!--        app:showAsAction="always-->
 

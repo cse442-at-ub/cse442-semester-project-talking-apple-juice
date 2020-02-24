@@ -48,6 +48,12 @@ public class TransactionsActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
+        if(page.getItemId() == R.id.newSaleButton)
+        {
+            Intent intent = new Intent(this, NewSaleActivity.class);
+            startActivity(intent);
+            return true;
+        }
         return false;
     }
 }
