@@ -24,4 +24,6 @@
     <string name="purchases">Purchases</string>
     <string name="item_name">Item Name</string>
     <string name="_6">$6</string>
+    <string name="hot_bid">Hot Bid</string>
+    <string name="new_sales">New Sales</string>
 </resources>

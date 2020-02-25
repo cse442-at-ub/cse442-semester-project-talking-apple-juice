@@ -628,6 +628,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable bv1
 drawable deafulticon
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -647,6 +648,7 @@ drawable pass
 drawable plug
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable ts1
 drawable user
 id ALT
 id CTRL
@@ -688,6 +690,8 @@ id blocking
 id bottom
 id button
 id button2
+id button3
+id button4
 id buttonPanel
 id center
 id center_horizontal
@@ -711,6 +715,9 @@ id default_activity_button
 id dimensions
 id direct
 id disableHome
+id editText
+id editText2
+id editText3
 id edit_query
 id end
 id expand_activities_button
@@ -729,9 +736,13 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id imageView10
 id imageView2
+id imageView3
 id imageView4
 id imageView5
+id imageView6
+id imageView9
 id info
 id invisible
 id italic
@@ -742,6 +753,7 @@ id left
 id line1
 id line3
 id linearLayout
+id linearLayout2
 id listMode
 id list_item
 id message
@@ -752,6 +764,7 @@ id multiply
 id never
 id newPass
 id newPassVerify
+id newSaleButton
 id none
 id normal
 id notification_background
@@ -774,6 +787,7 @@ id screen
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id searchView
 id search_badge
 id search_bar
 id search_button
@@ -810,7 +824,10 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
-id textView1
+id textView2
+id textView3
+id textView4
+id textView5
 id themeFlip
 id time
 id title
@@ -868,6 +885,7 @@ layout abc_tooltip
 layout activity_home_screen
 layout activity_main
 layout activity_messages
+layout activity_new_sale
 layout activity_profile
 layout activity_settings
 layout activity_transactions
@@ -933,10 +951,12 @@ string currentPass
 string dark
 string edit_password
 string edit_username
+string hot_bid
 string item_name
 string light
 string newPass
 string newPassVerify
+string new_sales
 string profilepic
 string purchases
 string rating
