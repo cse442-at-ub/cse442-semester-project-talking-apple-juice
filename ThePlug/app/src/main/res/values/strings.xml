@@ -26,4 +26,16 @@
     <string name="_6">$6</string>
     <string name="hot_bid">Hot Bid</string>
     <string name="new_sales">New Sales</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="agree">By clicking SIGNUP, you agree to ThePlug\'s User Agreement, Provacy Policy, and Cookie Policy.</string>
+    <string name="already_have_acctt">Already have an account?</string>
+    <string name="already_have_acct">Already have an account? Sign in</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="forgot_username">Forgot Username</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="enter_linked_email">Enter the email linked to your account</string>
+    <string name="enter_linked_email_username">Enter the email linked to your account and we will send you your username</string>
 </resources>
