@@ -1,7 +1,4 @@
-#Tue Feb 25 16:36:31 EST 2020
-base.0=/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/C\:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-path.1=classes.dex
-renamed.1=classes2.dex
+#Thu Feb 27 11:12:43 EST 2020
+base.0=C\:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex

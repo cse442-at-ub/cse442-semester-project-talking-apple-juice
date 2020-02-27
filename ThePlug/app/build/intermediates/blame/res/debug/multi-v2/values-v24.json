@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/asaliu/.gradle/caches/transforms-2/files-2.1/697f71c0c12135256cbfe98df498a7e4/appcompat-1.0.2/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\John\\.gradle\\caches\\transforms-2\\files-2.1\\35d90229a6721557d1c3c07573a6cb55\\appcompat-1.0.2\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

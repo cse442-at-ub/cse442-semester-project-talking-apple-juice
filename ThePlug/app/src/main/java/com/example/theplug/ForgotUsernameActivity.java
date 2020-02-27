@@ -1,4 +1,14 @@
 package com.example.theplug;
 
-public class ForgotUsernameActivity {
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ForgotUsernameActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_forgot_username);
+    }
 }

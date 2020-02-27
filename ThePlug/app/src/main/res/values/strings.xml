@@ -30,12 +30,12 @@
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="agree">By clicking SIGNUP, you agree to ThePlug\'s User Agreement, Provacy Policy, and Cookie Policy.</string>
+    <string name="agree">By clicking SIGNUP, you agree to ThePlug\'s User Agreement, Privacy Policy, and Cookie Policy.</string>
     <string name="already_have_acctt">Already have an account?</string>
-    <string name="already_have_acct">Already have an account? Sign in</string>
+    <string name="already_have_acct">Already have an account? Go back to sign in!</string>
     <string name="forgot_password">Forgot Password</string>
     <string name="forgot_username">Forgot Username</string>
     <string name="no_account">Don\'t have an account?</string>
-    <string name="enter_linked_email">Enter the email linked to your account</string>
+    <string name="enter_linked_email">Enter the email linked to your account for a temporary password</string>
     <string name="enter_linked_email_username">Enter the email linked to your account and we will send you your username</string>
 </resources>

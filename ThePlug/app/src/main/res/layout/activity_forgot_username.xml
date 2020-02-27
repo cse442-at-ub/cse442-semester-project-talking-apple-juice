@@ -6,24 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/thePlugToolbar"
-        android:layout_width="411dp"
-        android:layout_height="55dp"
-        android:background="#7A7A7A"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="ThePlug"
-        app:titleMarginStart="40dp" />
-
     <Button
         android:id="@+id/SubmitButton5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:clickable="true"
-        android:onClick="sendMessage"
         android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -32,9 +20,13 @@
 
     <TextView
         android:id="@+id/enterEmailTextView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="112dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="@string/enter_linked_email_username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.474"
@@ -45,12 +37,11 @@
         android:id="@+id/linkedEmailEditText4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginLeft="84dp"
         android:layout_marginTop="12dp"
         android:autoLink="email"
         android:ems="10"
         android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterEmailTextView6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

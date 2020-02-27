@@ -26,4 +26,19 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToForgotUser(View view){
+        Intent intent = new Intent(this, ForgotUsernameActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToForgotPass(View view){
+        Intent intent = new Intent(this, ForgotPasswordActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToSignup(View view){
+        Intent intent = new Intent(this, SignUpActivity.class);
+        startActivity(intent);
+    }
+
 }

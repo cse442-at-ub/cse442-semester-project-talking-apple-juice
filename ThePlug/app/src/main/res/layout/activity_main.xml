@@ -109,7 +109,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="4dp"
         android:clickable="true"
-        android:onClick="sendMessage"
+        android:onClick="goToSignup"
         android:text="Signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -129,29 +129,31 @@
 
     <TextView
         android:id="@+id/forgotPasswordTextView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="108dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
         android:clickable="true"
-        android:onClick="sendMessage"
+        android:onClick="goToForgotPass"
         android:text="@string/forgot_password"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <TextView
         android:id="@+id/forgotUsernameTextView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="144dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="32dp"
         android:clickable="true"
-        android:onClick="sendMessage"
+        android:onClick="goToForgotUser"
         android:text="@string/forgot_username"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
