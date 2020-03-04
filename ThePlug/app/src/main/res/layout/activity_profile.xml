@@ -25,18 +25,20 @@
 
     <TextView
         android:id="@+id/usernameView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="102dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
         android:text="@string/username"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/currentEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toEndOf="@+id/yourProfilePic"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/changeEmail"
+        app:layout_constraintHorizontal_bias="0.764"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yourProfilePic" />
 
     <TextView
         android:id="@+id/yourRatingText"
@@ -44,28 +46,32 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:text="@string/your_rating"
         android:textColor="#000000"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/changeEmail"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourProfilePic" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/ratingNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="71dp"
+        android:layout_height="73dp"
         android:text="@string/rating"
         android:textColor="#D3821F"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/confirmEmail"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yourRatingText"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.042" />
 
     <TextView
         android:id="@+id/changePassText"
@@ -99,7 +105,7 @@
         android:textColor="#5D9C23"
         app:layout_constraintBottom_toTopOf="@+id/changePassText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/ratingNum"
         app:layout_constraintTop_toBottomOf="@+id/confirmEmail"
         app:layout_constraintVertical_bias="1.0" />
@@ -179,15 +185,15 @@
         android:id="@+id/currentEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
         android:ems="10"
         android:hint="@string/current_email"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/changeEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toEndOf="@+id/yourProfilePic"
-        app:layout_constraintTop_toBottomOf="@+id/usernameView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/confirmEmail"
