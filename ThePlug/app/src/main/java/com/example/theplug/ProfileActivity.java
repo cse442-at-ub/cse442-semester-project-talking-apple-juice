@@ -13,6 +13,9 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText oldPass;
     private EditText newPass1;
     private EditText newPass2;
+    private EditText curEmail;
+    private EditText newEmail;
+    private EditText verEmailF;
     private SharedPreferences accInfo;
     private SharedPreferences.Editor ed;
 
@@ -34,7 +37,50 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        Button confirmEmailChange = findViewById(R.id.confirmEmailButton);
+        confirmEmailChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                  updateEmail();
+            }
+        });
+
         ImageView ProfilePic = findViewById(R.id.yourProfilePic);
+    }
+
+    private void updateEmail(){
+        curEmail = (EditText)findViewById(R.id.currentEmail);
+        newEmail = (EditText)findViewById(R.id.changeEmail);
+        verEmailF = (EditText)findViewById(R.id.confirmEmail);
+        String oldE = curEmail.getText().toString();
+        String newE = newEmail.getText().toString();
+        String verE = verEmailF.getText().toString();
+        if(oldE.equals("") || newE.equals("") || verE.equals(""))
+        {
+            Toast err = Toast.makeText(getApplicationContext(), "Please fill out all boxes.", Toast.LENGTH_SHORT);
+            err.show();
+        }
+        else if(!(oldE.equals(accInfo.getString("EMAIL", null))))
+        {
+            Toast err = Toast.makeText(getApplicationContext(), "Incorrect current email.", Toast.LENGTH_SHORT);
+            err.show();
+        }
+        else if(!(newE.equals(verE)))
+        {
+            Toast err = Toast.makeText(getApplicationContext(), "New Emails don't match.", Toast.LENGTH_SHORT);
+            err.show();
+        }else {
+            ed.putString("EMAIL", newE).commit();
+            EditText editText = findViewById(R.id.currentEmail);
+            editText.getText().clear();
+            editText = findViewById(R.id.changeEmail);
+            editText.getText().clear();
+            editText = findViewById(R.id.confirmEmail);
+            editText.getText().clear();
+            Toast success = Toast.makeText(getApplicationContext(), "Email changed!", Toast.LENGTH_SHORT);
+            success.show();
+        }
     }
 
     private void updatePass() {

@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private EditText passInput;
+    private EditText emailInput;
     public SharedPreferences accInfo;
     public SharedPreferences.Editor ed;
 
@@ -22,25 +23,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         accInfo = getSharedPreferences("UserInfo", MODE_PRIVATE);
         ed = getSharedPreferences("UserInfo", MODE_PRIVATE).edit();
+
         String pw = accInfo.getString("PASSWORD", null);
         if(pw == null)
         {
             ed.putString("PASSWORD", "password").apply();
         }
+
+        String em = accInfo.getString("EMAIL", null);
+        if(em == null)
+        {
+            ed.putString("EMAIL", "email").apply();
+        }
     }
 
     /** Called when the user taps the Send button */
     public void loginAttempt(View view) {
-        //check password
+        //check account
         passInput = (EditText) findViewById(R.id.Password);
-        if(passInput.getText().toString().equals(accInfo.getString("PASSWORD", null)))
+        emailInput = (EditText) findViewById(R.id.Username);
+        if((passInput.getText().toString().equals(accInfo.getString("PASSWORD", null))) && (emailInput.getText().toString().equals(accInfo.getString("EMAIL", null))))
         {
             Intent intent = new Intent(this, HomeScreen.class);
             startActivity(intent);
         }else{
-            Toast incorrectPass = Toast.makeText(getApplicationContext(), "Wrong password!", Toast.LENGTH_SHORT);
+            Toast incorrectPass = Toast.makeText(getApplicationContext(), "Invalid Account", Toast.LENGTH_SHORT);
             incorrectPass.show();
         }
+
 //        EditText editText = (EditText) findViewById(R.id.Username);
 //        String message = editText.getText().toString();
 //        intent.putExtra(EXTRA_MESSAGE, message);
