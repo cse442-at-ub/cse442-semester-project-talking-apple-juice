@@ -143,4 +143,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/deafulticon" />
 
+    <Button
+        android:id="@+id/changePicButton5"
+        android:layout_width="117dp"
+        android:layout_height="45dp"
+        android:clickable="true"
+        android:text="@string/change_profile_pic"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.223" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
