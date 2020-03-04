@@ -60,5 +60,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
+    public void goToItemDesc(View view){
+        Intent intent = new Intent(this, ViewProductActivity.class);
+        startActivity(intent);
+    }
 
 }

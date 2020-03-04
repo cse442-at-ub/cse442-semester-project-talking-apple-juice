@@ -1,150 +1,158 @@
 [
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_settings.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_settings.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_user.jpg.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\user.jpg"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_transactions.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_transactions.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_plug.jpg.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\plug.jpg"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_home_screen.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_home_screen.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_signup.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_signup.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_messages.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_messages.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_forgot_password.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_forgot_password.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\menu\\menu.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ts1.jpg.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\ts1.jpg"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pass.jpg.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\pass.jpg"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_forgot_password.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_forgot_password.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_deafulticon.jpg.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\deafulticon.jpg"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\menu\\menu.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ts1.jpg.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\ts1.jpg"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bv1.jpg.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\bv1.jpg"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_vans_old_skool_pro_skate_shoes_black_white.webp.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\vans_old_skool_pro_skate_shoes_black_white.webp"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_deafulticon.jpg.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\deafulticon.jpg"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_user.jpg.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\user.jpg"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_signup.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_signup.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_forgot_username.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_forgot_username.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_transactions.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_transactions.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_profile.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_profile.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_view_product.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_view_product.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_forgot_username.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_forgot_username.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_messages.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_messages.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bv1.jpg.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\bv1.jpg"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_settings.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_settings.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pass.jpg.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\pass.jpg"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_home_screen.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_home_screen.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_new_sale.xml.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_new_sale.xml"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_profile.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_profile.xml"
     },
     {
-        "merged": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\John\\AndroidStudioProjects\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_plug.jpg.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\plug.jpg"
+    },
+    {
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_new_sale.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\layout\\activity_new_sale.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     }
 ]
