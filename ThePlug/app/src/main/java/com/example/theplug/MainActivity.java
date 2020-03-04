@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    private EditText passInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +20,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** Called when the user taps the Send button */
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, HomeScreen.class);
+    public void loginAttempt(View view) {
+        //check password
+        passInput = (EditText) findViewById(R.id.Password);
+        if(passInput.getText().toString().equals(getResources().getString(R.string.UsersCurrentPassword)))
+        {
+            Intent intent = new Intent(this, HomeScreen.class);
+            startActivity(intent);
+        }else{
+            Toast incorrectPass = Toast.makeText(getApplicationContext(), "Wrong password!", Toast.LENGTH_SHORT);
+            incorrectPass.show();
+        }
 //        EditText editText = (EditText) findViewById(R.id.Username);
 //        String message = editText.getText().toString();
 //        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
     }
 
     public void goToForgotUser(View view){
