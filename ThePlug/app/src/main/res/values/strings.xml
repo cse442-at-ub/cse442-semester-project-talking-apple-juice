@@ -38,4 +38,5 @@
     <string name="no_account">Don\'t have an account?</string>
     <string name="enter_linked_email">Enter the email linked to your account for a temporary password</string>
     <string name="enter_linked_email_username">Enter the email linked to your account and we will send you your username</string>
+    <string name="UsersCurrentPassword">password</string>
 </resources>
