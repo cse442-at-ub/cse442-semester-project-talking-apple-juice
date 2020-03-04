@@ -72,12 +72,12 @@
         "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bv1.jpg.flat",
-        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\bv1.jpg"
-    },
-    {
         "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_vans_old_skool_pro_skate_shoes_black_white.webp.flat",
         "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\vans_old_skool_pro_skate_shoes_black_white.webp"
+    },
+    {
+        "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bv1.jpg.flat",
+        "source": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\src\\main\\res\\drawable\\bv1.jpg"
     },
     {
         "merged": "C:\\Users\\User\\Desktop\\CSE 442\\cse442-semester-project-talking-apple-juice\\ThePlug\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",

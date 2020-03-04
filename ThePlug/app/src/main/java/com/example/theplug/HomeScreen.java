@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 public class HomeScreen extends AppCompatActivity {
@@ -63,6 +64,11 @@ public class HomeScreen extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    public void goToItemDesc(View view){
+        Intent intent = new Intent(this, ViewProductActivity.class);
+        startActivity(intent);
     }
 
 //    @Override
