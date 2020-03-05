@@ -6,179 +6,194 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="14"
-8-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
+8-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
+9-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:5:5-85:19
+11-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:5:5-92:19
 12        android:allowBackup="true"
-12-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:6:9-35
+12-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.0.1] C:\Users\John\.gradle\caches\transforms-2\files-2.1\36e3e9561b56dfae3649040dc909bb65\core-1.0.1\AndroidManifest.xml:22:18-86
+13-->[androidx.core:core:1.0.1] C:\Users\User\.gradle\caches\transforms-2\files-2.1\36e3e9561b56dfae3649040dc909bb65\core-1.0.1\AndroidManifest.xml:22:18-86
 14        android:debuggable="true"
 15        android:icon="@mipmap/ic_launcher"
-15-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:7:9-43
+15-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:7:9-43
 16        android:label="@string/app_name"
-16-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:8:9-41
+16-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:8:9-41
 17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:9:9-54
+17-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
-18-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:10:9-35
+18-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:10:9-35
 19        android:testOnly="true"
 20        android:theme="@style/Theme.AppCompat.Light.NoActionBar" > <!-- removes the default toolbar -->
-20-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:11:9-65
+20-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:11:9-65
 21        <activity
-21-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:12:9-19:20
+21-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:12:9-19:20
 22            android:name="com.example.theplug.HomeScreen"
-22-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:12:19-45
+22-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:12:19-45
 23            android:parentActivityName="com.example.theplug.MainActivity" >
-23-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:13:13-55
+23-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:13:13-55
 24
 25            <!-- The meta-data tag is required if you support API level 15 and lower -->
 26            <meta-data
-26-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
+26-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
 27                android:name="android.support.PARENT_ACTIVITY"
-27-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
+27-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
 28                android:value=".MainActivity" />
-28-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
+28-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
 29        </activity>
 30        <activity android:name="com.example.theplug.MainActivity" > <!-- removes the toolbar on the main page(Login page) -->
-30-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:9-27:20
-30-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:19-47
+30-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:9-27:20
+30-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:19-47
 31            <intent-filter>
-31-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:22:13-26:29
+31-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:22:13-26:29
 32                <action android:name="android.intent.action.MAIN" />
-32-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:23:17-69
-32-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:23:25-66
+32-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:23:17-69
+32-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:23:25-66
 33
 34                <category android:name="android.intent.category.LAUNCHER" />
-34-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:25:17-77
-34-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:25:27-74
+34-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:25:17-77
+34-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:25:27-74
 35            </intent-filter>
 36        </activity>
 37        <activity
-37-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:28:9-35:20
+37-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:28:9-35:20
 38            android:name="com.example.theplug.ProfileActivity"
-38-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:28:19-50
+38-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:28:19-50
 39            android:parentActivityName="com.example.theplug.HomeScreen"
-39-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:29:13-53
+39-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:29:13-53
 40            android:theme="@style/Theme.AppCompat.Light" >
-40-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:30:13-57
+40-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:30:13-57
 41
 42            <!-- The meta-data tag is required if you support API level 15 and lower -->
 43            <meta-data
-43-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
+43-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
 44                android:name="android.support.PARENT_ACTIVITY"
-44-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
+44-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
 45                android:value=".HomeScreen" />
-45-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
+45-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
 46        </activity>
 47        <activity
-47-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:36:9-42:20
+47-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:36:9-42:20
 48            android:name="com.example.theplug.SettingsActivity"
-48-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:36:19-51
+48-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:36:19-51
 49            android:theme="@style/Theme.AppCompat.Light" >
-49-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:37:13-57
+49-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:37:13-57
 50
 51            <!-- The meta-data tag is required if you support API level 15 and lower -->
 52            <meta-data
-52-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
+52-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
 53                android:name="android.support.PARENT_ACTIVITY"
-53-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
+53-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
 54                android:value=".HomeScreen" />
-54-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
+54-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
 55        </activity>
 56        <activity
-56-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:43:9-49:20
+56-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:43:9-49:20
 57            android:name="com.example.theplug.MessagesActivity"
-57-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:43:19-51
+57-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:43:19-51
 58            android:theme="@style/Theme.AppCompat.Light" >
-58-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:44:13-57
+58-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:44:13-57
 59
 60            <!-- The meta-data tag is required if you support API level 15 and lower -->
 61            <meta-data
-61-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
+61-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
 62                android:name="android.support.PARENT_ACTIVITY"
-62-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
+62-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
 63                android:value=".HomeScreen" />
-63-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
+63-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
 64        </activity>
 65        <activity
-65-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:50:9-56:20
+65-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:50:9-56:20
 66            android:name="com.example.theplug.TransactionsActivity"
-66-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:50:19-55
+66-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:50:19-55
 67            android:theme="@style/Theme.AppCompat.Light" >
-67-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:51:13-57
+67-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:51:13-57
 68
 69            <!-- The meta-data tag is required if you support API level 15 and lower -->
 70            <meta-data
-70-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
+70-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
 71                android:name="android.support.PARENT_ACTIVITY"
-71-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
+71-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
 72                android:value=".HomeScreen" />
-72-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
+72-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
 73        </activity>
 74        <activity
-74-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:57:9-63:20
+74-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:57:9-63:20
 75            android:name="com.example.theplug.NewSaleActivity"
-75-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:57:19-50
+75-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:57:19-50
 76            android:theme="@style/Theme.AppCompat.Light" >
-76-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:58:13-57
+76-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:58:13-57
 77
 78            <!-- The meta-data tag is required if you support API level 15 and lower -->
 79            <meta-data
-79-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
+79-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
 80                android:name="android.support.PARENT_ACTIVITY"
-80-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
+80-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
 81                android:value=".HomeScreen" />
-81-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
+81-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
 82        </activity>
 83        <activity
-83-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:64:9-70:20
+83-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:64:9-70:20
 84            android:name="com.example.theplug.ForgotPasswordActivity"
-84-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:64:19-57
+84-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:64:19-57
 85            android:theme="@style/Theme.AppCompat.Light" >
-85-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:65:13-57
+85-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:65:13-57
 86
 87            <!-- The meta-data tag is required if you support API level 15 and lower -->
 88            <meta-data
-88-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
+88-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
 89                android:name="android.support.PARENT_ACTIVITY"
-89-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
+89-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
 90                android:value=".HomeScreen" />
-90-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
+90-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
 91        </activity>
 92        <activity
-92-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:71:9-77:20
+92-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:71:9-77:20
 93            android:name="com.example.theplug.ForgotUsernameActivity"
-93-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:71:19-57
+93-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:71:19-57
 94            android:theme="@style/Theme.AppCompat.Light" >
-94-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:72:13-57
+94-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:72:13-57
 95
 96            <!-- The meta-data tag is required if you support API level 15 and lower -->
 97            <meta-data
-97-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
+97-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
 98                android:name="android.support.PARENT_ACTIVITY"
-98-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
+98-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
 99                android:value=".HomeScreen" />
-99-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
+99-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
 100        </activity>
 101        <activity
-101-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:78:9-84:20
+101-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:78:9-84:20
 102            android:name="com.example.theplug.SignUpActivity"
-102-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:78:19-49
+102-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:78:19-49
 103            android:theme="@style/Theme.AppCompat.Light" >
-103-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:79:13-57
+103-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:79:13-57
 104
 105            <!-- The meta-data tag is required if you support API level 15 and lower -->
 106            <meta-data
-106-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
+106-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
 107                android:name="android.support.PARENT_ACTIVITY"
-107-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
+107-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
 108                android:value=".HomeScreen" />
-108-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
+108-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
 109        </activity>
-110    </application>
-111
-112</manifest>
+110        <activity
+110-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:85:9-91:20
+111            android:name="com.example.theplug.ProfilePicChangeActivity"
+111-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:85:19-59
+112            android:theme="@style/Theme.AppCompat.Light" >
+112-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:86:13-57
+113
+114            <!-- The meta-data tag is required if you support API level 15 and lower -->
+115            <meta-data
+115-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-18:49
+116                android:name="android.support.PARENT_ACTIVITY"
+116-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:17:17-63
+117                android:value=".HomeScreen" />
+117-->C:\Users\User\Desktop\CSE 442\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:18:17-46
+118        </activity>
+119    </application>
+120
+121</manifest>

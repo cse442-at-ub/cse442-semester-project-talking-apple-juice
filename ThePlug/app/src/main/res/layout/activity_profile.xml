@@ -23,9 +23,9 @@
         android:id="@+id/yourRatingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="92dp"
         android:text="@string/your_rating"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -137,7 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/profilepic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -145,16 +145,17 @@
 
     <Button
         android:id="@+id/changePicButton5"
-        android:layout_width="117dp"
-        android:layout_height="45dp"
+        android:layout_width="125dp"
+        android:layout_height="44dp"
         android:clickable="true"
+        android:onClick="goToPicChange"
         android:text="@string/change_profile_pic"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223" />
+        app:layout_constraintVertical_bias="0.24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
