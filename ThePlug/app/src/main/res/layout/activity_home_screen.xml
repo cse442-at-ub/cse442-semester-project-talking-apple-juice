@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bgColor"
     tools:context=".HomeScreen">
 
 
@@ -49,6 +50,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="196dp"
         android:layout_marginRight="196dp"
+        android:textColor="?attr/textColor"
         android:text="@string/new_sales"
         android:textSize="24sp"
         android:textStyle="normal"
@@ -123,6 +125,7 @@
         android:text="@string/hot_bid"
         android:textSize="24sp"
         android:textStyle="normal"
+        android:textColor="?attr/textColor"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

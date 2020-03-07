@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/bgColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -25,6 +26,7 @@
         android:text="@string/item1_Desc"
         android:textSize="15sp"
         android:textStyle="normal"
+        android:textColor="?attr/textColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.183"
@@ -39,6 +41,7 @@
         android:text="@string/item_Name"
         android:textSize="20sp"
         android:textStyle="normal|bold"
+        android:textColor="?attr/textColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.116"
@@ -53,6 +56,7 @@
         android:text="@string/item_description"
         android:textSize="17sp"
         android:textStyle="bold"
+        android:textColor="?attr/textColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.07"

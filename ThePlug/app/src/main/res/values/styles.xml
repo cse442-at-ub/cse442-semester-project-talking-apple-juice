@@ -9,4 +9,16 @@
         <item name="android:textColor" >@color/colorAccent</item>
     </style>
 
+    <style name="lightTheme" parent="AppTheme">
+        <item name="bgColor">#ffffff</item>
+        <item name="textColor">#000000</item>
+        <item name="metaTextColor">#606060</item>
+    </style>
+
+    <style name="darkTheme" parent="AppTheme">
+        <item name="bgColor">#535353</item>
+        <item name="textColor">#ffffff</item>
+        <item name="metaTextColor">#bababa</item>
+    </style>
+
 </resources>

@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
 public class TransactionsActivity extends AppCompatActivity {
@@ -13,6 +14,12 @@ public class TransactionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO)
+        {
+            setTheme(R.style.lightTheme);
+        }else{
+            setTheme(R.style.darkTheme);
+        }
         setContentView(R.layout.activity_transactions);
     }
 

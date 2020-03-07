@@ -1,6 +1,7 @@
 package com.example.theplug;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO)
+        {
+            setTheme(R.style.lightTheme);
+        }else{
+            setTheme(R.style.darkTheme);
+        }
         setContentView(R.layout.activity_main);
         accInfo = getSharedPreferences("UserInfo", MODE_PRIVATE);
         ed = getSharedPreferences("UserInfo", MODE_PRIVATE).edit();

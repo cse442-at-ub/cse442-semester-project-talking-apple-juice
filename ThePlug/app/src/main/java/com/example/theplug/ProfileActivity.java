@@ -1,6 +1,7 @@
 package com.example.theplug;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
@@ -24,6 +25,12 @@ public class ProfileActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO)
+        {
+            setTheme(R.style.lightTheme);
+        }else{
+            setTheme(R.style.darkTheme);
+        }
         setContentView(R.layout.activity_profile);
 
         accInfo = getSharedPreferences("UserInfo", MODE_PRIVATE);
