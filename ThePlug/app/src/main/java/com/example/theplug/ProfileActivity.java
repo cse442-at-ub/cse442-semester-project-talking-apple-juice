@@ -3,6 +3,7 @@ package com.example.theplug;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.*;
@@ -115,6 +116,10 @@ public class ProfileActivity extends AppCompatActivity {
             Toast success = Toast.makeText(getApplicationContext(), "Password changed!", Toast.LENGTH_SHORT);
             success.show();
         }
+    }
+    public void goToPicChange(View view){
+        Intent intent = new Intent(this, ProfilePicChangeActivity.class);
+        startActivity(intent);
     }
 
 }

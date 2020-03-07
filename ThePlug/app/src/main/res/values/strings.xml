@@ -42,4 +42,6 @@
     <string name="enter_linked_email">Enter the email linked to your account for a temporary password</string>
     <string name="enter_linked_email_username">Enter the email linked to your account and we will send you your username</string>
     <string name="UsersCurrentPassword">password</string>
+    <string name="change_profile_pic">Change Profile Picture</string>
+    <string name="change_pic">Change Pic</string>
 </resources>

@@ -11,7 +11,7 @@
 9-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:5:5-85:19
+11-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:5:5-92:19
 12        android:allowBackup="true"
 12-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -179,6 +179,21 @@
 108                android:value=".HomeScreen" />
 108-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:18:17-46
 109        </activity>
-110    </application>
-111
-112</manifest>
+110        <activity
+110-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:85:9-91:20
+111            android:name="com.example.theplug.ProfilePicChangeActivity"
+111-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:85:19-59
+112            android:theme="@style/Theme.AppCompat.Light" >
+112-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:86:13-57
+113
+114            <!-- The meta-data tag is required if you support API level 15 and lower -->
+115            <meta-data
+115-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:16:13-18:49
+116                android:name="android.support.PARENT_ACTIVITY"
+116-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:17:17-63
+117                android:value=".HomeScreen" />
+117-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:18:17-46
+118        </activity>
+119    </application>
+120
+121</manifest>
