@@ -132,6 +132,10 @@
         "source": "/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/res/layout/activity_messages.xml"
     },
     {
+        "merged": "/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/build/intermediates/res/merged/debug/layout_activity_view_product.xml.flat",
+        "source": "/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/res/layout/activity_view_product.xml"
+    },
+    {
         "merged": "/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/build/intermediates/res/merged/debug/layout_activity_transactions.xml.flat",
         "source": "/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/res/layout/activity_transactions.xml"
     },
