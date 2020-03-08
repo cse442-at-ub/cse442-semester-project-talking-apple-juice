@@ -44,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
+
+
     /** Called when the user taps the Send button */
     public void loginAttempt(View view) {
         //check account

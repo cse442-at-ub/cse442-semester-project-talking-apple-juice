@@ -24,6 +24,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         Switch themeSwitch = findViewById(R.id.themeFlip);
+
         themeSwitch.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
