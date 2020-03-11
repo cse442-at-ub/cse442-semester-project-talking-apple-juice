@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -19,7 +20,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+
+    public static Bitmap prodImg;
+    public static String prodName;
+    public static String prodDesc;
+
+
     private EditText passInput;
     private EditText emailInput;
 

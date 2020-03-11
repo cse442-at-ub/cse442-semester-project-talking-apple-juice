@@ -11,9 +11,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class HomeScreen extends AppCompatActivity {
+
+    public ImageView item1;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -30,6 +33,8 @@ public class HomeScreen extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        item1 = findViewById(R.id.imageView3);
+        item1.setImageBitmap(MainActivity.prodImg);
     }
 
     @Override

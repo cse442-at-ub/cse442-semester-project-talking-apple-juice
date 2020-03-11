@@ -3,10 +3,13 @@ package com.example.theplug;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
@@ -37,7 +40,22 @@ public class NewSaleActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent, "Choose an image"), 1);
-                //open up gallery and change the imagebutton to whatever image is uploaded
+            }
+        });
+
+        Button newSale = findViewById(R.id.button3);
+        newSale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageButton findImg = findViewById(R.id.findImgButton);
+                EditText name = findViewById(R.id.itemName);
+                EditText desc = findViewById(R.id.editText);
+
+                MainActivity.prodImg = ((BitmapDrawable)findImg.getDrawable()).getBitmap();
+                MainActivity.prodName = name.getText().toString();
+                MainActivity.prodDesc = desc.getText().toString();
+
+                //set activity_view_product things to the values in imagebutton, name, and description
             }
         });
     }
