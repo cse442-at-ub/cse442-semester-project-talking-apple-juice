@@ -8,7 +8,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/product1ImageView8"
+        android:id="@+id/productImg"
         android:layout_width="270dp"
         android:layout_height="258dp"
         app:layout_constraintBottom_toBottomOf="parent"

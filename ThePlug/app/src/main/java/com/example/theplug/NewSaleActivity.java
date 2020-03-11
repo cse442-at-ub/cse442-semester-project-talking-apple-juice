@@ -1,12 +1,20 @@
 package com.example.theplug;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class NewSaleActivity extends AppCompatActivity {
 
@@ -20,6 +28,35 @@ public class NewSaleActivity extends AppCompatActivity {
             setTheme(R.style.darkTheme);
         }
         setContentView(R.layout.activity_new_sale);
+
+        ImageButton findImg = findViewById(R.id.findImgButton);
+        findImg.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(Intent.createChooser(intent, "Choose an image"), 1);
+                //open up gallery and change the imagebutton to whatever image is uploaded
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int reqCode, int resCode, @Nullable Intent data)
+    {
+        if ((resCode == RESULT_OK) && reqCode == 1){
+            ImageButton findImg = findViewById(R.id.findImgButton);
+
+            try{
+                InputStream stream = getContentResolver().openInputStream(data.getData());
+                Bitmap userImg = BitmapFactory.decodeStream(stream);
+                findImg.setImageBitmap(userImg);
+            }catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -62,4 +99,6 @@ public class NewSaleActivity extends AppCompatActivity {
         }
         return false;
     }
+
+
 }
