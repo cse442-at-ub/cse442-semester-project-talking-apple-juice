@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText passInput;
     private EditText emailInput;
 
-    private FirebaseAuth auth;
-
     public SharedPreferences accInfo;
     public SharedPreferences.Editor ed;
 
@@ -60,9 +58,6 @@ public class MainActivity extends AppCompatActivity {
         {
             ed.putString("EMAIL", "email").apply();
         }
-
-        auth = FirebaseAuth.getInstance();
-
     }
 
     @Override
@@ -72,33 +67,20 @@ public class MainActivity extends AppCompatActivity {
         finish();
         startActivity(getIntent());
     }
-
-
+    
     /** Called when the user taps the Send button */
     public void loginAttempt(View view) {
         //check account
         passInput = (EditText) findViewById(R.id.Password);
         emailInput = (EditText) findViewById(R.id.Username);
-        loginUserAuth(emailInput.getText().toString(), passInput.getText().toString());
-    }
-
-    public void loginUserAuth(String em, String pass)
-    {
-        auth.signInWithEmailAndPassword(em, pass)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Log.d("MainActivity", "signInWithEmail:success");
-                    Intent intent = new Intent(MainActivity.this, HomeScreen.class);
-                    startActivity(intent);
-                }else{
-                    Log.w("MainActivity", "signInWithEmail:fail", task.getException());
-                    Toast incorrectAuth = Toast.makeText(getApplicationContext(), "Invalid Account", Toast.LENGTH_SHORT);
-                    incorrectAuth.show();
-                }
-            }
-        });
+        if((passInput.getText().toString().equals(accInfo.getString("PASSWORD", null))) && (emailInput.getText().toString().equals(accInfo.getString("EMAIL", null))))
+        {
+            Intent intent = new Intent(this, HomeScreen.class);
+            startActivity(intent);
+        }else{
+            Toast incorrectPass = Toast.makeText(getApplicationContext(), "Wrong credentials!", Toast.LENGTH_SHORT);
+            incorrectPass.show();
+        }
     }
 
 
