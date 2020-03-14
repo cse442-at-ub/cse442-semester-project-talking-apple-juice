@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void goToForgotUser(View view){
         Intent intent = new Intent(this, ForgotUsernameActivity.class);
         startActivity(intent);
