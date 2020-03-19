@@ -71,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
         //check account
         passInput = (EditText) findViewById(R.id.Password);
         emailInput = (EditText) findViewById(R.id.Username);
-        loginUserAuth(emailInput.getText().toString(), passInput.getText().toString());
+       // loginUserAuth(emailInput.getText().toString(), passInput.getText().toString());
+        Intent intent = new Intent(MainActivity.this, HomeScreen.class);
+        startActivity(intent);
     }
 
     public void loginUserAuth(String em, String pass)

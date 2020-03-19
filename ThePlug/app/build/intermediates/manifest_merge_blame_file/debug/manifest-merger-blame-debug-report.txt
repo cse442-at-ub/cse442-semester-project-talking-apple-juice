@@ -11,8 +11,8 @@
 9-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:6:5-67
-11-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:6:22-64
+11-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:5:5-67
+11-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:5:22-64
 12
 13    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 14    <!-- <uses-sdk android:minSdkVersion="14"/> -->
