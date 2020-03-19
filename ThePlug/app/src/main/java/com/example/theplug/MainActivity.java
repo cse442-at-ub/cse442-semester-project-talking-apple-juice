@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     public static String prodName;
     public static String prodDesc;
 
-
     private EditText passInput;
     private EditText emailInput;
 
@@ -73,14 +72,9 @@ public class MainActivity extends AppCompatActivity {
         //check account
         passInput = (EditText) findViewById(R.id.Password);
         emailInput = (EditText) findViewById(R.id.Username);
-        if((passInput.getText().toString().equals(accInfo.getString("PASSWORD", null))) && (emailInput.getText().toString().equals(accInfo.getString("EMAIL", null))))
-        {
-            Intent intent = new Intent(this, HomeScreen.class);
-            startActivity(intent);
-        }else{
-            Toast incorrectPass = Toast.makeText(getApplicationContext(), "Wrong credentials!", Toast.LENGTH_SHORT);
-            incorrectPass.show();
-        }
+
+        BackgroundActivity bga = new BackgroundActivity(this);
+        bga.execute("login", passInput.getText().toString(), emailInput.getText().toString());
     }
 
 
