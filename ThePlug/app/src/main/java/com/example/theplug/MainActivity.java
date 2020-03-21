@@ -73,9 +73,13 @@ public class MainActivity extends AppCompatActivity {
         passInput = (EditText) findViewById(R.id.Password);
         emailInput = (EditText) findViewById(R.id.Username);
 
+        String passWord =  passInput.getText().toString();
+        String eMail = emailInput.getText().toString();
+
         BackgroundActivity bga = new BackgroundActivity(this);
-        bga.execute("login", passInput.getText().toString(), emailInput.getText().toString());
+        bga.execute("login", passWord, eMail);
     }
+
 
 
     public void goToForgotUser(View view){

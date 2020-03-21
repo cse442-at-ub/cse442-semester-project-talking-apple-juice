@@ -91,11 +91,4 @@ public class HomeScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item)
-//        int id = item.getItemId();
-//
-//        if(id == R.id.account)
-//            Toast.makeText(getApplica)
-//    }
 }
