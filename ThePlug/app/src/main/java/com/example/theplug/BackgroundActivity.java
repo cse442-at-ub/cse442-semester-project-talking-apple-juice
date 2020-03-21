@@ -36,9 +36,9 @@ public class BackgroundActivity extends AsyncTask<String, Void, String> {
         String check = params[0];
         if(check.equals("login"))
         {
-            try {
-                String email = params[1];
-                String pass = params[2];
+            try { //PARAMS[2] IS EMAIL, PARAMS[1] IS PASS
+                String email = params[2];
+                String pass = params[1];
                 URL url = new URL(loginScript);
                 HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
                 httpCon.setRequestMethod("POST");
@@ -46,7 +46,7 @@ public class BackgroundActivity extends AsyncTask<String, Void, String> {
                 httpCon.setDoInput(true);
                 OutputStream outStr = httpCon.getOutputStream();
                 BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
-                String req = URLEncoder.encode("un","UTF-8") + "=" +URLEncoder.encode(email, "UTF-8") //params[2] is email, params[1] is pass
+                String req = URLEncoder.encode("un","UTF-8") + "=" +URLEncoder.encode(email, "UTF-8")
                         +"&" +URLEncoder.encode("pw","UTF-8") + "=" +URLEncoder.encode(pass, "UTF-8");
                 buffW.write(req);
                 buffW.flush();
@@ -54,17 +54,17 @@ public class BackgroundActivity extends AsyncTask<String, Void, String> {
                 outStr.close();
 
                 InputStream inStr = httpCon.getInputStream();
-//                BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
-//                String result = "";
-//                String line = "";
-//                while((line = buffR.readLine()) != null)
-//                {
-//                    result += line;
-//                }
-//                buffR.close();
+                BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                String result = "";
+                String line = "";
+                while((line = buffR.readLine()) != null)
+                {
+                    result += line;
+                }
+                buffR.close();
                 inStr.close();
                 httpCon.disconnect();
-                return "Registration Success";
+                return result;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -116,7 +116,6 @@ public class BackgroundActivity extends AsyncTask<String, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-
     }
 
     @Override
@@ -124,9 +123,12 @@ public class BackgroundActivity extends AsyncTask<String, Void, String> {
         if(aStr.equals("Login Successful")) {
             Intent intent = new Intent(con, HomeScreen.class);
             con.startActivity(intent);
+        }else if(aStr.equals("Registration Successful")) {
+            Intent intent = new Intent(con, MainActivity.class);
+            con.startActivity(intent);
         }else{
-            Toast incorrectPass = Toast.makeText(con, "Wrong credentials!", Toast.LENGTH_SHORT);
-            incorrectPass.show();
+            Toast incorrect = Toast.makeText(con, "Wrong credentials!", Toast.LENGTH_SHORT);
+            incorrect.show();
         }
     }
 
