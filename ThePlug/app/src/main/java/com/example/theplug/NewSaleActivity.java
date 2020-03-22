@@ -79,6 +79,13 @@ public class NewSaleActivity extends AppCompatActivity {
 //        });
 
     }
+    // Allows user to choose image from gallery regardless of device after clicking image
+    public void upLoader(View v) {
+        Intent gallaryIntent = new Intent();
+        gallaryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        gallaryIntent.setType("image/*");
+        startActivityForResult(gallaryIntent, GalleryPick);
+    }
 
     public void init(){
         editName = (EditText) findViewById(R.id.editText4);
