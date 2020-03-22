@@ -1,9 +1,11 @@
 package com.example.theplug;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,13 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class NewSaleActivity extends AppCompatActivity {
+
+    private ProgressDialog pDialog;
+    EditText editName, editPrice, editType, editDesc;
+    Button putforSale,  putforBid;
+    ImageView prodView;
+    private Uri prodImage;
+    private static final int GalleryPick = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +41,15 @@ public class NewSaleActivity extends AppCompatActivity {
             setTheme(R.style.darkTheme);
         }
         setContentView(R.layout.activity_new_sale);
+
+        init();
+
+        putforSale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prodUpLoader();
+            }
+        });
 
 //        ImageButton findImg = findViewById(R.id.findImgButton);
 //        findImg.setOnClickListener(new View.OnClickListener(){
@@ -58,22 +77,54 @@ public class NewSaleActivity extends AppCompatActivity {
 //                //set activity_view_product things to the values in imagebutton, name, and description
 //            }
 //        });
+
+    }
+
+    public void init(){
+        editName = (EditText) findViewById(R.id.editText4);
+        editPrice = (EditText) findViewById(R.id.editText2);
+        editType = (EditText) findViewById(R.id.editText6);
+        editDesc = (EditText) findViewById(R.id.editText);
+        prodView  =  (ImageView)  findViewById(R.id.imageView7);
+        putforSale =(Button) findViewById(R.id.button3);
+        putforBid = (Button) findViewById(R.id.button4);
+    }
+
+    public void prodUpLoader(){
+
+        String name = editName.getText().toString();
+        String price = editPrice.getText().toString();
+        String type = editType.getText().toString();
+        String desc = editDesc.getText().toString();
+        String image = prodView.getContext().toString();
+
+        NewProductActivity npa = new NewProductActivity(this);
+        npa.execute("upload", name, type, price, desc, image);
+        finish();
+
+
     }
 
     @Override
-    protected void onActivityResult(int reqCode, int resCode, @Nullable Intent data)
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
     {
-        if ((resCode == RESULT_OK) && reqCode == 1){
-            ImageButton findImg = findViewById(R.id.findImgButton);
+//        if ((resCode == RESULT_OK) && reqCode == 1){
+//            ImageButton findImg = findViewById(R.id.findImgButton);
+//
+//            try{
+//                InputStream stream = getContentResolver().openInputStream(data.getData());
+//                Bitmap userImg = BitmapFactory.decodeStream(stream);
+//                findImg.setImageBitmap(userImg);
+//            }catch (FileNotFoundException e)
+//            {
+//                e.printStackTrace();
+//            }
+//        }
+        super.onActivityResult(requestCode,resultCode,data);
 
-            try{
-                InputStream stream = getContentResolver().openInputStream(data.getData());
-                Bitmap userImg = BitmapFactory.decodeStream(stream);
-                findImg.setImageBitmap(userImg);
-            }catch (FileNotFoundException e)
-            {
-                e.printStackTrace();
-            }
+        if(requestCode == GalleryPick && resultCode == RESULT_OK){
+            prodImage  = data.getData();
+            prodView.setImageURI(prodImage);
         }
     }
 
