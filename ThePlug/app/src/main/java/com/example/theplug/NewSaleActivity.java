@@ -32,32 +32,32 @@ public class NewSaleActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_new_sale);
 
-        ImageButton findImg = findViewById(R.id.findImgButton);
-        findImg.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(Intent.createChooser(intent, "Choose an image"), 1);
-            }
-        });
-
-        Button newSale = findViewById(R.id.button3);
-        newSale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImageButton findImg = findViewById(R.id.findImgButton);
-                EditText name = findViewById(R.id.itemName);
-                EditText desc = findViewById(R.id.editText);
-
-                MainActivity.prodImg = ((BitmapDrawable)findImg.getDrawable()).getBitmap();
-                MainActivity.prodName = name.getText().toString();
-                MainActivity.prodDesc = desc.getText().toString();
-
-                //set activity_view_product things to the values in imagebutton, name, and description
-            }
-        });
+//        ImageButton findImg = findViewById(R.id.findImgButton);
+//        findImg.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v)
+//            {
+//                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//                intent.setType("image/*");
+//                startActivityForResult(Intent.createChooser(intent, "Choose an image"), 1);
+//            }
+//        });
+//
+//        Button newSale = findViewById(R.id.button3);
+//        newSale.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ImageButton findImg = findViewById(R.id.findImgButton);
+//                EditText name = findViewById(R.id.itemName);
+//                EditText desc = findViewById(R.id.editText);
+//
+//                MainActivity.prodImg = ((BitmapDrawable)findImg.getDrawable()).getBitmap();
+//                MainActivity.prodName = name.getText().toString();
+//                MainActivity.prodDesc = desc.getText().toString();
+//
+//                //set activity_view_product things to the values in imagebutton, name, and description
+//            }
+//        });
     }
 
     @Override
