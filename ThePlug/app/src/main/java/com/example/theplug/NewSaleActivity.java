@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,17 +48,14 @@ public class NewSaleActivity extends AppCompatActivity {
 
 
     private ProgressDialog pDialog;
-    JSONParser jsonParser = new JSONParser();
-
-    EditText editName, editPrice, editType;
+    EditText editName, editPrice, editType, editDesc;
     Button putforSale,  putforBid;
     ImageView prodView;
     private Uri prodImage;
     private static final int GalleryPick = 1;
 
-    private static String addProductURL = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/createproduct.php";
-
-    private static final String TAG_SUCCESS = "success";
+   // private static String addProductURL = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/createproduct.php";
+  //  private static final String TAG_SUCCESS = "success";
 
 
 
@@ -71,22 +70,15 @@ public class NewSaleActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_new_sale);
 
-
-        //initialize variables
-        editName = (EditText) findViewById(R.id.editText4);
-        editPrice = (EditText) findViewById(R.id.editText2);
-        editType = (EditText) findViewById(R.id.editText6);
-        prodView  =  (ImageView)  findViewById(R.id.imageView7);
-
-        putforSale =(Button) findViewById(R.id.button3);
-        putforBid = (Button) findViewById(R.id.button4);
+        init();
 
         putforSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new CreateNewProduct().execute();
+                prodUpLoader();
             }
         });
+
 
     }
 //    private byte[] imageViewToByte(ImageView image){
@@ -97,12 +89,40 @@ public class NewSaleActivity extends AppCompatActivity {
 //        return bytesArray;
 //    }
 
+    public void init(){
+        editName = (EditText) findViewById(R.id.editText4);
+        editPrice = (EditText) findViewById(R.id.editText2);
+        editType = (EditText) findViewById(R.id.editText6);
+        editDesc = (EditText) findViewById(R.id.editText);
+        prodView  =  (ImageView)  findViewById(R.id.imageView7);
+        putforSale =(Button) findViewById(R.id.button3);
+        putforBid = (Button) findViewById(R.id.button4);
+    }
+
     // Allows user to choose image from gallery regardless of device after clicking image
     public void upLoader(View v) {
         Intent gallaryIntent = new Intent();
         gallaryIntent.setAction(Intent.ACTION_GET_CONTENT);
         gallaryIntent.setType("image/*");
         startActivityForResult(gallaryIntent, GalleryPick);
+    }
+
+    public void imageConvertor(){
+    }
+    // Allows user to chose product to upload to database
+    public void prodUpLoader(){
+
+        String name = editName.getText().toString();
+        String price = editPrice.getText().toString();
+        String type = editType.getText().toString();
+        String desc = editDesc.getText().toString();
+        String image = prodView.getContext().toString();
+
+        NewProductActivity npa = new NewProductActivity(this);
+        npa.execute("upload", name, type, price, desc, image);
+        finish();
+
+
     }
 
     @Override
@@ -112,8 +132,6 @@ public class NewSaleActivity extends AppCompatActivity {
         if(requestCode == GalleryPick && resultCode == RESULT_OK){
             prodImage  = data.getData();
             prodView.setImageURI(prodImage);
-
-
         }
     }
 
@@ -157,71 +175,5 @@ public class NewSaleActivity extends AppCompatActivity {
         }
         return false;
     }
-    class CreateNewProduct extends AsyncTask<String, String, String> {
 
-        /**
-         * Before starting background thread Show Progress Dialog
-         * */
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressDialog(NewSaleActivity.this);
-            pDialog.setMessage("Creating Product..");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
-            pDialog.show();
-        }
-
-        /**
-         * Creating product
-         * */
-        protected String doInBackground(String... args) {
-            String name = editName.getText().toString();
-            String price = editPrice.getText().toString();
-            String description = editType.getText().toString();
-
-            // Building Parameters
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("name", name));
-            params.add(new BasicNameValuePair("price", price));
-            params.add(new BasicNameValuePair("description", description));
-
-            // getting JSON Object
-            // Note that create product url accepts POST method
-            JSONObject json = jsonParser.makeHttpRequest(addProductURL,
-                    "POST", params);
-
-            // check log cat fro response
-            Log.d("Create Response", json.toString());
-
-            // check for success tag
-            try {
-                int success = json.getInt(TAG_SUCCESS);
-
-                if (success == 1) {
-                    // successfully created product
-                    Intent i = new Intent(getApplicationContext(), Products.class);
-                    startActivity(i);
-
-                    // closing this screen
-                    finish();
-                } else {
-                    // failed to create product
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        /**
-         * After completing background task Dismiss the progress dialog
-         * **/
-        protected void onPostExecute(String file_url) {
-            // dismiss the dialog once done
-            pDialog.dismiss();
-        }
-
-    }
 }
