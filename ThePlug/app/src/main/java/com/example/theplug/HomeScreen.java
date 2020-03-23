@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,6 +16,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.SearchView;
+
+import org.json.JSONArray;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -22,10 +27,13 @@ import java.net.URL;
 
 public class HomeScreen extends AppCompatActivity {
 
-    public ImageView bid1;
-    public ImageView bid2;
-    public ImageView sale1;
-    public ImageView sale2;
+    public ImageView bid1, bid2;
+    public ImageView sale1, sale2;
+    public SearchView searchBar;
+    public ListView listProd;
+
+    JSONArray productList = new JSONArray();
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -44,11 +52,36 @@ public class HomeScreen extends AppCompatActivity {
         bid2 = findViewById(R.id.bid2);
         sale1 = findViewById(R.id.sale1);
         sale2 = findViewById(R.id.sale2);
+        searchBar = findViewById(R.id.searchView);
+        listProd = findViewById(R.id.list_view);
 
         getProduct();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
+
+    private void getResult(){
+        class getProduct extends AsyncTask<String, Void, JSONArray>{
+
+            @Override
+            protected JSONArray doInBackground(String... strings) {
+                String name = searchBar.getQuery().toString();
+                String searchScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/searchProduct.php?Name=" + name ;
+                URL url = null;
+
+                try {
+                    url = new URL(searchScript);
+                    productList =
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+
+
+
     }
 
     private void getProduct(){

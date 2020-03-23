@@ -30,6 +30,7 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
         String uploadScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/product.php";
         String deleteScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/deleteProduct.php";
+
         String check = params[0];
         if(check.equals("upload"))
         {
@@ -128,7 +129,7 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
             Intent intent = new Intent(con, SettingsActivity.class);
             con.startActivity(intent);
 
-        }else{
+        } else{
             Toast incorrect = Toast.makeText(con, "ERROR!!! Please Try Again", Toast.LENGTH_SHORT);
             incorrect.show();
         }
