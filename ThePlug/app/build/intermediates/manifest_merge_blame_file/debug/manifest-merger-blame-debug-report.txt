@@ -6,286 +6,286 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="16"
-8-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
+8-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
+9-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-11-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:5:5-79
-11-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:5:22-77
+11-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:5:5-79
+11-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:5:22-77
 12    <uses-permission android:name="android.permission.INTERNET" />
-12-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:6:5-66
-12-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:6:22-64
+12-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:6:5-66
+12-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:6:22-64
 13
 14    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 15    <!-- <uses-sdk android:minSdkVersion="14"/> -->
 16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-16-->[com.google.firebase:firebase-database:19.2.1] C:\Users\John\.gradle\caches\transforms-2\files-2.1\e4fdf3e7143420b212f5309d729dcf92\jetified-firebase-database-19.2.1\AndroidManifest.xml:25:5-79
-16-->[com.google.firebase:firebase-database:19.2.1] C:\Users\John\.gradle\caches\transforms-2\files-2.1\e4fdf3e7143420b212f5309d729dcf92\jetified-firebase-database-19.2.1\AndroidManifest.xml:25:22-76
+16-->[com.google.firebase:firebase-database:19.2.1] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/e4fdf3e7143420b212f5309d729dcf92/jetified-firebase-database-19.2.1/AndroidManifest.xml:25:5-79
+16-->[com.google.firebase:firebase-database:19.2.1] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/e4fdf3e7143420b212f5309d729dcf92/jetified-firebase-database-19.2.1/AndroidManifest.xml:25:22-76
 17
 18    <application
-18-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:8:5-104:19
+18-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:8:5-104:19
 19        android:allowBackup="true"
-19-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:9:9-35
+19-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:9:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-20-->[androidx.core:core:1.1.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\13c5e5eb30313edb16cd523337f0b5af\core-1.1.0\AndroidManifest.xml:24:18-86
+20-->[androidx.core:core:1.1.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/13c5e5eb30313edb16cd523337f0b5af/core-1.1.0/AndroidManifest.xml:24:18-86
 21        android:debuggable="true"
 22        android:icon="@mipmap/ic_launcher"
-22-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:10:9-43
+22-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:10:9-43
 23        android:label="@string/app_name"
-23-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:11:9-41
+23-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:11:9-41
 24        android:roundIcon="@mipmap/ic_launcher_round"
-24-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:12:9-54
+24-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:12:9-54
 25        android:supportsRtl="true"
-25-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:13:9-35
+25-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:13:9-35
 26        android:testOnly="true"
 27        android:theme="@style/Theme.AppCompat.Light.NoActionBar" > <!-- removes the default toolbar -->
-27-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:14:9-65
+27-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:14:9-65
 28        <activity
-28-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:15:9-22:20
+28-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:15:9-22:20
 29            android:name="com.example.theplug.HomeScreen"
-29-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:15:19-45
+29-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:15:19-45
 30            android:parentActivityName="com.example.theplug.MainActivity" >
-30-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:16:13-55
+30-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:16:13-55
 31
 32            <!-- The meta-data tag is required if you support API level 15 and lower -->
 33            <meta-data
-33-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:19:13-21:49
+33-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:19:13-21:49
 34                android:name="android.support.PARENT_ACTIVITY"
-34-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:17-63
+34-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:20:17-63
 35                android:value=".MainActivity" />
-35-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:21:17-46
+35-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:21:17-46
 36        </activity>
 37        <activity android:name="com.example.theplug.MainActivity" > <!-- removes the toolbar on the main page(Login page) -->
-37-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:23:9-30:20
-37-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:23:19-47
+37-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:23:9-30:20
+37-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:23:19-47
 38            <intent-filter>
-38-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:25:13-29:29
+38-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:25:13-29:29
 39                <action android:name="android.intent.action.MAIN" />
-39-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:26:17-69
-39-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:26:25-66
+39-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:26:17-69
+39-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:26:25-66
 40
 41                <category android:name="android.intent.category.LAUNCHER" />
-41-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:28:17-77
-41-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:28:27-74
+41-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:28:17-77
+41-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:28:27-74
 42            </intent-filter>
 43        </activity>
 44        <activity
-44-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:31:9-38:20
+44-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:31:9-38:20
 45            android:name="com.example.theplug.ProfileActivity"
-45-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:31:19-50
+45-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:31:19-50
 46            android:parentActivityName="com.example.theplug.HomeScreen"
-46-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:32:13-53
+46-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:32:13-53
 47            android:theme="@style/Theme.AppCompat.Light" >
-47-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:33:13-57
+47-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:33:13-57
 48
 49            <!-- The meta-data tag is required if you support API level 15 and lower -->
 50            <meta-data
-50-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:19:13-21:49
+50-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:19:13-21:49
 51                android:name="android.support.PARENT_ACTIVITY"
-51-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:17-63
+51-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:20:17-63
 52                android:value=".HomeScreen" />
-52-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:21:17-46
+52-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:21:17-46
 53        </activity>
 54        <activity
-54-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:39:9-45:20
+54-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:39:9-45:20
 55            android:name="com.example.theplug.SettingsActivity"
-55-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:39:19-51
+55-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:39:19-51
 56            android:theme="@style/Theme.AppCompat.Light" >
-56-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:40:13-57
+56-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:40:13-57
 57
 58            <!-- The meta-data tag is required if you support API level 15 and lower -->
 59            <meta-data
-59-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:19:13-21:49
+59-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:19:13-21:49
 60                android:name="android.support.PARENT_ACTIVITY"
-60-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:17-63
+60-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:20:17-63
 61                android:value=".HomeScreen" />
-61-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:21:17-46
+61-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:21:17-46
 62        </activity>
 63        <activity
-63-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:46:9-52:20
+63-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:46:9-52:20
 64            android:name="com.example.theplug.MessagesActivity"
-64-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:46:19-51
+64-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:46:19-51
 65            android:theme="@style/Theme.AppCompat.Light" >
-65-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:47:13-57
+65-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:47:13-57
 66
 67            <!-- The meta-data tag is required if you support API level 15 and lower -->
 68            <meta-data
-68-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:19:13-21:49
+68-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:19:13-21:49
 69                android:name="android.support.PARENT_ACTIVITY"
-69-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:17-63
+69-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:20:17-63
 70                android:value=".HomeScreen" />
-70-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:21:17-46
+70-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:21:17-46
 71        </activity>
 72        <activity
-72-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:53:9-59:20
+72-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:53:9-59:20
 73            android:name="com.example.theplug.TransactionsActivity"
-73-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:53:19-55
+73-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:53:19-55
 74            android:theme="@style/Theme.AppCompat.Light" >
-74-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:54:13-57
+74-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:54:13-57
 75
 76            <!-- The meta-data tag is required if you support API level 15 and lower -->
 77            <meta-data
-77-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:19:13-21:49
+77-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:19:13-21:49
 78                android:name="android.support.PARENT_ACTIVITY"
-78-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:17-63
+78-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:20:17-63
 79                android:value=".HomeScreen" />
-79-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:21:17-46
+79-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:21:17-46
 80        </activity>
 81        <activity
-81-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:60:9-66:20
+81-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:60:9-66:20
 82            android:name="com.example.theplug.NewSaleActivity"
-82-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:60:19-50
+82-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:60:19-50
 83            android:theme="@style/Theme.AppCompat.Light" >
-83-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:61:13-57
+83-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:61:13-57
 84
 85            <!-- The meta-data tag is required if you support API level 15 and lower -->
 86            <meta-data
-86-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:19:13-21:49
+86-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:19:13-21:49
 87                android:name="android.support.PARENT_ACTIVITY"
-87-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:17-63
+87-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:20:17-63
 88                android:value=".HomeScreen" />
-88-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:21:17-46
+88-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:21:17-46
 89        </activity>
 90        <activity
-90-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:67:9-73:20
+90-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:67:9-73:20
 91            android:name="com.example.theplug.ForgotPasswordActivity"
-91-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:67:19-57
+91-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:67:19-57
 92            android:theme="@style/Theme.AppCompat.Light" >
-92-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:68:13-57
+92-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:68:13-57
 93
 94            <!-- The meta-data tag is required if you support API level 15 and lower -->
 95            <meta-data
-95-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:19:13-21:49
+95-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:19:13-21:49
 96                android:name="android.support.PARENT_ACTIVITY"
-96-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:17-63
+96-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:20:17-63
 97                android:value=".HomeScreen" />
-97-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:21:17-46
+97-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:21:17-46
 98        </activity>
 99        <activity
-99-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:74:9-80:20
+99-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:74:9-80:20
 100            android:name="com.example.theplug.ForgotUsernameActivity"
-100-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:74:19-57
+100-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:74:19-57
 101            android:theme="@style/Theme.AppCompat.Light" >
-101-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:75:13-57
+101-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:75:13-57
 102
 103            <!-- The meta-data tag is required if you support API level 15 and lower -->
 104            <meta-data
-104-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:19:13-21:49
+104-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:19:13-21:49
 105                android:name="android.support.PARENT_ACTIVITY"
-105-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:17-63
+105-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:20:17-63
 106                android:value=".HomeScreen" />
-106-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:21:17-46
+106-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:21:17-46
 107        </activity>
 108        <activity
-108-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:81:9-87:20
+108-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:81:9-87:20
 109            android:name="com.example.theplug.SignUpActivity"
-109-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:81:19-49
+109-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:81:19-49
 110            android:theme="@style/Theme.AppCompat.Light" >
-110-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:82:13-57
+110-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:82:13-57
 111
 112            <!-- The meta-data tag is required if you support API level 15 and lower -->
 113            <meta-data
-113-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:19:13-21:49
+113-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:19:13-21:49
 114                android:name="android.support.PARENT_ACTIVITY"
-114-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:17-63
+114-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:20:17-63
 115                android:value=".HomeScreen" />
-115-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:21:17-46
+115-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:21:17-46
 116        </activity>
 117        <activity
-117-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:89:9-95:20
+117-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:89:9-95:20
 118            android:name="com.example.theplug.ProfilePicChangeActivity"
-118-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:89:19-59
+118-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:89:19-59
 119            android:theme="@style/Theme.AppCompat.Light" >
-119-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:90:13-57
+119-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:90:13-57
 120
 121            <!-- The meta-data tag is required if you support API level 15 and lower -->
 122            <meta-data
-122-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:19:13-21:49
+122-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:19:13-21:49
 123                android:name="android.support.PARENT_ACTIVITY"
-123-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:17-63
+123-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:20:17-63
 124                android:value=".HomeScreen" />
-124-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:21:17-46
+124-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:21:17-46
 125        </activity>
 126        <activity
-126-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:97:9-103:20
+126-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:97:9-103:20
 127            android:name="com.example.theplug.ViewProductActivity"
-127-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:97:19-54
+127-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:97:19-54
 128            android:theme="@style/Theme.AppCompat.Light" >
-128-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:98:13-57
+128-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:98:13-57
 129
 130            <!-- The meta-data tag is required if you support API level 15 and lower -->
 131            <meta-data
-131-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:19:13-21:49
+131-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:19:13-21:49
 132                android:name="android.support.PARENT_ACTIVITY"
-132-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:20:17-63
+132-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:20:17-63
 133                android:value=".HomeScreen" />
-133-->C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:21:17-46
+133-->/Users/asaliu/Documents/CSE442/Spring/cse442-semester-project-talking-apple-juice/ThePlug/app/src/main/AndroidManifest.xml:21:17-46
 134        </activity>
 135
 136        <service
-136-->[com.google.firebase:firebase-database:19.2.1] C:\Users\John\.gradle\caches\transforms-2\files-2.1\e4fdf3e7143420b212f5309d729dcf92\jetified-firebase-database-19.2.1\AndroidManifest.xml:29:9-35:19
+136-->[com.google.firebase:firebase-database:19.2.1] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/e4fdf3e7143420b212f5309d729dcf92/jetified-firebase-database-19.2.1/AndroidManifest.xml:29:9-35:19
 137            android:name="com.google.firebase.components.ComponentDiscoveryService"
-137-->[com.google.firebase:firebase-database:19.2.1] C:\Users\John\.gradle\caches\transforms-2\files-2.1\e4fdf3e7143420b212f5309d729dcf92\jetified-firebase-database-19.2.1\AndroidManifest.xml:30:13-84
+137-->[com.google.firebase:firebase-database:19.2.1] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/e4fdf3e7143420b212f5309d729dcf92/jetified-firebase-database-19.2.1/AndroidManifest.xml:30:13-84
 138            android:directBootAware="true"
-138-->[com.google.firebase:firebase-common:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\fa2d5ad00b448907779dd1e50bc2a06b\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
+138-->[com.google.firebase:firebase-common:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/fa2d5ad00b448907779dd1e50bc2a06b/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
 139            android:exported="false" >
-139-->[com.google.firebase:firebase-database:19.2.1] C:\Users\John\.gradle\caches\transforms-2\files-2.1\e4fdf3e7143420b212f5309d729dcf92\jetified-firebase-database-19.2.1\AndroidManifest.xml:31:13-37
+139-->[com.google.firebase:firebase-database:19.2.1] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/e4fdf3e7143420b212f5309d729dcf92/jetified-firebase-database-19.2.1/AndroidManifest.xml:31:13-37
 140            <meta-data
-140-->[com.google.firebase:firebase-database:19.2.1] C:\Users\John\.gradle\caches\transforms-2\files-2.1\e4fdf3e7143420b212f5309d729dcf92\jetified-firebase-database-19.2.1\AndroidManifest.xml:32:13-34:85
+140-->[com.google.firebase:firebase-database:19.2.1] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/e4fdf3e7143420b212f5309d729dcf92/jetified-firebase-database-19.2.1/AndroidManifest.xml:32:13-34:85
 141                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-141-->[com.google.firebase:firebase-database:19.2.1] C:\Users\John\.gradle\caches\transforms-2\files-2.1\e4fdf3e7143420b212f5309d729dcf92\jetified-firebase-database-19.2.1\AndroidManifest.xml:33:17-109
+141-->[com.google.firebase:firebase-database:19.2.1] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/e4fdf3e7143420b212f5309d729dcf92/jetified-firebase-database-19.2.1/AndroidManifest.xml:33:17-109
 142                android:value="com.google.firebase.components.ComponentRegistrar" />
-142-->[com.google.firebase:firebase-database:19.2.1] C:\Users\John\.gradle\caches\transforms-2\files-2.1\e4fdf3e7143420b212f5309d729dcf92\jetified-firebase-database-19.2.1\AndroidManifest.xml:34:17-82
+142-->[com.google.firebase:firebase-database:19.2.1] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/e4fdf3e7143420b212f5309d729dcf92/jetified-firebase-database-19.2.1/AndroidManifest.xml:34:17-82
 143            <meta-data
-143-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\c797c3f23b89ed9b5595350d238e3a66\jetified-firebase-auth-19.3.0\AndroidManifest.xml:36:13-38:85
+143-->[com.google.firebase:firebase-auth:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/c797c3f23b89ed9b5595350d238e3a66/jetified-firebase-auth-19.3.0/AndroidManifest.xml:36:13-38:85
 144                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-144-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\c797c3f23b89ed9b5595350d238e3a66\jetified-firebase-auth-19.3.0\AndroidManifest.xml:37:17-109
+144-->[com.google.firebase:firebase-auth:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/c797c3f23b89ed9b5595350d238e3a66/jetified-firebase-auth-19.3.0/AndroidManifest.xml:37:17-109
 145                android:value="com.google.firebase.components.ComponentRegistrar" />
-145-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\c797c3f23b89ed9b5595350d238e3a66\jetified-firebase-auth-19.3.0\AndroidManifest.xml:38:17-82
+145-->[com.google.firebase:firebase-auth:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/c797c3f23b89ed9b5595350d238e3a66/jetified-firebase-auth-19.3.0/AndroidManifest.xml:38:17-82
 146        </service>
 147
 148        <activity
-148-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\c797c3f23b89ed9b5595350d238e3a66\jetified-firebase-auth-19.3.0\AndroidManifest.xml:24:9-31:50
+148-->[com.google.firebase:firebase-auth:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/c797c3f23b89ed9b5595350d238e3a66/jetified-firebase-auth-19.3.0/AndroidManifest.xml:24:9-31:50
 149            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
-149-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\c797c3f23b89ed9b5595350d238e3a66\jetified-firebase-auth-19.3.0\AndroidManifest.xml:25:13-85
+149-->[com.google.firebase:firebase-auth:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/c797c3f23b89ed9b5595350d238e3a66/jetified-firebase-auth-19.3.0/AndroidManifest.xml:25:13-85
 150            android:excludeFromRecents="true"
-150-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\c797c3f23b89ed9b5595350d238e3a66\jetified-firebase-auth-19.3.0\AndroidManifest.xml:26:13-46
+150-->[com.google.firebase:firebase-auth:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/c797c3f23b89ed9b5595350d238e3a66/jetified-firebase-auth-19.3.0/AndroidManifest.xml:26:13-46
 151            android:exported="true"
-151-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\c797c3f23b89ed9b5595350d238e3a66\jetified-firebase-auth-19.3.0\AndroidManifest.xml:27:13-36
+151-->[com.google.firebase:firebase-auth:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/c797c3f23b89ed9b5595350d238e3a66/jetified-firebase-auth-19.3.0/AndroidManifest.xml:27:13-36
 152            android:launchMode="singleTask"
-152-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\c797c3f23b89ed9b5595350d238e3a66\jetified-firebase-auth-19.3.0\AndroidManifest.xml:28:13-44
+152-->[com.google.firebase:firebase-auth:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/c797c3f23b89ed9b5595350d238e3a66/jetified-firebase-auth-19.3.0/AndroidManifest.xml:28:13-44
 153            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
-153-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\c797c3f23b89ed9b5595350d238e3a66\jetified-firebase-auth-19.3.0\AndroidManifest.xml:29:13-102
+153-->[com.google.firebase:firebase-auth:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/c797c3f23b89ed9b5595350d238e3a66/jetified-firebase-auth-19.3.0/AndroidManifest.xml:29:13-102
 154            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-154-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\c797c3f23b89ed9b5595350d238e3a66\jetified-firebase-auth-19.3.0\AndroidManifest.xml:30:13-72
+154-->[com.google.firebase:firebase-auth:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/c797c3f23b89ed9b5595350d238e3a66/jetified-firebase-auth-19.3.0/AndroidManifest.xml:30:13-72
 155
 156        <provider
-156-->[com.google.firebase:firebase-common:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\fa2d5ad00b448907779dd1e50bc2a06b\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
+156-->[com.google.firebase:firebase-common:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/fa2d5ad00b448907779dd1e50bc2a06b/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
 157            android:name="com.google.firebase.provider.FirebaseInitProvider"
-157-->[com.google.firebase:firebase-common:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\fa2d5ad00b448907779dd1e50bc2a06b\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
+157-->[com.google.firebase:firebase-common:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/fa2d5ad00b448907779dd1e50bc2a06b/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
 158            android:authorities="com.example.theplug.firebaseinitprovider"
-158-->[com.google.firebase:firebase-common:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\fa2d5ad00b448907779dd1e50bc2a06b\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
+158-->[com.google.firebase:firebase-common:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/fa2d5ad00b448907779dd1e50bc2a06b/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
 159            android:exported="false"
-159-->[com.google.firebase:firebase-common:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\fa2d5ad00b448907779dd1e50bc2a06b\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
+159-->[com.google.firebase:firebase-common:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/fa2d5ad00b448907779dd1e50bc2a06b/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
 160            android:initOrder="100" />
-160-->[com.google.firebase:firebase-common:19.3.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\fa2d5ad00b448907779dd1e50bc2a06b\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
+160-->[com.google.firebase:firebase-common:19.3.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/fa2d5ad00b448907779dd1e50bc2a06b/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
 161
 162        <activity
-162-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\cdf1aa0f8557ce6548883f740d570d9f\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+162-->[com.google.android.gms:play-services-base:17.1.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/cdf1aa0f8557ce6548883f740d570d9f/jetified-play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
 163            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-163-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\cdf1aa0f8557ce6548883f740d570d9f\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+163-->[com.google.android.gms:play-services-base:17.1.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/cdf1aa0f8557ce6548883f740d570d9f/jetified-play-services-base-17.1.0/AndroidManifest.xml:24:13-79
 164            android:exported="false"
-164-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\cdf1aa0f8557ce6548883f740d570d9f\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+164-->[com.google.android.gms:play-services-base:17.1.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/cdf1aa0f8557ce6548883f740d570d9f/jetified-play-services-base-17.1.0/AndroidManifest.xml:25:13-37
 165            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-165-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\cdf1aa0f8557ce6548883f740d570d9f\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+165-->[com.google.android.gms:play-services-base:17.1.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/cdf1aa0f8557ce6548883f740d570d9f/jetified-play-services-base-17.1.0/AndroidManifest.xml:26:13-72
 166
 167        <meta-data
-167-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\7bcd9b525454ba2760cdaa07fdfd1208\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+167-->[com.google.android.gms:play-services-basement:17.0.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/7bcd9b525454ba2760cdaa07fdfd1208/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
 168            android:name="com.google.android.gms.version"
-168-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\7bcd9b525454ba2760cdaa07fdfd1208\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+168-->[com.google.android.gms:play-services-basement:17.0.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/7bcd9b525454ba2760cdaa07fdfd1208/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
 169            android:value="@integer/google_play_services_version" />
-169-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\7bcd9b525454ba2760cdaa07fdfd1208\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+169-->[com.google.android.gms:play-services-basement:17.0.0] /Users/asaliu/.gradle/caches/transforms-2/files-2.1/7bcd9b525454ba2760cdaa07fdfd1208/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
 170    </application>
 171
 172</manifest>

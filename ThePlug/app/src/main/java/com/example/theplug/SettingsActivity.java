@@ -4,12 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    public Button editButton, deleteButton;
+    public EditText prodName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,6 +46,37 @@ public class SettingsActivity extends AppCompatActivity {
             }
 
         });
+
+        init();
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 prodDeleter();
+            }
+        });
     }
+
+    public void init(){
+
+        prodName = (EditText) findViewById(R.id.nameProd);
+        editButton = (Button) findViewById(R.id.editProd);
+        deleteButton = (Button) findViewById(R.id.deleteProd);
+
+    }
+
+    public void prodDeleter(){
+
+        String name  = prodName.getText().toString();
+
+        NewProductActivity npa = new NewProductActivity(this);
+        npa.execute("delete", name);
+        finish();
+    }
+
+
+
+
+
 
 }

@@ -127,7 +127,7 @@ public class BackgroundActivity extends AsyncTask<String, Void, String> {
             Intent intent = new Intent(con, MainActivity.class);
             con.startActivity(intent);
         }else{
-            Toast incorrect = Toast.makeText(con, "Wrong credentials!", Toast.LENGTH_SHORT);
+            Toast incorrect = Toast.makeText(con, "ERROR!!! Please Try Again", Toast.LENGTH_SHORT);
             incorrect.show();
         }
     }
