@@ -6,7 +6,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,8 +21,21 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.ByteBuffer;
+import java.util.Random;
 
 public class NewSaleActivity extends AppCompatActivity {
 
@@ -79,12 +94,13 @@ public class NewSaleActivity extends AppCompatActivity {
 //        });
 
     }
+
     // Allows user to choose image from gallery regardless of device after clicking image
     public void upLoader(View v) {
-        Intent gallaryIntent = new Intent();
-        gallaryIntent.setAction(Intent.ACTION_GET_CONTENT);
-        gallaryIntent.setType("image/*");
-        startActivityForResult(gallaryIntent, GalleryPick);
+        Intent galleryIntent = new Intent();
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        galleryIntent.setType("image/*");
+        startActivityForResult(galleryIntent, GalleryPick);
     }
 
     public void init(){
@@ -98,20 +114,25 @@ public class NewSaleActivity extends AppCompatActivity {
     }
 
     public void prodUpLoader(){
-
         String name = editName.getText().toString();
         String price = editPrice.getText().toString();
         String type = editType.getText().toString();
         String desc = editDesc.getText().toString();
-        String image = prodView.getContext().toString();
+        int randomVal = new Random().nextInt(10000);
+        String id = Integer.toString(randomVal);
+        String selltype = "0";
+
+        BitmapDrawable bmd = (BitmapDrawable) prodView.getDrawable();
+        Bitmap itemImg = bmd.getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        itemImg.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
 
         NewProductActivity npa = new NewProductActivity(this);
-        npa.execute("upload", name, type, price, desc, image);
-        finish();
+        npa.execute("upload", name, type, price, desc, id, selltype, encImage);
 
     }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
