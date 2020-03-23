@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,6 +43,7 @@ public class NewSaleActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     EditText editName, editPrice, editType, editDesc;
     Button putforSale,  putforBid;
+    ImageButton takePic;
     ImageView prodView;
     private Uri prodImage;
     private static final int GalleryPick = 1;
@@ -59,6 +61,13 @@ public class NewSaleActivity extends AppCompatActivity {
 
         init();
 
+        takePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 500);
+            }
+        });
         putforSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,6 +120,7 @@ public class NewSaleActivity extends AppCompatActivity {
         prodView  =  (ImageView)  findViewById(R.id.imageView7);
         putforSale =(Button) findViewById(R.id.button3);
         putforBid = (Button) findViewById(R.id.button4);
+        takePic = (ImageButton) findViewById(R.id.camButton);
     }
 
     public void prodUpLoader(){
@@ -154,6 +164,10 @@ public class NewSaleActivity extends AppCompatActivity {
         if(requestCode == GalleryPick && resultCode == RESULT_OK){
             prodImage  = data.getData();
             prodView.setImageURI(prodImage);
+        }else if(requestCode == 500)
+        {
+            Bitmap bm = (Bitmap)data.getExtras().get("data");
+            prodView.setImageBitmap(bm);
         }
     }
 
