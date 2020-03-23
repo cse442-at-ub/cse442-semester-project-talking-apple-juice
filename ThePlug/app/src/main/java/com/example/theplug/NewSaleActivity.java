@@ -111,10 +111,7 @@ public class NewSaleActivity extends AppCompatActivity {
 
     }
 
-    public void prodDeleter(){
 
-        String name = editName.getText().toString();
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)

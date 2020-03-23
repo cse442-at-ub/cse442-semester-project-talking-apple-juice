@@ -78,10 +78,6 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
             {
                 try {
                     String name = params[1];
-                    String type = params[2];
-                    String price = params[3];
-                    String desc = params[4];
-                    String img = params[5]; //maybe not. image may not be string
                     URL url = new URL(deleteScript);
                     HttpURLConnection httpCon;
                     httpCon = (HttpURLConnection) url.openConnection();
@@ -90,11 +86,7 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
                     httpCon.setDoInput(true);
                     OutputStream outStr = httpCon.getOutputStream();
                     BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
-                    String req = URLEncoder.encode("name","UTF-8") + "=" +URLEncoder.encode(name, "UTF-8")
-                            +"&"+ URLEncoder.encode("type","UTF-8") + "=" +URLEncoder.encode(type, "UTF-8")
-                            +"&"+ URLEncoder.encode("price","UTF-8") + "=" +URLEncoder.encode(price, "UTF-8")
-                            +"&"+ URLEncoder.encode("desc","UTF-8") + "=" +URLEncoder.encode(desc, "UTF-8")
-                            +"&"+ URLEncoder.encode("img","UTF-8") + "=" +URLEncoder.encode(img, "UTF-8") ;
+                    String req = URLEncoder.encode("name","UTF-8") + "=" +URLEncoder.encode(name, "UTF-8");
                     buffW.write(req);
                     buffW.flush();
                     buffW.close();
@@ -133,7 +125,7 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
             con.startActivity(intent);
 
         }else if(aStr.equals("Product Deletion Successful")) {
-            Intent intent = new Intent(con, NewSaleActivity.class);
+            Intent intent = new Intent(con, SettingsActivity.class);
             con.startActivity(intent);
 
         }else{
