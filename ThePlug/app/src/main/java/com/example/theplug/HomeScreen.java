@@ -6,17 +6,26 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class HomeScreen extends AppCompatActivity {
 
-    public ImageView item1;
+    public ImageView bid1;
+    public ImageView bid2;
+    public ImageView sale1;
+    public ImageView sale2;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -28,13 +37,54 @@ public class HomeScreen extends AppCompatActivity {
         }else{
             setTheme(R.style.darkTheme);
         }
+        //REQUEST 4 PRODUCTS FROM DATABASE, RECENT 2 OF SALEBID 1 AND RECENT 2 OF SALEBID 0
         setContentView(R.layout.activity_home_screen);
+
+        bid1 = findViewById(R.id.bid1);
+        bid2 = findViewById(R.id.bid2);
+        sale1 = findViewById(R.id.sale1);
+        sale2 = findViewById(R.id.sale2);
+
+        getProduct();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
 
-        item1 = findViewById(R.id.imageView3);
-        item1.setImageBitmap(MainActivity.prodImg);
+    private void getProduct(){
+        class GetImage extends AsyncTask<String, Void, Bitmap>
+        {
+            @Override
+            protected void onPreExecute(){
+                super.onPreExecute();
+            }
+
+            @Override
+            protected void onPostExecute(Bitmap bm){
+                super.onPostExecute(bm);
+                sale1.setImageBitmap(bm);
+            }
+
+            @Override
+            protected Bitmap doInBackground(String... strings) {
+                String id = strings[0];
+                String script = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/retrieveImage.php?id=" + id;
+                URL url = null;
+                Bitmap img = null;
+                try {
+                    url = new URL(script);
+                    img = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                }
+                catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return img;
+            }
+        }
+        GetImage get = new GetImage();
+        get.execute("2"); //eventually, execute this 4 times with different id's
     }
 
     @Override

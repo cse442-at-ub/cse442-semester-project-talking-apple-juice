@@ -28,7 +28,7 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
-        String uploadScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/product.php";
+        String uploadScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/uploadProdInfo.php";
         String check = params[0];
         if(check.equals("upload"))
         {
@@ -37,7 +37,9 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
                 String type = params[2];
                 String price = params[3];
                 String desc = params[4];
-                String img = params[5]; //maybe not. image may not be string
+                String id = params[5];
+                String selltype = params[6];
+                String encImg = params[7];
                 URL url = new URL(uploadScript);
                 HttpURLConnection httpCon;
                 httpCon = (HttpURLConnection) url.openConnection();
@@ -50,7 +52,9 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
                         +"&"+ URLEncoder.encode("type","UTF-8") + "=" +URLEncoder.encode(type, "UTF-8")
                         +"&"+ URLEncoder.encode("price","UTF-8") + "=" +URLEncoder.encode(price, "UTF-8")
                         +"&"+ URLEncoder.encode("desc","UTF-8") + "=" +URLEncoder.encode(desc, "UTF-8")
-                        +"&"+ URLEncoder.encode("img","UTF-8") + "=" +URLEncoder.encode(img, "UTF-8") ;
+                        +"&"+ URLEncoder.encode("id","UTF-8") + "=" +URLEncoder.encode(id, "UTF-8")
+                        +"&"+ URLEncoder.encode("sb","UTF-8") + "=" +URLEncoder.encode(selltype, "UTF-8")
+                        +"&"+ URLEncoder.encode("ei","UTF-8") + "=" +URLEncoder.encode(encImg, "UTF-8");
                 buffW.write(req);
                 buffW.flush();
                 buffW.close();
@@ -84,7 +88,7 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String aStr) {
         if(aStr.equals("Product Upload Successful")) {
-            Intent intent = new Intent(con, NewSaleActivity.class);
+            Intent intent = new Intent(con, HomeScreen.class);
             con.startActivity(intent);
         }else{
             Toast incorrect = Toast.makeText(con, "Upload Unsuccessful", Toast.LENGTH_SHORT);
