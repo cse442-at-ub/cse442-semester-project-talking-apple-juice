@@ -11,13 +11,20 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 
 public class HomeScreen extends AppCompatActivity {
@@ -26,6 +33,9 @@ public class HomeScreen extends AppCompatActivity {
     public ImageView bid2;
     public ImageView sale1;
     public ImageView sale2;
+    public int recentID = 0;
+    public int imageIndex = 0;
+    public Bitmap temp = null;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -40,6 +50,7 @@ public class HomeScreen extends AppCompatActivity {
         //REQUEST 4 PRODUCTS FROM DATABASE, RECENT 2 OF SALEBID 1 AND RECENT 2 OF SALEBID 0
         setContentView(R.layout.activity_home_screen);
 
+        //for now, the 4 products will just be the most recent posts by ID.
         bid1 = findViewById(R.id.bid1);
         bid2 = findViewById(R.id.bid2);
         sale1 = findViewById(R.id.sale1);
@@ -52,7 +63,11 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     private void getProduct(){
-        class GetImage extends AsyncTask<String, Void, Bitmap>
+        //STEP 1: GET LATEST ID
+        //STEP 2: GET LATESTID, LATESTID-1, LATESTID-2, LATESTID-3 AND STORE
+        //STEP 3: PUT IMAGES FROM THESE IDS IN RESPECTIVE IMAGEBUTTONS
+
+        class GetImageData extends AsyncTask<String, Void, String>
         {
             @Override
             protected void onPreExecute(){
@@ -60,31 +75,85 @@ public class HomeScreen extends AppCompatActivity {
             }
 
             @Override
-            protected void onPostExecute(Bitmap bm){
-                super.onPostExecute(bm);
-                sale1.setImageBitmap(bm);
+            protected void onPostExecute(String s){
+                super.onPostExecute(s);
+                if(s.equals("ID Retrieved"))
+                {
+                    new GetImageData().execute("images", Integer.toString(recentID));
+                }else if(s.equals("Image1 Retrieved"))
+                {
+                    bid1.setImageBitmap(temp);
+                    new GetImageData().execute("images", Integer.toString(recentID-1));
+                }else if(s.equals("Image2 Retrieved"))
+                {
+                    bid2.setImageBitmap(temp);
+                    new GetImageData().execute("images", Integer.toString(recentID-2));
+                }else if(s.equals("Image3 Retrieved"))
+                {
+                    sale1.setImageBitmap(temp);
+                    new GetImageData().execute("images", Integer.toString(recentID-3));
+                }else if(s.equals("Image4 Retrieved")){
+                    sale2.setImageBitmap(temp);
+                }else{
+
+                }
             }
 
             @Override
-            protected Bitmap doInBackground(String... strings) {
-                String id = strings[0];
-                String script = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/retrieveImage.php?id=" + id;
-                URL url = null;
-                Bitmap img = null;
-                try {
-                    url = new URL(script);
-                    img = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            protected String doInBackground(String... strings) {
+                String type = strings[0];
+                if(type.equals("ID"))
+                {
+                    String result = "0";
+                    try {
+                        URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getRecentID.php");
+                        HttpURLConnection httpCon;
+                        httpCon = (HttpURLConnection) url.openConnection();
+                        httpCon.setRequestMethod("GET");
+
+                        InputStream inStr = httpCon.getInputStream();
+                        BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                        String line = "";
+                        while ((line = buffR.readLine()) != null) {
+                            result += line;
+                        }
+                        buffR.close();
+                        inStr.close();
+                        httpCon.disconnect();
+                        recentID = Integer.parseInt(result);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    } catch (ProtocolException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return "ID Retrieved";
+                }else if(type.equals("images")){
+                    String id = strings[1];
+                    String imgScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/retrieveImage.php?id=" +id;
+                    URL url = null;
+                    Bitmap img = null;
+                    try {
+                        url = new URL(imgScript);
+                        img = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    temp = img;
+                    imageIndex++;
+                    return "Image" +imageIndex +" Retrieved";
+                }else{
+                    return "error";
                 }
-                catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return img;
             }
         }
-        GetImage get = new GetImage();
-        get.execute("2"); //eventually, execute this 4 times with different id's
+        GetImageData get = new GetImageData();
+        get.execute("ID");
     }
 
     @Override

@@ -32,8 +32,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.ByteBuffer;
@@ -46,6 +48,7 @@ public class NewSaleActivity extends AppCompatActivity {
     Button putforSale,  putforBid;
     ImageButton takePic;
     ImageView prodView;
+    int latestID = 0;
     private Uri prodImage;
     private static final int GalleryPick = 1;
 
@@ -61,6 +64,8 @@ public class NewSaleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_sale);
 
         init();
+
+        //CALL A PHP SCRIPT TO GET THE ID OF THE MOST RECENT PRODUCT
 
         takePic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +127,47 @@ public class NewSaleActivity extends AppCompatActivity {
         putforSale =(Button) findViewById(R.id.button3);
         putforBid = (Button) findViewById(R.id.button4);
         takePic = (ImageButton) findViewById(R.id.camButton);
+
+        class getLatestID extends AsyncTask<String, Void, String> {
+
+            URL url = null;
+
+            @Override
+            protected String doInBackground(String... strings) {
+                String result = "0";
+                try {
+                    url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getRecentID.php");
+                    HttpURLConnection httpCon;
+                    httpCon = (HttpURLConnection) url.openConnection();
+                    httpCon.setRequestMethod("GET");
+
+                    InputStream inStr = httpCon.getInputStream();
+                    BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                    String line = "";
+                    while ((line = buffR.readLine()) != null) {
+                        result += line;
+                    }
+                    buffR.close();
+                    inStr.close();
+                    httpCon.disconnect();
+                    latestID = Integer.parseInt(result);
+                    Log.d("latestID:", Integer.toString(latestID));
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (ProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return result;
+            }
+        }
+
+        getLatestID getID = new getLatestID();
+        getID.execute();
+
     }
 
     public void prodUpLoader(){
@@ -129,8 +175,7 @@ public class NewSaleActivity extends AppCompatActivity {
         String price = editPrice.getText().toString();
         String type = editType.getText().toString();
         String desc = editDesc.getText().toString();
-        int randomVal = new Random().nextInt(10000);
-        String id = Integer.toString(randomVal);
+        String id = Integer.toString(latestID+1);
         String selltype = "0";
 
         BitmapDrawable bmd = (BitmapDrawable) prodView.getDrawable();
