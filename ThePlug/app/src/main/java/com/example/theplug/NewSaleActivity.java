@@ -109,7 +109,11 @@ public class NewSaleActivity extends AppCompatActivity {
         npa.execute("upload", name, type, price, desc, image);
         finish();
 
+    }
 
+    public void prodDeleter(){
+
+        String name = editName.getText().toString();
     }
 
     @Override
