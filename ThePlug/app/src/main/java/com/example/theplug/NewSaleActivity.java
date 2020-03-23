@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -137,7 +138,7 @@ public class NewSaleActivity extends AppCompatActivity {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         itemImg.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] imageBytes = baos.toByteArray();
-        String encImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        String encImage = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
 
         NewProductActivity npa = new NewProductActivity(this);
         npa.execute("upload", name, type, price, desc, id, selltype, encImage);
