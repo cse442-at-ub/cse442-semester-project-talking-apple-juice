@@ -1,66 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="?attr/bgColor"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/bgColor">
 
     <ImageView
         android:id="@+id/productImg"
         android:layout_width="270dp"
         android:layout_height="258dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="128dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.141"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.147"
-        app:srcCompat="@drawable/bv1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/itemDescTextView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/item1_Desc"
+        android:layout_marginBottom="128dp"
+        android:textColor="?attr/textColor"
         android:textSize="15sp"
         android:textStyle="normal"
-        android:textColor="?attr/textColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.603" />
+        app:layout_constraintTop_toBottomOf="@+id/descriptionTextView6" />
+
+    <TextView
+        android:id="@+id/itemPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#049100"
+        android:textSize="40sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/productImg"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/itemNameTextView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/item_Name"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:textColor="?attr/textColor"
         android:textSize="20sp"
         android:textStyle="normal|bold"
-        android:textColor="?attr/textColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintBottom_toTopOf="@+id/productImg"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.474" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/descriptionTextView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/item_description"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginBottom="256dp"
+        android:text="Description:"
+        android:textColor="?attr/textColor"
         android:textSize="17sp"
         android:textStyle="bold"
-        android:textColor="?attr/textColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562" />
+        app:layout_constraintTop_toBottomOf="@+id/productImg" />
 </androidx.constraintlayout.widget.ConstraintLayout>

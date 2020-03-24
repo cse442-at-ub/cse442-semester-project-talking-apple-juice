@@ -65,7 +65,7 @@ public class HomeScreen extends AppCompatActivity {
     private void getProduct(){
         //STEP 1: GET LATEST ID
         //STEP 2: GET LATESTID, LATESTID-1, LATESTID-2, LATESTID-3 AND STORE
-        //STEP 3: PUT IMAGES FROM THESE IDS IN RESPECTIVE IMAGEBUTTONS
+        //STEP 3: PUT IMAGES FROM THESE IDS IN RESPECTIVE IMAGEBUTTONS AND ID'S THEIR CLICKHANDLERS
 
         class GetImageData extends AsyncTask<String, Void, String>
         {
@@ -83,17 +83,53 @@ public class HomeScreen extends AppCompatActivity {
                 }else if(s.equals("Image1 Retrieved"))
                 {
                     bid1.setImageBitmap(temp);
+                    bid1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
+                            String assocID = Integer.toString(recentID);
+                            intent.putExtra("ID", assocID);
+                            startActivity(intent);
+                        }
+                    });
                     new GetImageData().execute("images", Integer.toString(recentID-1));
                 }else if(s.equals("Image2 Retrieved"))
                 {
                     bid2.setImageBitmap(temp);
+                    bid2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
+                            String assocID = Integer.toString(recentID-1);
+                            intent.putExtra("ID", assocID);
+                            startActivity(intent);
+                        }
+                    });
                     new GetImageData().execute("images", Integer.toString(recentID-2));
                 }else if(s.equals("Image3 Retrieved"))
                 {
                     sale1.setImageBitmap(temp);
+                    sale1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
+                            String assocID = Integer.toString(recentID-2);
+                            intent.putExtra("ID", assocID);
+                            startActivity(intent);
+                        }
+                    });
                     new GetImageData().execute("images", Integer.toString(recentID-3));
                 }else if(s.equals("Image4 Retrieved")){
                     sale2.setImageBitmap(temp);
+                    sale2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
+                            String assocID = Integer.toString(recentID-3);
+                            intent.putExtra("ID", assocID);
+                            startActivity(intent);
+                        }
+                    });
                 }else{
 
                 }
@@ -204,10 +240,4 @@ public class HomeScreen extends AppCompatActivity {
         }
         return false;
     }
-
-    public void goToItemDesc(View view){
-        Intent intent = new Intent(this, ViewProductActivity.class);
-        startActivity(intent);
-    }
-
 }
