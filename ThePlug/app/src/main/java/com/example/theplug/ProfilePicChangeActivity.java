@@ -18,4 +18,6 @@ public class ProfilePicChangeActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_profile_pic_change);
     }
+
+
 }

@@ -91,11 +91,12 @@
         app:titleMarginStart="40dp" />
 
 
-    <SearchView
+    <EditText
         android:id="@+id/searchView"
         android:layout_width="411dp"
         android:layout_height="50dp"
-        android:clickable="true"
+        android:hint="Search Product......"
+        android:inputType="textVisiblePassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -104,9 +105,7 @@
         android:id="@+id/list_view"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/searchView" />
+     />
 
     <ImageView
         android:id="@+id/bid1"

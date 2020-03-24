@@ -15,13 +15,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -29,9 +37,10 @@ public class HomeScreen extends AppCompatActivity {
 
     public ImageView bid1, bid2;
     public ImageView sale1, sale2;
-    public SearchView searchBar;
+    public EditText searchBox;
     public ListView listProd;
 
+    String json;
     JSONArray productList = new JSONArray();
 
 
@@ -39,10 +48,9 @@ public class HomeScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO)
-        {
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
             setTheme(R.style.lightTheme);
-        }else{
+        } else {
             setTheme(R.style.darkTheme);
         }
         //REQUEST 4 PRODUCTS FROM DATABASE, RECENT 2 OF SALEBID 1 AND RECENT 2 OF SALEBID 0
@@ -52,37 +60,39 @@ public class HomeScreen extends AppCompatActivity {
         bid2 = findViewById(R.id.bid2);
         sale1 = findViewById(R.id.sale1);
         sale2 = findViewById(R.id.sale2);
-        searchBar = findViewById(R.id.searchView);
         listProd = findViewById(R.id.list_view);
+        searchBox = findViewById(R.id.searchView);
 
         getProduct();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        String script = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/searchProduct.php";
+
     }
+
 
     private void getResult(){
         class getProduct extends AsyncTask<String, Void, JSONArray>{
 
             @Override
             protected JSONArray doInBackground(String... strings) {
-                String name = searchBar.getQuery().toString();
-                String searchScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/searchProduct.php?Name=" + name ;
+                String searchScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/searchProduct.php?Name=";
                 URL url = null;
 
                 try {
                     url = new URL(searchScript);
-                    productList =
+
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
                 return null;
             }
         }
-
-
-
     }
+
+
 
     private void getProduct(){
         class GetImage extends AsyncTask<String, Void, Bitmap>
