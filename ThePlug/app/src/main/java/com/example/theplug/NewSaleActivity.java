@@ -74,6 +74,7 @@ public class NewSaleActivity extends AppCompatActivity {
                 startActivityForResult(intent, 500);
             }
         });
+
         putforSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,7 +188,6 @@ public class NewSaleActivity extends AppCompatActivity {
 
         NewProductActivity npa = new NewProductActivity(this);
         npa.execute("upload", name, type, price, desc, id, selltype, encImage);
-
     }
 
     @Override
@@ -208,9 +208,10 @@ public class NewSaleActivity extends AppCompatActivity {
         super.onActivityResult(requestCode,resultCode,data);
 
         if(requestCode == GalleryPick && resultCode == RESULT_OK){
-            prodImage  = data.getData();
+            prodImage = data.getData();
             prodView.setImageURI(prodImage);
-        }else if(requestCode == 500)
+        }
+        else if(requestCode == 500)
         {
             Bitmap bm = (Bitmap)data.getExtras().get("data");
             prodView.setImageBitmap(bm);

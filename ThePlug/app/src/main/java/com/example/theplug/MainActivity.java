@@ -23,9 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
-    public static Bitmap prodImg;
-    public static String prodName;
-    public static String prodDesc;
+    public static String storedUsername;
 
     private EditText passInput;
     private EditText emailInput;
