@@ -52,7 +52,9 @@ public class SettingsActivity extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 prodDeleter();
+                productJson test =  new productJson();
+                test.getData();
+//                 prodDeleter();
             }
         });
     }

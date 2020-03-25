@@ -137,18 +137,6 @@ public class NewSaleActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
     {
-//        if ((resCode == RESULT_OK) && reqCode == 1){
-//            ImageButton findImg = findViewById(R.id.findImgButton);
-//
-//            try{
-//                InputStream stream = getContentResolver().openInputStream(data.getData());
-//                Bitmap userImg = BitmapFactory.decodeStream(stream);
-//                findImg.setImageBitmap(userImg);
-//            }catch (FileNotFoundException e)
-//            {
-//                e.printStackTrace();
-//            }
-//        }
         super.onActivityResult(requestCode,resultCode,data);
 
         if(requestCode == GalleryPick && resultCode == RESULT_OK){

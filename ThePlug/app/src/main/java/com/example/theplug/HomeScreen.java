@@ -38,7 +38,7 @@ public class HomeScreen extends AppCompatActivity {
     public ImageView bid1, bid2;
     public ImageView sale1, sale2;
     public EditText searchBox;
-    public ListView listProd;
+    ListView listProd;
 
     String json;
     JSONArray productList = new JSONArray();
@@ -60,36 +60,15 @@ public class HomeScreen extends AppCompatActivity {
         bid2 = findViewById(R.id.bid2);
         sale1 = findViewById(R.id.sale1);
         sale2 = findViewById(R.id.sale2);
-        listProd = findViewById(R.id.list_view);
+
+        listProd = (ListView) findViewById(R.id.list_view);
+
         searchBox = findViewById(R.id.searchView);
 
         getProduct();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        String script = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/searchProduct.php";
-
-    }
-
-
-    private void getResult(){
-        class getProduct extends AsyncTask<String, Void, JSONArray>{
-
-            @Override
-            protected JSONArray doInBackground(String... strings) {
-                String searchScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/searchProduct.php?Name=";
-                URL url = null;
-
-                try {
-                    url = new URL(searchScript);
-
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }
     }
 
 
