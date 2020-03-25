@@ -6,10 +6,23 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.view.View;
 import android.widget.*;
 
 import android.os.Bundle;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 
 public class ProfileActivity extends AppCompatActivity {
     private EditText oldPass;
@@ -20,6 +33,9 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText verEmailF;
     private SharedPreferences accInfo;
     private SharedPreferences.Editor ed;
+
+    public Bitmap temp;
+    public ImageView profilePic;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -54,7 +70,10 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        ImageView ProfilePic = findViewById(R.id.yourProfilePic);
+        profilePic = findViewById(R.id.yourProfilePic);
+
+        GetProfilePicData gp = new GetProfilePicData();
+        gp.execute("pfp", MainActivity.storedUsername);
     }
 
     private void updateEmail(){
@@ -129,4 +148,43 @@ public class ProfileActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    class GetProfilePicData extends AsyncTask<String, Void, String>
+    {
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(String s){
+            super.onPostExecute(s);
+            if(s.equals("Image Retrieved"))
+            {
+               profilePic.setImageBitmap(temp);
+            }
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String type = strings[0];
+            if(type.equals("pfp")){
+                String user = strings[1];
+                String imgScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/retrievePFP.php?un=" +user;
+                Bitmap img = null;
+                try {
+                    URL url = new URL(imgScript);
+                    img = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                temp = img;
+                return "Image Retrieved";
+            }else{
+                return "error";
+            }
+        }
+    }
 }
