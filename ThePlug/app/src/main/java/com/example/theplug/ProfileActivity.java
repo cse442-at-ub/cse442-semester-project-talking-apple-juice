@@ -33,6 +33,7 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText verEmailF;
     private SharedPreferences accInfo;
     private SharedPreferences.Editor ed;
+    private TextView yourUser;
 
     public Bitmap temp;
     public ImageView profilePic;
@@ -48,9 +49,6 @@ public class ProfileActivity extends AppCompatActivity {
             setTheme(R.style.darkTheme);
         }
         setContentView(R.layout.activity_profile);
-
-        accInfo = getSharedPreferences("UserInfo", MODE_PRIVATE);
-        ed = getSharedPreferences("UserInfo", MODE_PRIVATE).edit();
 
         Button confirmPassChange = findViewById(R.id.confirmPassButton);
         confirmPassChange.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +69,8 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         profilePic = findViewById(R.id.yourProfilePic);
+        yourUser = findViewById(R.id.usernameView);
+        yourUser.setText(MainActivity.storedUsername);
 
         GetProfilePicData gp = new GetProfilePicData();
         gp.execute("pfp", MainActivity.storedUsername);
@@ -117,6 +117,8 @@ public class ProfileActivity extends AppCompatActivity {
         String oldP = oldPass.getText().toString();
         String newP = newPass1.getText().toString();
         String verP = newPass2.getText().toString();
+
+        //TODO: EXECUTE A PHP SCRIPT THAT GETS YOUR USER INFO. COMPARE THIS USER INFO TO THAT INPUT IN THE BOXES. IF A MATCH, UPDATE USER INFO VIA PHP.
         if(oldP.equals("") || newP.equals("") || verP.equals(""))
         {
             Toast err = Toast.makeText(getApplicationContext(), "Please fill out all boxes.", Toast.LENGTH_SHORT);

@@ -1,5 +1,6 @@
 package com.example.theplug;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -22,10 +23,12 @@ import java.net.URLEncoder;
 public class NewProductActivity extends AsyncTask<String, Void, String> {
 
     Context con;
+    Activity a;
 
-    NewProductActivity(Context c)
+    NewProductActivity(Activity ac)
     {
-        con = c;
+        a = ac;
+        con = a.getApplicationContext();
     }
 
     @Override
@@ -57,7 +60,8 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
                         + "&" + URLEncoder.encode("desc", "UTF-8") + "=" + URLEncoder.encode(desc, "UTF-8")
                         + "&" + URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8")
                         + "&" + URLEncoder.encode("sb", "UTF-8") + "=" + URLEncoder.encode(selltype, "UTF-8")
-                        + "&" + URLEncoder.encode("ei", "UTF-8") + "=" + URLEncoder.encode(encImg, "UTF-8");
+                        + "&" + URLEncoder.encode("ei", "UTF-8") + "=" + URLEncoder.encode(encImg, "UTF-8")
+                        + "&" + URLEncoder.encode("co", "UTF-8") + "=" + URLEncoder.encode("No comments yet.", "UTF-8");
                 buffW.write(req);
                 buffW.flush();
                 buffW.close();
@@ -130,13 +134,12 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String aStr) {
         if(aStr.equals("Product Upload Successful")) {
-            Intent intent = new Intent(con, NewSaleActivity.class);
-            con.startActivity(intent);
-
+            Toast success = Toast.makeText(con, "Item uploaded successfully.", Toast.LENGTH_SHORT);
+            success.show();
+            a.finish();
         }else if(aStr.equals("Product Deletion Successful")) {
-            Intent intent = new Intent(con, SettingsActivity.class);
-            con.startActivity(intent);
-
+            Toast success = Toast.makeText(con, "Deleted successfully.", Toast.LENGTH_SHORT);
+            success.show();
         }else{
             Toast incorrect = Toast.makeText(con, "ERROR!!! Please Try Again", Toast.LENGTH_SHORT);
             incorrect.show();

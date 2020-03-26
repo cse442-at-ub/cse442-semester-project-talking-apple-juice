@@ -124,8 +124,8 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="242dp"
-        android:layout_height="193dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginStart="85dp"
         android:layout_marginLeft="85dp"
         android:layout_marginTop="76dp"
@@ -135,12 +135,11 @@
         android:onClick="upLoader"
         app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.09"
-        app:srcCompat="@drawable/ic_launcher_foreground"
-        />
+        app:layout_constraintVertical_bias="0.088"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <ImageButton
         android:id="@+id/camButton"
