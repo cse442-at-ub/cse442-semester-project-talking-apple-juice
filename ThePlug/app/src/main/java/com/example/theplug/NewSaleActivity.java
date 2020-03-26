@@ -188,7 +188,6 @@ public class NewSaleActivity extends AppCompatActivity {
 
         NewProductActivity npa = new NewProductActivity(this);
         npa.execute("upload", name, type, price, desc, id, selltype, encImage);
-        finish();
     }
 
     @Override

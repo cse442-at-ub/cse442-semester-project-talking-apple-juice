@@ -73,6 +73,7 @@ public class ProfilePicChangeActivity extends AppCompatActivity {
 
         BackgroundActivity ba = new BackgroundActivity(this);
         ba.execute("profile", user, encImage);
+        finish();
     }
 
     @Override

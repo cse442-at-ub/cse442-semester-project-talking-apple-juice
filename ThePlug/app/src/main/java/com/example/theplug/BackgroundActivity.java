@@ -1,5 +1,6 @@
 package com.example.theplug;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -22,7 +23,6 @@ import java.net.URLEncoder;
 public class BackgroundActivity extends AsyncTask<String, Void, String> {
 
     Context con;
-    AlertDialog alert;
     String un;
 
     BackgroundActivity(Context c)
@@ -162,11 +162,11 @@ public class BackgroundActivity extends AsyncTask<String, Void, String> {
             Intent intent = new Intent(con, HomeScreen.class);
             con.startActivity(intent);
         }else if(aStr.equals("Registration Successful")) {
-            Intent intent = new Intent(con, MainActivity.class);
-            con.startActivity(intent);
+            Toast reg = Toast.makeText(con, "Registered Successfully!", Toast.LENGTH_SHORT);
+            reg.show();
         }else if(aStr.equals("Profile Picture Uploaded Successfully")){
-            Intent intent = new Intent(con, ProfileActivity.class);
-            con.startActivity(intent);
+            Toast upl = Toast.makeText(con, "Picture Updated.", Toast.LENGTH_SHORT);
+            upl.show();
         }else{
             Toast incorrect = Toast.makeText(con, "ERROR!!! Please Try Again", Toast.LENGTH_SHORT);
             incorrect.show();
