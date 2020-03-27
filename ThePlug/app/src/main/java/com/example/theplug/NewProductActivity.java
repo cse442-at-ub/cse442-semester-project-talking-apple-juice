@@ -46,6 +46,7 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
                 String id = params[5];
                 String selltype = params[6];
                 String encImg = params[7];
+                String userName = params[8];
                 URL url = new URL(uploadScript);
                 HttpURLConnection httpCon;
                 httpCon = (HttpURLConnection) url.openConnection();
@@ -61,7 +62,9 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
                         + "&" + URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8")
                         + "&" + URLEncoder.encode("sb", "UTF-8") + "=" + URLEncoder.encode(selltype, "UTF-8")
                         + "&" + URLEncoder.encode("ei", "UTF-8") + "=" + URLEncoder.encode(encImg, "UTF-8")
-                        + "&" + URLEncoder.encode("co", "UTF-8") + "=" + URLEncoder.encode("No comments yet.", "UTF-8");
+                        + "&" + URLEncoder.encode("co", "UTF-8") + "=" + URLEncoder.encode("No comments yet.", "UTF-8")
+                        + "&" + URLEncoder.encode("uname", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
+                ;
                 buffW.write(req);
                 buffW.flush();
                 buffW.close();
