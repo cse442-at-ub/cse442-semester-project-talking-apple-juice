@@ -65,7 +65,7 @@ public class NewSaleActivity extends AppCompatActivity {
 
         init();
 
-        //CALL A PHP SCRIPT TO GET THE ID OF THE MOST RECENT PRODUCT
+        //CALL A PHP SCRIPT TO GET THE ID OF THE 4 MOST RECENT PRODUCT : TODO: GET 4 MOST RECENT IDS INSTEAD OF MOST RECENT
 
         takePic.setOnClickListener(new View.OnClickListener() {
             @Override

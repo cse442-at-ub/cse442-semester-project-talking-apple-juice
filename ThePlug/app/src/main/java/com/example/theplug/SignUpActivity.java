@@ -24,15 +24,11 @@ public class SignUpActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_signup);
 
-
     }
 
     public void returnToMainPage(View view)
     {
         createAccount();
-
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 
     public void init (){
@@ -55,6 +51,5 @@ public class SignUpActivity extends AppCompatActivity {
         bga.execute("signup", email, pass, firstName, lastName);
         finish();
     }
-
 
 }

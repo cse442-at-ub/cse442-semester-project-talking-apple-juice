@@ -10,35 +10,37 @@
 
     <ImageView
         android:id="@+id/sale2"
-        android:layout_width="176dp"
-        android:layout_height="132dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="100dp"
         android:clickable="true"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="1.0"
-        />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/sale1"
-        android:layout_width="176dp"
-        android:layout_height="132dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="100dp"
         android:clickable="true"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/sale2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="1.0"
-        />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView5"
@@ -48,8 +50,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="196dp"
         android:layout_marginRight="196dp"
-        android:textColor="?attr/textColor"
         android:text="@string/new_sales"
+        android:textColor="?attr/textColor"
         android:textSize="24sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,19 +63,15 @@
 
     <ImageView
         android:id="@+id/bid2"
-        android:layout_width="176dp"
-        android:layout_height="134dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:clickable="true"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/bid1"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -90,23 +88,23 @@
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="411dp"
-        android:layout_height="50dp"
+        android:layout_width="305dp"
+        android:layout_height="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <ImageView
         android:id="@+id/bid1"
-        android:layout_width="176dp"
-        android:layout_height="132dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
         android:clickable="true"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView2"
@@ -119,9 +117,9 @@
         android:layout_marginRight="200dp"
         android:layout_marginBottom="13dp"
         android:text="@string/hot_bid"
+        android:textColor="?attr/textColor"
         android:textSize="24sp"
         android:textStyle="normal"
-        android:textColor="?attr/textColor"
         app:layout_constraintBottom_toTopOf="@+id/bid1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
