@@ -41,6 +41,8 @@ import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.util.Random;
 
+import static com.example.theplug.MainActivity.storedUsername;
+
 public class NewSaleActivity extends AppCompatActivity {
 
     private ProgressDialog pDialog;
@@ -65,7 +67,7 @@ public class NewSaleActivity extends AppCompatActivity {
 
         init();
 
-        //CALL A PHP SCRIPT TO GET THE ID OF THE MOST RECENT PRODUCT
+        //CALL A PHP SCRIPT TO GET THE ID OF THE 4 MOST RECENT PRODUCT : TODO: GET 4 MOST RECENT IDS INSTEAD OF MOST RECENT
 
         takePic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,34 +83,6 @@ public class NewSaleActivity extends AppCompatActivity {
                 prodUpLoader();
             }
         });
-
-//        ImageButton findImg = findViewById(R.id.findImgButton);
-//        findImg.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v)
-//            {
-//                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-//                intent.setType("image/*");
-//                startActivityForResult(Intent.createChooser(intent, "Choose an image"), 1);
-//            }
-//        });
-//
-//        Button newSale = findViewById(R.id.button3);
-//        newSale.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ImageButton findImg = findViewById(R.id.findImgButton);
-//                EditText name = findViewById(R.id.itemName);
-//                EditText desc = findViewById(R.id.editText);
-//
-//                MainActivity.prodImg = ((BitmapDrawable)findImg.getDrawable()).getBitmap();
-//                MainActivity.prodName = name.getText().toString();
-//                MainActivity.prodDesc = desc.getText().toString();
-//
-//                //set activity_view_product things to the values in imagebutton, name, and description
-//            }
-//        });
-
     }
 
     // Allows user to choose image from gallery regardless of device after clicking image
@@ -185,26 +159,16 @@ public class NewSaleActivity extends AppCompatActivity {
         itemImg.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] imageBytes = baos.toByteArray();
         String encImage = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
+        
+        String userName =  storedUsername;
 
         NewProductActivity npa = new NewProductActivity(this);
-        npa.execute("upload", name, type, price, desc, id, selltype, encImage);
+        npa.execute("upload", name, type, price, desc, id, selltype, encImage, userName);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
     {
-//        if ((resCode == RESULT_OK) && reqCode == 1){
-//            ImageButton findImg = findViewById(R.id.findImgButton);
-//
-//            try{
-//                InputStream stream = getContentResolver().openInputStream(data.getData());
-//                Bitmap userImg = BitmapFactory.decodeStream(stream);
-//                findImg.setImageBitmap(userImg);
-//            }catch (FileNotFoundException e)
-//            {
-//                e.printStackTrace();
-//            }
-//        }
         super.onActivityResult(requestCode,resultCode,data);
 
         if(requestCode == GalleryPick && resultCode == RESULT_OK){
