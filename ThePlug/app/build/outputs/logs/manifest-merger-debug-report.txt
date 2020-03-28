@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-106:12
-INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-106:12
-INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-106:12
-INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-106:12
+ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-114:12
+INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-114:12
+INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-114:12
+INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-114:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\a2dbca72e8b799b218ab23c7a932c6df\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\John\.gradle\caches\transforms-2\files-2.1\869c1430aefa3563215fd828ed9e67ea\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-database:19.2.1] C:\Users\John\.gradle\caches\transforms-2\files-2.1\e4fdf3e7143420b212f5309d729dcf92\jetified-firebase-database-19.2.1\AndroidManifest.xml:15:1-38:12
@@ -35,20 +35,20 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\John\.gradle\
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\6095ffefd9b7047406f556ff3d17a301\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\77a39fd2846c0674681b5cdbdad93c04\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:17.0.0] C:\Users\John\.gradle\caches\transforms-2\files-2.1\feb367be06ee9c80e8788bf44da14f78\jetified-firebase-database-collection-17.0.0\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-106:12
-INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-106:12
-INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-114:12
+INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-114:12
+INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-114:12
 	package
 		ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-106:12
+		ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-114:12
 		INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-106:12
+		ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:1-114:12
 		INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:2:11-69
@@ -63,7 +63,7 @@ MERGED from [com.google.firebase:firebase-database:19.2.1] C:\Users\John\.gradle
 	android:name
 		ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:6:22-64
 application
-ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:8:5-104:19
+ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:8:5-112:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\John\.gradle\caches\transforms-2\files-2.1\869c1430aefa3563215fd828ed9e67ea\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\John\.gradle\caches\transforms-2\files-2.1\869c1430aefa3563215fd828ed9e67ea\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-database:19.2.1] C:\Users\John\.gradle\caches\transforms-2\files-2.1\e4fdf3e7143420b212f5309d729dcf92\jetified-firebase-database-19.2.1\AndroidManifest.xml:28:5-36:19
@@ -186,6 +186,12 @@ ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-a
 		ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:98:13-57
 	android:name
 		ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:97:19-54
+activity#com.example.theplug.ViewMessagesActivity
+ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:105:9-111:20
+	android:theme
+		ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:106:13-57
+	android:name
+		ADDED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml:105:19-55
 uses-sdk
 INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\John\AndroidStudioProjects\cse442-semester-project-talking-apple-juice\ThePlug\app\src\main\AndroidManifest.xml

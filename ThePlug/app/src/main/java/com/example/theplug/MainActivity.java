@@ -28,9 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText passInput;
     private EditText emailInput;
 
-    public SharedPreferences accInfo;
-    public SharedPreferences.Editor ed;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,20 +38,6 @@ public class MainActivity extends AppCompatActivity {
             setTheme(R.style.darkTheme);
         }
         setContentView(R.layout.activity_main);
-        accInfo = getSharedPreferences("UserInfo", MODE_PRIVATE);
-        ed = getSharedPreferences("UserInfo", MODE_PRIVATE).edit();
-
-        String pw = accInfo.getString("PASSWORD", null);
-        if(pw == null)
-        {
-            ed.putString("PASSWORD", "password").apply();
-        }
-
-        String em = accInfo.getString("EMAIL", null);
-        if(em == null)
-        {
-            ed.putString("EMAIL", "email").apply();
-        }
     }
 
     @Override

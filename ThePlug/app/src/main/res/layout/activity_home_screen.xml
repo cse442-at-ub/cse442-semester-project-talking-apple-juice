@@ -90,8 +90,8 @@
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="411dp"
-        android:layout_height="50dp"
+        android:layout_width="337dp"
+        android:layout_height="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -118,10 +118,10 @@
         android:layout_marginEnd="200dp"
         android:layout_marginRight="200dp"
         android:layout_marginBottom="13dp"
-        android:text="@string/hot_bid"
+        android:text="Hot Bids"
+        android:textColor="?attr/textColor"
         android:textSize="24sp"
         android:textStyle="normal"
-        android:textColor="?attr/textColor"
         app:layout_constraintBottom_toTopOf="@+id/bid1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
