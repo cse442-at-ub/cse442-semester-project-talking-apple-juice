@@ -19,13 +19,13 @@
 
     <ImageView
         android:id="@+id/user2PFP"
-        android:layout_width="74dp"
-        android:layout_height="69dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:scaleType="centerCrop"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
         app:layout_constraintBottom_toTopOf="@+id/openmessage2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/username2"
@@ -41,15 +41,15 @@
 
     <ImageView
         android:id="@+id/User1PFP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
         android:layout_marginTop="64dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/openmessage1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/openmessage1"

@@ -3,6 +3,7 @@ package com.example.theplug;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -36,10 +37,12 @@ public class MessagesActivity extends AppCompatActivity {
     public Button msg1;
     public ImageView pfp1;
     public TextView sender1;
+    public String storedBody1;
 
     public Button msg2;
     public ImageView pfp2;
     public TextView sender2;
+    public String storedBody2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,27 +63,8 @@ public class MessagesActivity extends AppCompatActivity {
         pfp2 = findViewById(R.id.user2PFP);
         sender2 = findViewById(R.id.username2);
 
-        msg1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MessagesActivity.this, ViewMessagesActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        msg2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(MessagesActivity.this, ViewMessagesActivity.class);
-                startActivity(intent);
-            }
-        });
-
         GetMessageData gmd = new GetMessageData();
         gmd.execute("Msg");
-        //TODO: php script to get most 2 most recent messages from database
-
-
     }
 
     @Override
@@ -174,7 +158,10 @@ public class MessagesActivity extends AppCompatActivity {
                 {
                     return "Image Retrieved 1";
                 }
-                return "Image Retrieved 2";
+                if(strings[2].equals("2")) {
+                    return "Image Retrieved 2";
+                }
+                return "Retrieved";
             }else{
                 return "error";
             }
@@ -196,22 +183,46 @@ public class MessagesActivity extends AppCompatActivity {
                     String[] messageContent = parsedResp[0].split("\\|");
                     sender1.setText(messageContent[0]);
                     msg1.setText(messageContent[1]);
+                    storedBody1 = messageContent[2];
                     new GetMessageData().execute("Image", messageContent[0], "1");
                 }else{
                     //2 more more msgs retrieved
                     String[] messageContent = parsedResp[0].split("\\|");
                     sender1.setText(messageContent[0]);
                     msg1.setText(messageContent[1]);
+                    storedBody1 = messageContent[2];
                     new GetMessageData().execute("Image", messageContent[0], "1");
                     messageContent = parsedResp[1].split("\\|");
                     sender2.setText(messageContent[0]);
                     msg2.setText(messageContent[1]);
+                    storedBody2 = messageContent[2];
                     new GetMessageData().execute("Image", messageContent[0], "2");
                 }
             }else if(s.equals("Image Retrieved 1")){
                 pfp1.setImageBitmap(temp);
+                msg1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MessagesActivity.this, ViewMessagesActivity.class);
+                        intent.putExtra("Sender", sender1.getText().toString());
+                        intent.putExtra("Title", msg1.getText().toString());
+                        intent.putExtra("Body", storedBody1);
+                        startActivity(intent);
+                    }
+                });
             }else if(s.equals("Image Retrieved 2")) {
                 pfp2.setImageBitmap(temp);
+                msg2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v){
+                        Intent intent = new Intent(MessagesActivity.this, ViewMessagesActivity.class);
+                        intent.putExtra("Sender", sender2.getText().toString());
+                        intent.putExtra("Title", msg2.getText().toString());
+                        intent.putExtra("Body", storedBody2);
+                        startActivity(intent);
+                    }
+                });
+
             }else{
                 Toast err = Toast.makeText(MessagesActivity.this, "An error occured.", Toast.LENGTH_SHORT);
                 err.show();
