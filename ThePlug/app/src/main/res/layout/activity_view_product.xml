@@ -6,11 +6,25 @@
     android:layout_height="match_parent"
     android:background="?attr/bgColor">
 
+    <TextView
+        android:id="@+id/soldByUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="12dp"
+        android:text="..."
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp"
+        android:textStyle="normal|bold"
+        app:layout_constraintStart_toEndOf="@+id/soldByText"
+        app:layout_constraintTop_toBottomOf="@+id/productImg" />
+
     <ImageView
         android:id="@+id/productImg"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="88dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -72,6 +86,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/soldByText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="8dp"
+        android:text="Seller:"
+        android:textColor="?attr/textColor"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productImg" />
+
+    <TextView
         android:id="@+id/descriptionTextView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,7 +112,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productImg" />
+        app:layout_constraintTop_toBottomOf="@+id/soldByText" />
 
     <TextView
         android:id="@+id/textView3"
@@ -104,11 +132,11 @@
         android:id="@+id/commentBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Your Comment"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toStartOf="@+id/addComButton"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -118,8 +146,18 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:text="Add Comment"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="contact seller"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
