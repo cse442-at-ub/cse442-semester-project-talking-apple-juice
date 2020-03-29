@@ -37,12 +37,14 @@ public class ViewProductActivity extends AppCompatActivity {
     public TextView Desc;
     public TextView Price;
     public TextView Comment;
+    public TextView SellerUser;
     public String ID = "";
     public String[] parsedResp;
     public Bitmap temp = null;
 
     public EditText commentData;
     public Button addComment;
+    public Button contactSeller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +65,11 @@ public class ViewProductActivity extends AppCompatActivity {
         Desc = findViewById(R.id.itemDescTextView7);
         Price = findViewById(R.id.itemPriceTextView);
         Comment = findViewById(R.id.itemCommentTextView);
+        SellerUser = findViewById(R.id.soldByUser);
 
         commentData = findViewById(R.id.commentBox);
         addComment = findViewById(R.id.addComButton);
+        contactSeller = findViewById(R.id.button2);
 
         addComment.setOnClickListener(new View.OnClickListener()
         {
@@ -183,13 +187,25 @@ public class ViewProductActivity extends AppCompatActivity {
                 Desc.setText(parsedResp[1]);
                 Price.setText("$" + parsedResp[2]);
                 Comment.setText(parsedResp[3]);
+                SellerUser.setText(parsedResp[4]);
             }else if(s.equals("Comment Sent")){
                 finish();
                 startActivity(getIntent());
-            }else{
+            }else if(s.equals("Image Retrieved")){
                 ProductImg.setImageBitmap(temp);
+                contactSeller.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(ViewProductActivity.this, ViewMessagesActivity.class);
+                        intent.putExtra("Sender", SellerUser.getText().toString());
+                        intent.putExtra("Title", "Inquiry about " +Name.getText().toString());
+                        intent.putExtra("Body", "Ask any questions about the item, or discuss a transaction!");
+                        startActivity(intent);
+                    }
+                });
+            }else {
+                super.onPostExecute(s);
             }
-            super.onPostExecute(s);
         }
     }
 }

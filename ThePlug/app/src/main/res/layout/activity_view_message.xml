@@ -16,7 +16,7 @@
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
- />
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
         android:id="@+id/msgTitle"
@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="reply"
+        android:text="send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -67,9 +67,9 @@
         android:layout_height="113dp"
         android:layout_marginBottom="24dp"
         android:ems="10"
-        android:hint="Your response"
-        android:textColor="?attr/textColor"
+        android:hint="Your Message"
         android:inputType="textPersonName"
+        android:textColor="?attr/textColor"
         app:layout_constraintBottom_toTopOf="@+id/replyButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
