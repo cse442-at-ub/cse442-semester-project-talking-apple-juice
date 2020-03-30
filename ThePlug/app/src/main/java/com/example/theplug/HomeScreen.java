@@ -169,7 +169,7 @@ public class HomeScreen extends AppCompatActivity {
                     return "ID Retrieved";
                 }else if(type.equals("images")){
                     String id = strings[1];
-                    String imgScript = "https://www-student.cse.buffalo.edu/CSE442-542/v2020-spring/cse-442ac/retrieveImage.php?id=" +id;
+                    String imgScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/retrieveImage.php?id=" +id;
                     URL url = null;
                     Bitmap img = null;
                     try {
