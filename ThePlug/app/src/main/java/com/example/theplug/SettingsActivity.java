@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +30,6 @@ public class SettingsActivity extends AppCompatActivity {
 
     public Button editButton, deleteButton;
 
-    
     public EditText inputProdName;  // What the user inputs. The product name
     public String prodUser;  //the user of that product
     public String current = storedUsername;   //the current loggedin user
@@ -87,37 +87,29 @@ public class SettingsActivity extends AppCompatActivity {
         String pname  = inputProdName.getText().toString();
         getUsername test = new getUsername();
         test.execute("Username", pname);
-
-        String test2 = test.name;
-        String test3 = current;
-
-
-//        If(storedUsername.ez)
-//
-        NewProductActivity npa = new NewProductActivity(this);
-//        npa.execute("delete", pname);
-        finish();
     }
 
 
 
     class getUsername extends AsyncTask<String, Void, String>{
+
         String name = inputProdName.getText().toString();
+        String prodUser = "";
 
         @Override
         protected String doInBackground(String... strings) {
             String type = strings[0];
+            String prod = strings[1];
             if(type.equals("Username")){
                 try{
                     String response = "";
-                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getUsername.php?name=" + name);
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getUsername.php?name=" + prod);
                     HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
                     httpCon.setRequestMethod("GET");
 
                     InputStream inStr = httpCon.getInputStream();
                     BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr,"iso-8859-1"));
                     String line = "";
-
                     while((line = buffR.readLine()) != null)
                     {
                         response += line;
@@ -134,7 +126,7 @@ public class SettingsActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                return "Username Recieved ";
+                return "Username Recieved";
             }
             return null;
         }
@@ -143,9 +135,15 @@ public class SettingsActivity extends AppCompatActivity {
         protected void onPostExecute(String s)
         {
             if(s.equals("Username Recieved")){
-                finish();
-                startActivity(getIntent());
-
+                if(prodUser.equals(MainActivity.storedUsername)) {
+                    NewProductActivity npa = new NewProductActivity(SettingsActivity.this);
+                    npa.execute("delete", name);
+                    finish();
+                    startActivity(getIntent());
+                }else{
+                    Toast incorrect = Toast.makeText(getApplicationContext(), "Not your product!", Toast.LENGTH_SHORT);
+                    incorrect.show();
+                }
             }else{
                 Toast incorrect = Toast.makeText(getApplicationContext(), "Invalid Product", Toast.LENGTH_SHORT);
                 incorrect.show();
