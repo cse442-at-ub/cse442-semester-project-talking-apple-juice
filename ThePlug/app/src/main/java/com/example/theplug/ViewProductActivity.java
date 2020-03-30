@@ -91,7 +91,7 @@ public class ViewProductActivity extends AppCompatActivity {
         get.execute("Data");
     }
 
-    class GetProductData extends AsyncTask<String, Void, String>{
+     public class GetProductData extends AsyncTask<String, Void, String>{
 
         @Override
         protected String doInBackground(String... strings) {
@@ -169,7 +169,7 @@ public class ViewProductActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 return "Comment Sent";
-            }else{
+            } else{
                 return "error";
             }
         }
@@ -183,10 +183,12 @@ public class ViewProductActivity extends AppCompatActivity {
                 Desc.setText(parsedResp[1]);
                 Price.setText("$" + parsedResp[2]);
                 Comment.setText(parsedResp[3]);
+
             }else if(s.equals("Comment Sent")){
                 finish();
-                startActivity(getIntent());
-            }else{
+                startActivity(getIntent());}
+
+            else{
                 ProductImg.setImageBitmap(temp);
             }
             super.onPostExecute(s);
