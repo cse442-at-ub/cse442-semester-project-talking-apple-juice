@@ -33,8 +33,8 @@ public class HomeScreen extends AppCompatActivity {
     public ImageView bid2;
     public ImageView sale1;
     public ImageView sale2;
-    public int recentID = 0;
     public int imageIndex = 0;
+    public int[] recentIDs = {0,0,0,0};
     public Bitmap temp = null;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -77,9 +77,9 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s){
                 super.onPostExecute(s);
-                if(s.equals("ID Retrieved"))
+                if(s.equals("IDs Retrieved"))
                 {
-                    new GetImageData().execute("images", Integer.toString(recentID));
+                    new GetImageData().execute("images", Integer.toString(recentIDs[0]));
                 }else if(s.equals("Image1 Retrieved"))
                 {
                     bid1.setImageBitmap(temp);
@@ -87,12 +87,12 @@ public class HomeScreen extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
-                            String assocID = Integer.toString(recentID);
+                            String assocID = Integer.toString(recentIDs[0]);
                             intent.putExtra("ID", assocID);
                             startActivity(intent);
                         }
                     });
-                    new GetImageData().execute("images", Integer.toString(recentID-1));
+                    new GetImageData().execute("images", Integer.toString(recentIDs[1]));
                 }else if(s.equals("Image2 Retrieved"))
                 {
                     bid2.setImageBitmap(temp);
@@ -100,12 +100,12 @@ public class HomeScreen extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
-                            String assocID = Integer.toString(recentID-1);
+                            String assocID = Integer.toString(recentIDs[1]);
                             intent.putExtra("ID", assocID);
                             startActivity(intent);
                         }
                     });
-                    new GetImageData().execute("images", Integer.toString(recentID-2));
+                    new GetImageData().execute("images", Integer.toString(recentIDs[2]));
                 }else if(s.equals("Image3 Retrieved"))
                 {
                     sale1.setImageBitmap(temp);
@@ -113,19 +113,19 @@ public class HomeScreen extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
-                            String assocID = Integer.toString(recentID-2);
+                            String assocID = Integer.toString(recentIDs[2]);
                             intent.putExtra("ID", assocID);
                             startActivity(intent);
                         }
                     });
-                    new GetImageData().execute("images", Integer.toString(recentID-3));
+                    new GetImageData().execute("images", Integer.toString(recentIDs[3]));
                 }else if(s.equals("Image4 Retrieved")){
                     sale2.setImageBitmap(temp);
                     sale2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
-                            String assocID = Integer.toString(recentID-3);
+                            String assocID = Integer.toString(recentIDs[3]);
                             intent.putExtra("ID", assocID);
                             startActivity(intent);
                         }
@@ -156,7 +156,12 @@ public class HomeScreen extends AppCompatActivity {
                         buffR.close();
                         inStr.close();
                         httpCon.disconnect();
-                        recentID = Integer.parseInt(result);
+                        //at this point, we have 4 id's separated by "|"
+                        String[] collection = result.split("\\|");
+                        recentIDs[0] = Integer.parseInt(collection[0]);
+                        recentIDs[1] = Integer.parseInt(collection[1]);
+                        recentIDs[2] = Integer.parseInt(collection[2]);
+                        recentIDs[3] = Integer.parseInt(collection[3]);
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     } catch (UnsupportedEncodingException e) {
@@ -166,7 +171,7 @@ public class HomeScreen extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    return "ID Retrieved";
+                    return "IDs Retrieved";
                 }else if(type.equals("images")){
                     String id = strings[1];
                     String imgScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/retrieveImage.php?id=" +id;

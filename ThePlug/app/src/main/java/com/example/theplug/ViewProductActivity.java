@@ -209,6 +209,7 @@ public class ViewProductActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(ViewProductActivity.this, ReviewsActivity.class);
+                        intent.putExtra("Sender", SellerUser.getText().toString());
                         startActivity(intent);
                     }
                 });

@@ -8,7 +8,7 @@
     android:background="?attr/bgColor">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/sellerPFP"
         android:layout_width="125dp"
         android:layout_height="123dp"
         android:layout_marginStart="48dp"
@@ -27,21 +27,23 @@
         android:layout_marginTop="44dp"
         android:layout_marginEnd="52dp"
         android:layout_marginRight="52dp"
+        android:hint="SellerUsername"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.976"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/sellerPFP"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="318dp"
         android:layout_height="350dp"
-        android:layout_marginTop="176dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.459">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,16 +53,16 @@
 
     <Button
         android:id="@+id/sendReview"
-        android:layout_width="148dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="48dp"
+        android:layout_width="121dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="Submit Review"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/reviewMsg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView7"
@@ -68,20 +70,28 @@
         android:layout_height="52dp"
         android:layout_marginEnd="84dp"
         android:layout_marginRight="84dp"
+        android:hint="Rating"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/sellerPFP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="319dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+    <EditText
+        android:id="@+id/reviewMsg"
+        android:layout_width="258dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="76dp"
+        android:ems="10"
+        android:hint="Enter Review"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sendReview"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
