@@ -45,6 +45,7 @@ public class ViewProductActivity extends AppCompatActivity {
     public EditText commentData;
     public Button addComment;
     public Button contactSeller;
+    public Button reviewSeller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +71,7 @@ public class ViewProductActivity extends AppCompatActivity {
         commentData = findViewById(R.id.commentBox);
         addComment = findViewById(R.id.addComButton);
         contactSeller = findViewById(R.id.button2);
+        reviewSeller  = findViewById(R.id.buttonReview);
 
         addComment.setOnClickListener(new View.OnClickListener()
         {
@@ -203,6 +205,15 @@ public class ViewProductActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+                reviewSeller.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(ViewProductActivity.this, ReviewsActivity.class);
+                        intent.putExtra("Sender", SellerUser.getText().toString());
+                        startActivity(intent);
+                    }
+                });
+
             }else {
                 super.onPostExecute(s);
             }

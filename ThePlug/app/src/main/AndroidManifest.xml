@@ -109,6 +109,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MessagesActivity" />
         </activity>
+
+        <activity android:name=".ReviewsActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
     </application>
 
 </manifest>

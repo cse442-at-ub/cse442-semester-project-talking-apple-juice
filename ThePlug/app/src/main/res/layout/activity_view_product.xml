@@ -8,14 +8,13 @@
 
     <TextView
         android:id="@+id/soldByUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="99dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:gravity="left"
         android:text="..."
-        android:textColor="@color/colorAccent"
-        android:textSize="15sp"
+        android:textColor="#FAFAFA"
+        android:textSize="22sp"
         android:textStyle="normal|bold"
         app:layout_constraintStart_toEndOf="@+id/soldByText"
         app:layout_constraintTop_toBottomOf="@+id/productImg" />
@@ -24,7 +23,7 @@
         android:id="@+id/productImg"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="80dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -39,8 +38,10 @@
         android:textColor="?attr/textColor"
         android:textSize="15sp"
         android:textStyle="normal"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.383"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionTextView6"
         app:layout_constraintVertical_bias="0.0" />
@@ -54,17 +55,20 @@
         android:textColor="?attr/textColor"
         android:textSize="15sp"
         android:textStyle="normal"
+        android:gravity="left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.383"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/itemPriceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginBottom="8dp"
         android:textColor="#049100"
         android:textSize="40sp"
@@ -74,23 +78,24 @@
 
     <TextView
         android:id="@+id/itemNameTextView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
+        android:layout_width="143dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:textColor="?attr/textColor"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toTopOf="@+id/productImg"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.68" />
 
     <TextView
         android:id="@+id/soldByText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
+        android:layout_width="88dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:text="Seller:"
         android:textColor="?attr/textColor"
@@ -101,10 +106,10 @@
 
     <TextView
         android:id="@+id/descriptionTextView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
+        android:layout_width="105dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginBottom="256dp"
         android:text="Description:"
         android:textColor="?attr/textColor"
@@ -112,15 +117,16 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/soldByText" />
+        app:layout_constraintTop_toBottomOf="@+id/soldByText"
+        app:layout_constraintVertical_bias="0.418" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="87dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
         android:text="Comments:"
         android:textColor="?attr/textColor"
         android:textSize="17sp"
@@ -132,7 +138,7 @@
         android:id="@+id/commentBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Your Comment"
         android:inputType="textPersonName"
@@ -144,9 +150,9 @@
         android:id="@+id/addComButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="4dp"
         android:text="Add Comment"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -160,4 +166,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonReview"
+        android:layout_width="108dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="264dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Review"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/soldByUser"
+        app:layout_constraintTop_toBottomOf="@+id/itemPriceTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
