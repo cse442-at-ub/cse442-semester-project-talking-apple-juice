@@ -1,10 +1,12 @@
 package com.example.theplug;
 
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,10 +26,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 public class ReviewsActivity extends AppCompatActivity {
 
@@ -33,6 +40,10 @@ public class ReviewsActivity extends AppCompatActivity {
     public TextView senderUser, ratingUser;
     public Button submitReview;
     public EditText msg;
+
+    public ArrayList reviewList;
+    public RecyclerView prodList;
+    public RecyclerView.Adapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +59,6 @@ public class ReviewsActivity extends AppCompatActivity {
         init();
 
         BackgroundReviewHelper sendR = new BackgroundReviewHelper();
-
         final Bundle extras = getIntent().getExtras();
         senderUser.setText(extras.getString("Sender"));
         sendR.execute("Image", senderUser.getText().toString());
@@ -68,6 +78,11 @@ public class ReviewsActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        BackgroundReviewHelper sendL = new BackgroundReviewHelper();
+        sendL.execute("list", senderUser.getText().toString());
+
     }
 
     public void init(){
@@ -76,11 +91,14 @@ public class ReviewsActivity extends AppCompatActivity {
         ratingUser = findViewById(R.id.textView7);
         msg = findViewById(R.id.reviewMsg);
         submitReview = findViewById(R.id.sendReview);
+        prodList = findViewById(R.id.recyclerView);
+        reviewList = new ArrayList();
 
     }
 
     class BackgroundReviewHelper extends AsyncTask<String,  Void, String>{
 
+        String[] parsedResp;
         Bitmap temp;
 
         @Override
@@ -142,6 +160,36 @@ public class ReviewsActivity extends AppCompatActivity {
 
                 return "Review Sent";
             }
+            else if(type.equals("list")){
+                @SuppressLint("WrongThread") String name = senderUser.getText().toString();
+                String response = "";
+                try{
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getReviews.php?un=" + name);
+
+
+                    HttpURLConnection httpCon;
+                    httpCon = (HttpURLConnection) url.openConnection();
+                    httpCon.setRequestMethod("GET");
+
+                    InputStream inStr = httpCon.getInputStream();
+                    BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                    String line = "";
+                    while((line = buffR.readLine()) != null){
+                        response += line;
+                    }
+                    buffR.close();
+                    inStr.close();
+                    httpCon.disconnect();
+                    parsedResp = response.split("\\*");
+                } catch (ProtocolException e) {
+                    e.printStackTrace();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return "Reviews Recieved";
+            }
             return "error";
         }
 
@@ -158,7 +206,26 @@ public class ReviewsActivity extends AppCompatActivity {
                 Toast good = Toast.makeText(getApplicationContext(), "Review Submitted", Toast.LENGTH_SHORT);
                 good.show();
                 finish();
+            }else if(s.equals("Reviews Recieved")){
+                if(parsedResp.length == 0)
+                {
+                    Toast noMsg = Toast.makeText(ReviewsActivity.this, "No Reviews made for this Seller", Toast.LENGTH_SHORT);
+                    noMsg.show();
+                }else{
+                    for (String message : parsedResp) {
+                        String[] msg = message.split("\\|"); //Split the string array by each "|"
+                        String reviewMessage = msg[1];    //Represents the reviewMessage from the user. Index 1 is the message
+                        reviewList.add(reviewMessage);    //Arraylist that stores all those values
+                    }
+
+                    prodList.setHasFixedSize(true);
+                    prodList.setLayoutManager(new LinearLayoutManager(ReviewsActivity.this));
+                    mAdapter = new ReviewsAdapter(reviewList);
+                    prodList.setAdapter(mAdapter);
+                    }
+                }
+
             }
         }
     }
-}
+
