@@ -39,7 +39,7 @@ public class ReviewsActivity extends AppCompatActivity {
     public ImageView senderPF;
     public TextView senderUser, ratingUser;
     public Button submitReview;
-    public EditText msg;
+    public EditText msg, rate;
 
     public ArrayList reviewList;
     public RecyclerView prodList;
@@ -74,7 +74,14 @@ public class ReviewsActivity extends AppCompatActivity {
                     incorrect.show();
                 }else{
                     BackgroundReviewHelper sendReview = new BackgroundReviewHelper();
-                    sendReview.execute("Send", MainActivity.storedUsername, senderUser.getText().toString(), msg.getText().toString());
+                    int checkNum = Integer.parseInt(rate.getText().toString());
+                    if(checkNum > 5 || checkNum <0){
+                        Toast error = Toast.makeText(ReviewsActivity.this, "ERROR: Rating can not be less than 0 or more than 5", Toast.LENGTH_SHORT);
+                        error.show();
+                    }else{
+                        sendReview.execute("Send", MainActivity.storedUsername, senderUser.getText().toString(), msg.getText().toString(), rate.getText().toString());
+
+                    }
                 }
             }
         });
@@ -90,6 +97,7 @@ public class ReviewsActivity extends AppCompatActivity {
         senderUser = findViewById(R.id.textView6);
         ratingUser = findViewById(R.id.textView7);
         msg = findViewById(R.id.reviewMsg);
+        rate = findViewById(R.id.editRating);
         submitReview = findViewById(R.id.sendReview);
         prodList = findViewById(R.id.recyclerView);
         reviewList = new ArrayList();
@@ -123,6 +131,7 @@ public class ReviewsActivity extends AppCompatActivity {
                     String sender = strings[1];
                     String recip = strings[2];
                     String msg = strings[3];
+                    String rate = strings[4];
                     URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/sendReview.php");
 
                     HttpURLConnection httpCon;
@@ -134,7 +143,9 @@ public class ReviewsActivity extends AppCompatActivity {
                     BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr,"UTF-8"));
                     String req = URLEncoder.encode("frm", "UTF-8") + "=" + URLEncoder.encode(sender, "UTF-8")
                             + "&" + URLEncoder.encode("to", "UTF-8") + "=" + URLEncoder.encode(recip, "UTF-8")
-                            + "&" + URLEncoder.encode("msg", "UTF-8") + "=" + URLEncoder.encode(msg, "UTF-8");
+                            + "&" + URLEncoder.encode("msg", "UTF-8") + "=" + URLEncoder.encode(msg, "UTF-8")
+                            + "&" + URLEncoder.encode("rate", "UTF-8") + "=" + URLEncoder.encode(rate, "UTF-8");
+
                     buffW.write(req);
                     buffW.flush();
                     buffW.close();

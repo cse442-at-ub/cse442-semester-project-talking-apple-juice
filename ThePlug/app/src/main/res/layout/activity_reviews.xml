@@ -41,11 +41,12 @@
         android:id="@+id/sendReview"
         android:layout_width="121dp"
         android:layout_height="61dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Submit Review"
-        app:layout_constraintBottom_toBottomOf="@+id/reviewMsg"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewMsg" />
 
     <TextView
         android:id="@+id/textView7"
@@ -64,8 +65,8 @@
 
     <EditText
         android:id="@+id/reviewMsg"
-        android:layout_width="258dp"
-        android:layout_height="63dp"
+        android:layout_width="225dp"
+        android:layout_height="61dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"
@@ -94,5 +95,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sellerPFP"
         app:layout_constraintVertical_bias="0.331" />
+
+    <EditText
+        android:id="@+id/editRating"
+        android:layout_width="146dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="Input Rating"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/reviewMsg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/reviewMsg"
+        app:layout_constraintTop_toTopOf="@+id/reviewMsg"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
