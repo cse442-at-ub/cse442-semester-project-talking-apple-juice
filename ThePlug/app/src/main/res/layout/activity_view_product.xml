@@ -16,6 +16,7 @@
         android:textColor="#FAFAFA"
         android:textSize="22sp"
         android:textStyle="normal|bold"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@+id/soldByText"
         app:layout_constraintTop_toBottomOf="@+id/productImg" />
 
