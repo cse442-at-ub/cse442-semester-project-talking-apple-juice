@@ -190,6 +190,15 @@ public class ViewProductActivity extends AppCompatActivity {
                 Price.setText("$" + parsedResp[2]);
                 Comment.setText(parsedResp[3]);
                 SellerUser.setText(parsedResp[4]);
+                //code to go to user's profile page
+                SellerUser.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(ViewProductActivity.this, OtherUserProfileActivity.class);
+                        intent.putExtra("Seller", parsedResp[4]);
+                        startActivity(intent);
+                    }
+                });
             }else if(s.equals("Comment Sent")){
                 finish();
                 startActivity(getIntent());
