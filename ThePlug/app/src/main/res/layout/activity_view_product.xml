@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/productImg"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="258dp"
+        android:layout_height="247dp"
         android:layout_marginTop="80dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,17 +79,17 @@
 
     <TextView
         android:id="@+id/itemNameTextView8"
-        android:layout_width="143dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_width="131dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="188dp"
+        android:layout_marginRight="188dp"
         android:textColor="?attr/textColor"
         android:textSize="25sp"
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toTopOf="@+id/productImg"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintVertical_bias="0.648" />
 
     <TextView
         android:id="@+id/soldByText"
@@ -180,4 +180,22 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/soldByUser"
         app:layout_constraintTop_toBottomOf="@+id/itemPriceTextView" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="80dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="24dp"
+        android:text="ToggleButton"
+        android:textOff="Active"
+        android:textOn="Sold"
+        app:layout_constraintBottom_toBottomOf="@+id/productImg"
+        app:layout_constraintEnd_toStartOf="@+id/itemNameTextView8"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
