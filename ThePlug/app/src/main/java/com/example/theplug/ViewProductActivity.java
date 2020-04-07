@@ -3,21 +3,26 @@ package com.example.theplug;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -47,6 +52,8 @@ public class ViewProductActivity extends AppCompatActivity {
     public Button contactSeller;
     public Button reviewSeller;
 
+    public ToggleButton soldToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,17 +68,7 @@ public class ViewProductActivity extends AppCompatActivity {
         Intent intent = getIntent();
         ID = intent.getStringExtra("ID");
 
-        ProductImg = findViewById(R.id.productImg);
-        Name = findViewById(R.id.itemNameTextView8);
-        Desc = findViewById(R.id.itemDescTextView7);
-        Price = findViewById(R.id.itemPriceTextView);
-        Comment = findViewById(R.id.itemCommentTextView);
-        SellerUser = findViewById(R.id.soldByUser);
-
-        commentData = findViewById(R.id.commentBox);
-        addComment = findViewById(R.id.addComButton);
-        contactSeller = findViewById(R.id.button2);
-        reviewSeller  = findViewById(R.id.buttonReview);
+        init();
 
         addComment.setOnClickListener(new View.OnClickListener()
         {
@@ -89,7 +86,73 @@ public class ViewProductActivity extends AppCompatActivity {
             }
         });
 
+
+     soldToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(soldToggle.getText().toString().equals("Active")){
+                    soldProd();
+                    soldToggle.setTextOn("Sold");
+                    soldToggle.setTextOff("Sold");
+                    Toast good = Toast.makeText(getApplicationContext(), "Item has been Sold", Toast.LENGTH_SHORT);
+                    good.show();
+
+                }else{
+                    deleteSoldProd();
+                    soldToggle.setTextOn("Active");
+                    soldToggle.setTextOff("Active");
+                    Toast good = Toast.makeText(getApplicationContext(), "Item is Active", Toast.LENGTH_SHORT);
+                    good.show();
+
+                }
+            }
+        });
         getData();
+    }
+
+    public void init(){
+        ProductImg = findViewById(R.id.productImg);
+        Name = findViewById(R.id.itemNameTextView8);
+        Desc = findViewById(R.id.itemDescTextView7);
+        Price = findViewById(R.id.itemPriceTextView);
+        Comment = findViewById(R.id.itemCommentTextView);
+        SellerUser = findViewById(R.id.soldByUser);
+
+        commentData = findViewById(R.id.commentBox);
+        addComment = findViewById(R.id.addComButton);
+        contactSeller = findViewById(R.id.button2);
+        reviewSeller  = findViewById(R.id.buttonReview);
+
+        soldToggle = findViewById(R.id.toggleButton);
+    }
+
+    public void soldProd(){
+        String name  = Name.getText().toString();
+        String price = Price.getText().toString();
+        String desc = Desc.getText().toString();
+        String com = Comment.getText().toString();
+        String id = ID;
+        String user = SellerUser.getText().toString();
+
+        BitmapDrawable imgView = (BitmapDrawable) ProductImg.getDrawable();
+        Bitmap itemImg = imgView.getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        itemImg.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String img = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
+
+        new TransactionsActivity.productSold().execute("sold", name, price, desc, id, img, com, user);
+
+
+
+
+    }
+
+    public void deleteSoldProd(){
+        String name = Name.getText().toString();
+        NewProductActivity npa = new NewProductActivity(ViewProductActivity.this);
+        npa.execute("sold", name);
+
     }
 
     public void getData(){
