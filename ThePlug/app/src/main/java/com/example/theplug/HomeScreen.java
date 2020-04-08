@@ -17,7 +17,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -33,17 +36,14 @@ import java.util.ArrayList;
 
 public class HomeScreen extends AppCompatActivity {
 
-    public ImageView bid1;
-    public ImageView bid2;
-    public ImageView sale1;
-    public ImageView sale2;
+    public ImageView bid1, bid2;
+    public ImageView sale1, sale2;
     public int imageIndex = 0;
     public int[] recentIDs = {0,0,0,0};
     public Bitmap temp = null;
 
-    public ArrayList prodList;
-    public RecyclerView prodSearch;
-    public RecyclerView.Adapter mAdapter;
+    public TextView searchProd;
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -58,24 +58,30 @@ public class HomeScreen extends AppCompatActivity {
         //REQUEST 4 PRODUCTS FROM DATABASE, RECENT 2 OF SALEBID 1 AND RECENT 2 OF SALEBID 0
         setContentView(R.layout.activity_home_screen);
 
+        init();
+
+        getProduct();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+    }
+
+    public void init(){
+        searchProd  = findViewById(R.id.searchV);
+
         //for now, the 4 products will just be the most recent posts by ID.
         bid1 = findViewById(R.id.bid1);
         bid2 = findViewById(R.id.bid2);
         sale1 = findViewById(R.id.sale1);
         sale2 = findViewById(R.id.sale2);
 
-        //to implement seach function
-        prodList = new ArrayList(); // arraylist of products
-        prodSearch = findViewById(R.id.searchPR); //the recyclerview of the product  to search through
-
-        searchProdInfo test = new searchProdInfo();
-        test.execute("prod");
-
-        getProduct();
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
     }
+    public void gotoSearch(View view){
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
+    }
+
 
     private void getProduct(){
         //STEP 1: GET LATEST ID
@@ -209,72 +215,6 @@ public class HomeScreen extends AppCompatActivity {
         get.execute("ID");
     }
 
-    class searchProdInfo extends AsyncTask<String, Void, String>{
-
-            String[] parsedResp;
-
-            @Override
-            protected String doInBackground(String... strings) {
-                String type = strings[0];
-                if(type.equals("prod")){
-                    String response = "";
-
-                    try {
-                        URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getQueryProd.php");
-
-                        HttpURLConnection httpCon;
-                        httpCon = (HttpURLConnection) url.openConnection();
-                        httpCon.setRequestMethod("GET");
-
-                        InputStream inStr = httpCon.getInputStream();
-                        BufferedReader buffr = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
-                        String line = "";
-                        while((line = buffr.readLine()) != null){
-                             response += line;
-                        }
-                        buffr.close();
-                        inStr.close();
-                        httpCon.disconnect();
-                        parsedResp = response.split("\\*");
-
-                    } catch (MalformedURLException e) {
-                        e.printStackTrace();
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    } catch (ProtocolException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    return "Products Recieved";
-                }
-                return "error";
-            }
-
-            @Override
-            protected  void onPostExecute(String s){
-                super.onPostExecute(s);
-                if(s.equals("Products Recieved")){
-//                    if(parsedResp.length == 0)
-//                    {
-//                        Toast noProd = Toast.makeText(HomeScreen.this, "No Products Avaible", Toast.LENGTH_SHORT);
-//                        noProd.show();
-//                    }else{
-                        for(String product: parsedResp){
-                            String[] prod = product.split("\\|");
-                            String prodName = prod[1];
-                            prodList.add(prodName);
-                        }
-
-                        prodSearch.setHasFixedSize(true);
-                        prodSearch.setLayoutManager(new LinearLayoutManager(HomeScreen.this));
-                        mAdapter = new HomeScreenAdapter(prodList);
-                        prodSearch.setAdapter(mAdapter);
-
-
-                }
-            }
-        }
 
 
     @Override

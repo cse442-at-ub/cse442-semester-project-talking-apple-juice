@@ -3,24 +3,28 @@ package com.example.theplug;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
-class HomeScreenAdapter extends RecyclerView.Adapter<HomeScreenAdapter.ViewHolder> {
+public class HomeScreenAdapter extends RecyclerView.Adapter<HomeScreenAdapter.ViewHolder> implements Filterable {
 
     private ArrayList itemList;
+    private ArrayList itemListFull;
 
-    public HomeScreenAdapter(ArrayList prodList) {
-        itemList = prodList;
+    HomeScreenAdapter(ArrayList prodList) {
+        this.itemList = prodList;
+        this.itemListFull = new ArrayList(itemList);
     }
 
-    @NonNull
     @Override
-    public HomeScreenAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HomeScreenAdapter.ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.productrow, parent, false);
         return new ViewHolder(view);
     }
@@ -31,13 +35,45 @@ class HomeScreenAdapter extends RecyclerView.Adapter<HomeScreenAdapter.ViewHolde
 
     }
 
-
     @Override
     public int getItemCount() {
         return itemList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+
+    public Filter getFilter() {
+        return searchFilter;
+    }
+
+    public Filter searchFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList filteredList = new ArrayList();
+            if(constraint.toString().isEmpty()){
+                filteredList.addAll(itemListFull);
+            }else{
+                for(Object item : itemListFull){
+                    if(item.toString().toLowerCase().contains(constraint.toString().toLowerCase())){
+                        filteredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredList;
+
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+                itemList.clear();
+                itemList.addAll((Collection) results.values);
+                notifyDataSetChanged();
+        }
+    };
+
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView insertData;
 
