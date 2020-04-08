@@ -4,6 +4,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -15,7 +17,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,16 +32,18 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class HomeScreen extends AppCompatActivity {
 
-    public ImageView bid1;
-    public ImageView bid2;
-    public ImageView sale1;
-    public ImageView sale2;
+    public ImageView bid1, bid2;
+    public ImageView sale1, sale2;
     public int imageIndex = 0;
     public int[] recentIDs = {0,0,0,0};
     public Bitmap temp = null;
+
+    public TextView searchProd;
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -50,17 +58,30 @@ public class HomeScreen extends AppCompatActivity {
         //REQUEST 4 PRODUCTS FROM DATABASE, RECENT 2 OF SALEBID 1 AND RECENT 2 OF SALEBID 0
         setContentView(R.layout.activity_home_screen);
 
+        init();
+
+        getProduct();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+    }
+
+    public void init(){
+        searchProd  = findViewById(R.id.searchV);
+
         //for now, the 4 products will just be the most recent posts by ID.
         bid1 = findViewById(R.id.bid1);
         bid2 = findViewById(R.id.bid2);
         sale1 = findViewById(R.id.sale1);
         sale2 = findViewById(R.id.sale2);
 
-        getProduct();
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
     }
+    public void gotoSearch(View view){
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
+    }
+
 
     private void getProduct(){
         //STEP 1: GET LATEST ID
@@ -130,11 +151,8 @@ public class HomeScreen extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
-                }else{
-
                 }
             }
-
             @Override
             protected String doInBackground(String... strings) {
                 String type = strings[0];
@@ -197,6 +215,8 @@ public class HomeScreen extends AppCompatActivity {
         get.execute("ID");
     }
 
+
+
     @Override
     public void onRestart()
     {
@@ -245,4 +265,6 @@ public class HomeScreen extends AppCompatActivity {
         }
         return false;
     }
+
+
 }
