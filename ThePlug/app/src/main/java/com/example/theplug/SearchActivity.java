@@ -119,9 +119,10 @@ public class SearchActivity extends AppCompatActivity {
             if (s.equals("Products Recieved")) {
                     for (String product : parsedResp) {
                         String[] prod = product.split("\\|");
-                            String prodName = prod[1];
-                            productList.add(prodName);
-
+                        if(prod[0].equals("0")){
+                        }else {
+                            productList.add(prod[1]);
+                        }
                     }
 
                     searchRec.setHasFixedSize(true);
