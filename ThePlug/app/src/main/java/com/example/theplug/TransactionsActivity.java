@@ -27,6 +27,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TransactionsActivity extends AppCompatActivity {
 
@@ -209,16 +210,19 @@ public class TransactionsActivity extends AppCompatActivity {
                soldList = new ArrayList();
 
                for (String message : parsedResp) {
+                   try{
                    String[] msg = message.split("\\|"); //Split the string array by each "|"
-                   String reviewMessage = msg[1];    //Represents the reviewMessage from the user. Index 1 is the message
-                   soldList.add(reviewMessage);    //Arraylist that stores all those values
+                       String reviewMessage = msg[1];    //Represents the reviewMessage from the user. Index 1 is the message
+                       soldList.add(reviewMessage);    //Arraylist that stores all those values
+                   }catch(ArrayIndexOutOfBoundsException e){
+
+                   }
                }
 
                prodList.setHasFixedSize(true);
                prodList.setLayoutManager(new LinearLayoutManager(new TransactionsActivity()));
                mAdapter = new ViewProductAdapter(soldList);
                prodList.setAdapter(mAdapter);
-
 
            }
            }
