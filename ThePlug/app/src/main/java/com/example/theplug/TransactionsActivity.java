@@ -210,13 +210,9 @@ public class TransactionsActivity extends AppCompatActivity {
                soldList = new ArrayList();
 
                for (String message : parsedResp) {
-                   try{
                    String[] msg = message.split("\\|"); //Split the string array by each "|"
-                       String reviewMessage = msg[1];    //Represents the reviewMessage from the user. Index 1 is the message
-                       soldList.add(reviewMessage);    //Arraylist that stores all those values
-                   }catch(ArrayIndexOutOfBoundsException e){
-
-                   }
+                   String reviewMessage = msg[1];    //Represents the reviewMessage from the user. Index 1 is the message
+                   soldList.add(reviewMessage);    //Arraylist that stores all those values
                }
 
                prodList.setHasFixedSize(true);
@@ -224,9 +220,9 @@ public class TransactionsActivity extends AppCompatActivity {
                mAdapter = new ViewProductAdapter(soldList);
                prodList.setAdapter(mAdapter);
 
+                }
            }
            }
-       }
 
    }
 
