@@ -50,10 +50,11 @@ public class ViewProductActivity extends AppCompatActivity {
     public EditText commentData;
     public Button addComment;
     public Button contactSeller;
-    public Button reviewSeller;
+
 
     public ToggleButton soldToggle;
 
+    public static String sellUSER;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +109,8 @@ public class ViewProductActivity extends AppCompatActivity {
             }
         });
         getData();
+
+
     }
 
     public void init(){
@@ -121,7 +124,7 @@ public class ViewProductActivity extends AppCompatActivity {
         commentData = findViewById(R.id.commentBox);
         addComment = findViewById(R.id.addComButton);
         contactSeller = findViewById(R.id.button2);
-        reviewSeller  = findViewById(R.id.buttonReview);
+
 
         soldToggle = findViewById(R.id.toggleButton);
     }
@@ -262,6 +265,8 @@ public class ViewProductActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+
+                sellUSER = SellerUser.getText().toString();
             }else if(s.equals("Comment Sent")){
                 finish();
                 startActivity(getIntent());
@@ -277,14 +282,7 @@ public class ViewProductActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-                reviewSeller.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(ViewProductActivity.this, ReviewsActivity.class);
-                        intent.putExtra("Sender", SellerUser.getText().toString());
-                        startActivity(intent);
-                    }
-                });
+
 
             }else {
                 super.onPostExecute(s);

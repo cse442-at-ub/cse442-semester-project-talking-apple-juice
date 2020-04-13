@@ -1,12 +1,10 @@
 package com.example.theplug;
 
-
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,20 +24,19 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+
 import static com.example.theplug.MainActivity.storedUsername;
 
-
-public class ReviewsActivity extends AppCompatActivity {
+public class ReviewsBuyerActivity extends AppCompatActivity {
 
     public ImageView senderPF;
-    public TextView senderUser, ratingUser;
+    public TextView senderUser, rateUser;
     public Button submitReview;
     public EditText msg, rate;
 
@@ -56,11 +53,11 @@ public class ReviewsActivity extends AppCompatActivity {
         }else{
             setTheme(R.style.darkTheme);
         }
-        setContentView(R.layout.activity_reviews);
+        setContentView(R.layout.activity_reviews_buyer);
 
         init();
 
-        final BackgroundReviewHelper sendR = new BackgroundReviewHelper();
+        final BackgroundReviewBuyerHelper sendR = new BackgroundReviewBuyerHelper();
         final Bundle extras = getIntent().getExtras();
         senderUser.setText(extras.getString("Sender"));
         sendR.execute("Image", senderUser.getText().toString());
@@ -75,15 +72,16 @@ public class ReviewsActivity extends AppCompatActivity {
                     Toast incorrect = Toast.makeText(getApplicationContext(), "Rating must be a number 0-5.", Toast.LENGTH_SHORT);
                     incorrect.show();
                 }
-                else if(cd.equals(null) || cd.trim().equals(""))
-                {
-                    Toast incorrect = Toast.makeText(getApplicationContext(), "Can't leave an empty review!", Toast.LENGTH_SHORT);
-                    incorrect.show();
-                }else{
-                    BackgroundReviewHelper sendReview = new BackgroundReviewHelper();
+//                else if(cd.equals(null) || cd.trim().equals(""))
+//                {
+//                    Toast incorrect = Toast.makeText(getApplicationContext(), "Can't leave an empty review!", Toast.LENGTH_SHORT);
+//                    incorrect.show();
+//                }
+                else{
+                    BackgroundReviewBuyerHelper sendReview = new BackgroundReviewBuyerHelper();
                     int checkNum = Integer.parseInt(rate.getText().toString());
                     if(checkNum > 5 || checkNum < 0){
-                        Toast error = Toast.makeText(ReviewsActivity.this, "ERROR: Rating can not be less than 0 or more than 5", Toast.LENGTH_SHORT);
+                        Toast error = Toast.makeText(ReviewsBuyerActivity.this, "ERROR: Rating can not be less than 0 or more than 5", Toast.LENGTH_SHORT);
                         error.show();
                     }else{
                         String sender = senderUser.getText().toString();
@@ -92,7 +90,7 @@ public class ReviewsActivity extends AppCompatActivity {
                             Toast incorrect = Toast.makeText(getApplicationContext(), "Can't leave reviews on yourself", Toast.LENGTH_SHORT);
                             incorrect.show();
                         }else {
-                            sendReview.execute("Send", prodUser, sender, msg.getText().toString(), rate.getText().toString());
+                            sendReview.execute("Send", prodUser, sender, rate.getText().toString());
 
                         }
                     }
@@ -100,24 +98,26 @@ public class ReviewsActivity extends AppCompatActivity {
             }
         });
 
-        BackgroundReviewHelper sendL = new BackgroundReviewHelper();
-        sendL.execute("list", senderUser.getText().toString());
+
+        BackgroundReviewBuyerHelper sendL = new BackgroundReviewBuyerHelper();
+        sendL.execute("score", senderUser.getText().toString());
+      //  rateUser.setText("testing");
 
     }
 
     public void init(){
-        senderPF = findViewById(R.id.sellerPFP);
-        senderUser = findViewById(R.id.textView6);
-        ratingUser = findViewById(R.id.textView7);
-        msg = findViewById(R.id.reviewMsg);
-        rate = findViewById(R.id.editRating);
-        submitReview = findViewById(R.id.sendReview);
-        prodList = findViewById(R.id.recyclerView);
+        senderPF = findViewById(R.id.sellPFP);
+        senderUser = findViewById(R.id.tV6);
+        rateUser = findViewById(R.id.tV7);
+        msg = findViewById(R.id.reviewBuyerMsg);
+        rate = findViewById(R.id.editRatingBuyer);
+        submitReview = findViewById(R.id.sendReviewBuyer);
+        prodList = findViewById(R.id.rV);
         reviewList = new ArrayList();
 
     }
 
-    class BackgroundReviewHelper extends AsyncTask<String,  Void, String>{
+    class BackgroundReviewBuyerHelper extends AsyncTask<String,  Void, String> {
 
         String[] scoreList;
         String[] parsedResp;
@@ -140,13 +140,13 @@ public class ReviewsActivity extends AppCompatActivity {
 
                 temp = img;
                 return "Image Retrieved";
-            }else if(type.equals("Send")){
+            }else if(type.equals("Send")){  //copy and adjust php file so that it sends reviews for buyers
                 try{
                     String sender = strings[1];
                     String recip = strings[2];
-                    String msg = strings[3];
-                    String rate = strings[4];
-                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/sendReview.php");
+                   // String msg = strings[3];
+                    String rate = strings[3];
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/sendReviewBuyer.php");
 
                     HttpURLConnection httpCon;
                     httpCon = (HttpURLConnection) url.openConnection();
@@ -157,7 +157,7 @@ public class ReviewsActivity extends AppCompatActivity {
                     BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr,"UTF-8"));
                     String req = URLEncoder.encode("frm", "UTF-8") + "=" + URLEncoder.encode(sender, "UTF-8")
                             + "&" + URLEncoder.encode("to", "UTF-8") + "=" + URLEncoder.encode(recip, "UTF-8")
-                            + "&" + URLEncoder.encode("msg", "UTF-8") + "=" + URLEncoder.encode(msg, "UTF-8")
+                          //  + "&" + URLEncoder.encode("msg", "UTF-8") + "=" + URLEncoder.encode(msg, "UTF-8")
                             + "&" + URLEncoder.encode("rate", "UTF-8") + "=" + URLEncoder.encode(rate, "UTF-8");
                     buffW.write(req);
                     buffW.flush();
@@ -214,7 +214,7 @@ public class ReviewsActivity extends AppCompatActivity {
             }else if(type.equals("score")) {
                 String response = "";
                 try{
-                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getUserReviewScores.php?un=" +strings[1]);
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getUserReviewBuyerScores.php?un=" +strings[1]);
 
                     HttpURLConnection httpCon;
                     httpCon = (HttpURLConnection) url.openConnection();
@@ -237,7 +237,7 @@ public class ReviewsActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                return "Scores Received";
+                return "Scores Recieved";
             }
             return "error";
         }
@@ -257,13 +257,12 @@ public class ReviewsActivity extends AppCompatActivity {
                 good.show();
                 finish();
             }
-            else if(s.equals("Reviews Recieved")){
-                if(parsedResp.length == 0)
-                {
-                    Toast noMsg = Toast.makeText(ReviewsActivity.this, "No Reviews made for this Seller", Toast.LENGTH_SHORT);
+            else if(s.equals("Reviews Recieved")) {
+                if (parsedResp.length == 0) {
+                    Toast noMsg = Toast.makeText(ReviewsBuyerActivity.this, "No Reviews made for this Seller", Toast.LENGTH_SHORT);
                     noMsg.show();
-                }else{
-                    BackgroundReviewHelper getScore = new BackgroundReviewHelper();
+                } else {
+                    BackgroundReviewBuyerHelper getScore = new BackgroundReviewBuyerHelper();
                     getScore.execute("score", senderUser.getText().toString());
 
                     for (String message : parsedResp) {
@@ -273,14 +272,14 @@ public class ReviewsActivity extends AppCompatActivity {
                     }
 
                     prodList.setHasFixedSize(true);
-                    prodList.setLayoutManager(new LinearLayoutManager(ReviewsActivity.this));
+                    prodList.setLayoutManager(new LinearLayoutManager(ReviewsBuyerActivity.this));
                     mAdapter = new ReviewsAdapter(reviewList);
                     prodList.setAdapter(mAdapter);
-                    }
-                }else if(s.equals("Scores Received")){
+                }
+
+                }else if (s.equals("Scores Recieved")) {
                     float scoreAvg = 0;
-                    for(String score : scoreList)
-                    {
+                    for (String score : scoreList) {
                         if(!score.equals("")){
                             scoreAvg = scoreAvg + Integer.parseInt(score);
                         }else{
@@ -288,10 +287,9 @@ public class ReviewsActivity extends AppCompatActivity {
                         }
                     }
                     scoreAvg = (scoreAvg / scoreList.length);
-                    ratingUser.setText("Avg. Rating: " +Float.toString(scoreAvg));
-            }
+                    rateUser.setText("Avg. Rating: " + Float.toString(scoreAvg));
 
             }
         }
     }
-
+}
