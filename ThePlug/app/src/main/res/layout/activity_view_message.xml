@@ -19,29 +19,6 @@
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
-        android:id="@+id/msgTitle"
-        android:layout_width="130dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textColor="?attr/textColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SenderProfile" />
-
-    <TextView
-        android:id="@+id/msgBody"
-        android:layout_width="302dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textColor="?attr/textColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/msgTitle" />
-
-    <TextView
         android:id="@+id/SenderUser"
         android:layout_width="121dp"
         android:layout_height="67dp"
@@ -77,4 +54,19 @@
         app:layout_constraintBottom_toTopOf="@+id/replyButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messageHistory"
+        android:layout_width="345dp"
+        android:layout_height="274dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/replyBody"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SenderProfile" />
 </androidx.constraintlayout.widget.ConstraintLayout>
