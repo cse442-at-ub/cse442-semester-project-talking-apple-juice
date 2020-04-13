@@ -50,9 +50,6 @@ public class TransactionsActivity extends AppCompatActivity {
         prodList = findViewById(R.id.soldRecycler);
 
         new productSold().execute("soldList");
-
-
-
     }
 
     @Override
@@ -219,12 +216,11 @@ public class TransactionsActivity extends AppCompatActivity {
                mAdapter = new ViewProductAdapter(soldList);
                prodList.setAdapter(mAdapter);
 
-
-           }
+                }
            }
        }
 
-   }
+}
 
 
 
