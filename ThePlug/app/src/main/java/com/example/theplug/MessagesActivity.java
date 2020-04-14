@@ -42,15 +42,6 @@ import java.util.ArrayList;
 public class MessagesActivity extends AppCompatActivity implements MessageListAdapter.ItemClickListener{
 
     //initialize our inbox elements
-    public Button msg1;
-    public ImageView pfp1;
-    public TextView sender1;
-    public String storedBody1;
-
-    public Button msg2;
-    public ImageView pfp2;
-    public TextView sender2;
-    public String storedBody2;
 
     public RecyclerView msgList;
     public MessageListAdapter recAdapter;
