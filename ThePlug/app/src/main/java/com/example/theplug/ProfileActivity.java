@@ -212,7 +212,7 @@ public class ProfileActivity extends AppCompatActivity {
             } else if (type.equals("updatePW")) {
                 try {
                     String newPW = strings[1];
-                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/changePassword.php");
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/changePasswordSEC.php");
                     HttpURLConnection httpCon;
                     httpCon = (HttpURLConnection) url.openConnection();
                     httpCon.setRequestMethod("POST");
@@ -252,7 +252,7 @@ public class ProfileActivity extends AppCompatActivity {
             } else if (type.equals("updateUN")) {
                 try {
                     String newUN = strings[1];
-                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/changeUsername.php");
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/changeUsernameSEC.php");
                     HttpURLConnection httpCon;
                     httpCon = (HttpURLConnection) url.openConnection();
                     httpCon.setRequestMethod("POST");

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -47,9 +48,16 @@ public class SignUpActivity extends AppCompatActivity {
         String email = inputEmail.getText().toString();
         String pass = inputPass.getText().toString();
 
-        BackgroundActivity bga = new BackgroundActivity(this);
-        bga.execute("signup", email, pass, firstName, lastName);
-        finish();
+        if(firstName.contains("|") || firstName.contains("*") || lastName.contains("|") || lastName.contains("*")
+            || email.contains("|") || email.contains("*"))
+        {
+            Toast err = Toast.makeText(getApplicationContext(), "Names cannot contain illegal characters '|' or '*'", Toast.LENGTH_SHORT);
+            err.show();
+        }else {
+            BackgroundActivity bga = new BackgroundActivity(this);
+            bga.execute("signup", email, pass, firstName, lastName);
+            finish();
+        }
     }
 
 }

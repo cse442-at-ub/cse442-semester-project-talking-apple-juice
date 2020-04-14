@@ -140,7 +140,6 @@ public class MessagesActivity extends AppCompatActivity implements MessageListAd
                         httpCon.setRequestMethod("GET");
 
                         //read the response from the script, which will be EACH SENDER WITH THEIR MOST RECENT TIME separated by a '*' character. EACH USER/TIME COMBO SEPARATED BY "|"
-                        //TODO: prevent users from sending messages OR creating usernames containing '|' or '*' characters. EASY
                         InputStream inStr = httpCon.getInputStream();
                         BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
                         String line = ""; //build our response with the bufferedreader.

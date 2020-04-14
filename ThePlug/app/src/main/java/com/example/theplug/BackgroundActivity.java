@@ -32,8 +32,8 @@ public class BackgroundActivity extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
-        String loginScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/login.php";
-        String signupScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/signup.php";
+        String loginScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/loginSEC.php";
+        String signupScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/signupSEC.php";
         String profileScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/profilePicture.php";
         String check = params[0];
         if(check.equals("login"))
