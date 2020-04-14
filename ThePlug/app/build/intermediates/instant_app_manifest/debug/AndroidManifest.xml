@@ -152,20 +152,20 @@
                 android:value=".HomeScreen" />
         </activity>
         <activity
-            android:name="com.example.theplug.ReviewsBuyerActivity"
+            android:name="com.example.theplug.SearchActivity"
             android:theme="@style/Theme.AppCompat.Light" >
-
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeScreen" />
         </activity>
         <activity
-            android:name="com.example.theplug.SearchActivity"
+            android:name="com.example.theplug.ReviewsBuyerActivity"
             android:theme="@style/Theme.AppCompat.Light" >
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

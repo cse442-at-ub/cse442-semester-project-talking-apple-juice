@@ -1,5 +1,6 @@
 package com.example.theplug;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -38,18 +39,13 @@ import java.net.URLEncoder;
 public class ViewProductActivity extends AppCompatActivity {
 
     public ImageView ProductImg;
-    public TextView Name;
-    public TextView Desc;
-    public TextView Price;
-    public TextView Comment;
-    public TextView SellerUser;
+    public TextView Name , Desc, Price, Comment, SellerUser, statusTV;
     public String ID = "";
     public String[] parsedResp;
     public Bitmap temp = null;
 
     public EditText commentData;
-    public Button addComment;
-    public Button contactSeller;
+    public Button addComment, contactSeller, status;
 
 
     public ToggleButton soldToggle;
@@ -87,27 +83,39 @@ public class ViewProductActivity extends AppCompatActivity {
             }
         });
 
-
-     soldToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        status.setOnClickListener(new View.OnClickListener()
+        {
+            @SuppressLint("SetTextI18n")
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(soldToggle.getText().toString().equals("Active")){
-                    soldProd();
-                    soldToggle.setTextOn("Sold");
-                    soldToggle.setTextOff("Sold");
-                    Toast good = Toast.makeText(getApplicationContext(), "Item has been Sold", Toast.LENGTH_SHORT);
-                    good.show();
-
-                }else{
-                    deleteSoldProd();
-                    soldToggle.setTextOn("Active");
-                    soldToggle.setTextOff("Active");
-                    Toast good = Toast.makeText(getApplicationContext(), "Item is Active", Toast.LENGTH_SHORT);
-                    good.show();
-
+            public void onClick(View v) {
+                if(!status.getText().toString().equals("Sold")){
+                    if(sellUSER.equals(MainActivity.storedUsername)){
+                        status.setText("Sold");
+                        new GetProductData().execute("Status", ID, status.getText().toString());
+                        soldProd();
+                        //statusTV.setText("Sold");
+                        Toast good = Toast.makeText(getApplicationContext(), "Item has been Sold", Toast.LENGTH_SHORT);
+                        good.show();
+                    }else{
+                        Toast good = Toast.makeText(getApplicationContext(), "You are not the Origial Owner", Toast.LENGTH_SHORT);
+                        good.show();
+                    }
+                }else{ //status is "Active"
+                    if(sellUSER.equals(MainActivity.storedUsername)){
+                        status.setText("Active");
+                        new GetProductData().execute("Status", ID, status.getText().toString());
+                        deleteSoldProd();
+                       // statusTV.setText("Available");
+                        Toast good = Toast.makeText(getApplicationContext(), "Item is Available", Toast.LENGTH_SHORT);
+                        good.show();
+                    }else{
+                        Toast good = Toast.makeText(getApplicationContext(), "You are not the Original Owner", Toast.LENGTH_SHORT);
+                        good.show();
+                    }
                 }
             }
         });
+
         getData();
 
 
@@ -125,8 +133,8 @@ public class ViewProductActivity extends AppCompatActivity {
         addComment = findViewById(R.id.addComButton);
         contactSeller = findViewById(R.id.button2);
 
+        status = findViewById(R.id.statusButton);
 
-        soldToggle = findViewById(R.id.toggleButton);
     }
 
     public void soldProd(){
@@ -138,11 +146,17 @@ public class ViewProductActivity extends AppCompatActivity {
         String user = SellerUser.getText().toString();
 
         BitmapDrawable imgView = (BitmapDrawable) ProductImg.getDrawable();
-        Bitmap itemImg = imgView.getBitmap();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        itemImg.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-        String img = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
+        String img = "";
+        try{
+            Bitmap itemImg = imgView.getBitmap();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            itemImg.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byte[] imageBytes = baos.toByteArray();
+            img = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         new TransactionsActivity.productSold().execute("sold", name, price, desc, id, img, com, user);
 
@@ -241,7 +255,42 @@ public class ViewProductActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 return "Comment Sent";
-            }else{
+            } else if(type.equals("Status")){
+                try {
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/leaveStatus.php");
+                    HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+                    httpCon.setRequestMethod("POST");
+                    httpCon.setDoOutput(true);
+                    httpCon.setDoInput(true);
+                    OutputStream outStr = httpCon.getOutputStream();
+                    BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
+                    String req = URLEncoder.encode("id","UTF-8") + "=" +URLEncoder.encode(strings[1], "UTF-8")
+                            +"&" +URLEncoder.encode("com","UTF-8") + "=" +URLEncoder.encode(strings[2], "UTF-8");
+                    buffW.write(req);
+                    buffW.flush();
+                    buffW.close();
+                    outStr.close();
+
+                    InputStream inStr = httpCon.getInputStream();
+                    BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                    String result = "";
+                    String line = "";
+                    while((line = buffR.readLine()) != null)
+                    {
+                        result += line;
+                    }
+                    buffR.close();
+                    inStr.close();
+                    httpCon.disconnect();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return "Status Sent";
+
+            }
+            else{
                 return "error";
             }
         }
@@ -256,6 +305,11 @@ public class ViewProductActivity extends AppCompatActivity {
                 Price.setText("$" + parsedResp[2]);
                 Comment.setText(parsedResp[3]);
                 SellerUser.setText(parsedResp[4]);
+                try{
+                    status.setText(parsedResp[5]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 //code to go to user's profile page
                 SellerUser.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -284,7 +338,11 @@ public class ViewProductActivity extends AppCompatActivity {
                 });
 
 
-            }else {
+            }else if(s.equals("Status Sent")){
+                finish();
+                startActivity(getIntent());
+            }
+            else {
                 super.onPostExecute(s);
             }
         }
