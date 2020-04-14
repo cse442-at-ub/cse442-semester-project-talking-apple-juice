@@ -88,6 +88,9 @@ public class ViewMessagesActivity extends AppCompatActivity {
                 }else if(msgContent.length() > 198) {
                     Toast err = Toast.makeText(getApplicationContext(), "Message is too long. Max 198 chars.", Toast.LENGTH_SHORT);
                     err.show();
+                }else if(MainActivity.storedUsername.equals(extras.getString("Sender"))) {
+                    Toast err = Toast.makeText(getApplicationContext(), "Can't send a message to yourself!", Toast.LENGTH_SHORT);
+                    err.show();
                 }else{
                     BackgroundMessagerHelper bgms = new BackgroundMessagerHelper(); //new asynctask inner class instance to send the message
                     //execute it with passed parameters: "Send", app user's username, recipient user, pre-generated title of message, message response body text
