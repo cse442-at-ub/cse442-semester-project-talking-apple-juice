@@ -107,7 +107,7 @@ public class TransactionsActivity extends AppCompatActivity {
        @Override
        protected String doInBackground(String... params) {
            String check = params[0];
-           String soldProdScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/uploadSoldProd.php";
+           String soldProdScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/uploadSoldProdSEC.php";
            String getSoldProdScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getSoldProd.php";
            if (check.equals("sold")) {
                try {

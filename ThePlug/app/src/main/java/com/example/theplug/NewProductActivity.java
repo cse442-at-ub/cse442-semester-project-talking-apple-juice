@@ -33,9 +33,9 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
-        String deleteScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/deleteProduct.php";
-        String uploadScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/uploadProdInfo.php";
-        String soldProdScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/deleteSold.php";
+        String deleteScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/deleteProductSEC.php";
+        String uploadScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/uploadProdInfoSEC.php";
+        String soldProdScript = "https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/deleteSoldSEC.php";
         String check = params[0];
         if(check.equals("upload"))
         {

@@ -72,7 +72,7 @@ public class ReviewsActivity extends AppCompatActivity {
                 String cd = msg.getText().toString();
                 String rateInput = rate.getText().toString();
                 if(!rateInput.equals("1") && !rateInput.equals("2") && !rateInput.equals("3") && !rateInput.equals("4") && !rateInput.equals("5") && !rateInput.equals("0") ){
-                    Toast incorrect = Toast.makeText(getApplicationContext(), "Rating must be a number 0-5.", Toast.LENGTH_SHORT);
+                    Toast incorrect = Toast.makeText(getApplicationContext(), "Rating must be a whole number 0-5.", Toast.LENGTH_SHORT);
                     incorrect.show();
                 }
                 else if(cd.equals(null) || cd.trim().equals(""))
@@ -146,7 +146,7 @@ public class ReviewsActivity extends AppCompatActivity {
                     String recip = strings[2];
                     String msg = strings[3];
                     String rate = strings[4];
-                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/sendReview.php");
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/sendReviewSEC.php");
 
                     HttpURLConnection httpCon;
                     httpCon = (HttpURLConnection) url.openConnection();
