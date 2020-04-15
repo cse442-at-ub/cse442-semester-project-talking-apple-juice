@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "58743518659",
+    "firebase_url": "https://theplug-141b3.firebaseio.com",
+    "project_id": "theplug-141b3",
+    "storage_bucket": "theplug-141b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58743518659:android:0fcc00d6b93bc811797976",
+        "android_client_info": {
+          "package_name": "com.example.theplug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58743518659-vlru88ltjs4eit7ekig3fmtns49ajblh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.theplug",
+            "certificate_hash": "d19ef3676b8a25f047945ced6539a92fa35f2c43"
+          }
+        },
+        {
+          "client_id": "58743518659-n41a9phnkfik0foihat0j5gutgbpd3bb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmE8PiJWL8nNeErHB3aMd1dZft59jBhsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "58743518659-n41a9phnkfik0foihat0j5gutgbpd3bb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

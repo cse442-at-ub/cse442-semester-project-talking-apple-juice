@@ -2,23 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.theplug">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"> <!-- removes the default toolbar -->
         <activity android:name=".HomeScreen"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+           >
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity android:name=".MainActivity"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"> <!-- removes the toolbar on the main page(Login page)-->
+                 > <!-- removes the toolbar on the main page(Login page)-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,19 +29,120 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfileActivity"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".HomeScreen"
             android:theme="@style/Theme.AppCompat.Light">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".HomeScreen" />
         </activity>
         <activity android:name=".SettingsActivity"
             android:theme="@style/Theme.AppCompat.Light">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".HomeScreen" />
+        </activity>
+        <activity android:name=".MessagesActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+        <activity android:name=".TransactionsActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+        <activity android:name=".NewSaleActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+        <activity android:name=".ForgotPasswordActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+        <activity android:name=".ForgotUsernameActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+        <activity android:name=".SignUpActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+
+        <activity android:name=".ProfilePicChangeActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+
+        <activity android:name=".ViewProductActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+
+        <activity android:name=".ViewMessagesActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MessagesActivity" />
+        </activity>
+
+        <activity android:name=".ReviewsActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+
+        <activity android:name=".SearchActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+
+        <activity android:name=".ReviewsBuyerActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeScreen" />
+        </activity>
+
+        <activity android:name=".OtherUserProfileActivity"
+            android:theme="@style/Theme.AppCompat.Light">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewProductActivity" />
         </activity>
     </application>
 

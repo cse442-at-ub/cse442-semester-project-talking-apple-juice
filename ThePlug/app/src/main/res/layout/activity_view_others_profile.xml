@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/bgColor">
+
+    <Button
+        android:id="@+id/leaveSellerRating"
+        android:layout_width="136dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="gotToBuyerReview"
+        android:text="Rate as Seller"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/AvgRatingText"
+        app:layout_constraintTop_toBottomOf="@+id/otherUserProfile" />
+
+    <TextView
+        android:id="@+id/buyerRatingValue"
+        android:layout_width="192dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="203dp"
+        android:layout_marginRight="203dp"
+        android:gravity="center"
+        android:text="..."
+        android:textColor="?attr/textColor"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buyerRating"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/buyerRating"
+        android:layout_width="169dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="236dp"
+        android:gravity="center"
+        android:text="Consumer Rating"
+        android:textColor="?attr/textColor"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/otherUserProfile"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <ImageView
+        android:id="@+id/otherUserProfile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/deafulticon" />
+
+    <TextView
+        android:id="@+id/otherUsername"
+        android:layout_width="179dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="..."
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/otherUserProfile"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AvgRatingText"
+        android:layout_width="169dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Seller Rating"
+        android:textColor="?attr/textColor"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otherUserProfile" />
+
+    <TextView
+        android:id="@+id/otherUserAvgRating"
+        android:layout_width="192dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="..."
+        android:textColor="?attr/textColor"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AvgRatingText" />
+
+    <Button
+        android:id="@+id/leaveBuyerRating"
+        android:layout_width="141dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="116dp"
+        android:onClick="gotToBuyerReview"
+        android:text="Rate as Buyer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintStart_toEndOf="@+id/buyerRating"
+        app:layout_constraintTop_toBottomOf="@+id/otherUserAvgRating" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
