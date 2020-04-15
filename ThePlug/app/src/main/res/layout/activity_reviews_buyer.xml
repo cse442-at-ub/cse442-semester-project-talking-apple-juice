@@ -61,22 +61,22 @@
         app:layout_constraintStart_toEndOf="@+id/sellPFP"
         app:layout_constraintTop_toBottomOf="@+id/tV6" />
 
-    <EditText
-        android:id="@+id/reviewBuyerMsg"
-        android:layout_width="204dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:hint="Enter Review"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/sendReviewBuyer"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rV"
-        app:layout_constraintVertical_bias="0.253" />
+<!--    <EditText-->
+<!--        android:id="@+id/reviewBuyerMsg"-->
+<!--        android:layout_width="204dp"-->
+<!--        android:layout_height="61dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Enter Review"-->
+<!--        android:inputType="textPersonName"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/sendReviewBuyer"-->
+<!--        app:layout_constraintHorizontal_bias="0.06"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/rV"-->
+<!--        app:layout_constraintVertical_bias="0.253" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rV"
@@ -98,16 +98,15 @@
         android:id="@+id/editRatingBuyer"
         android:layout_width="133dp"
         android:layout_height="56dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginRight="136dp"
         android:ems="10"
         android:hint="Input Rating"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/reviewBuyerMsg"
+        app:layout_constraintBottom_toTopOf="@+id/sendReviewBuyer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/reviewBuyerMsg"
-        app:layout_constraintTop_toTopOf="@+id/reviewBuyerMsg"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/rV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

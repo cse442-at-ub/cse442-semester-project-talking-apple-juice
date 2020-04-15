@@ -66,7 +66,7 @@ public class ReviewsBuyerActivity extends AppCompatActivity {
         {
             @Override
             public void onClick(View v) {
-                String cd = msg.getText().toString();
+             //   String cd = msg.getText().toString();
                 String rateInput = rate.getText().toString();
                 if(!rateInput.equals("1") && !rateInput.equals("2") && !rateInput.equals("3") && !rateInput.equals("4") && !rateInput.equals("5") && !rateInput.equals("0") ){
                     Toast incorrect = Toast.makeText(getApplicationContext(), "Rating must be a number 0-5.", Toast.LENGTH_SHORT);
@@ -109,7 +109,7 @@ public class ReviewsBuyerActivity extends AppCompatActivity {
         senderPF = findViewById(R.id.sellPFP);
         senderUser = findViewById(R.id.tV6);
         rateUser = findViewById(R.id.tV7);
-        msg = findViewById(R.id.reviewBuyerMsg);
+       // msg = findViewById(R.id.reviewBuyerMsg);
         rate = findViewById(R.id.editRatingBuyer);
         submitReview = findViewById(R.id.sendReviewBuyer);
         prodList = findViewById(R.id.rV);

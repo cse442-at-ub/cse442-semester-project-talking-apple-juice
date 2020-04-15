@@ -211,8 +211,13 @@ public class TransactionsActivity extends AppCompatActivity {
 
                for (String message : parsedResp) {
                    String[] msg = message.split("\\|"); //Split the string array by each "|"
-                   String reviewMessage = msg[1];    //Represents the reviewMessage from the user. Index 1 is the message
-                   soldList.add(reviewMessage);    //Arraylist that stores all those values
+                   try{
+                       String reviewMessage = msg[1];    //Represents the reviewMessage from the user. Index 1 is the message
+                       soldList.add(reviewMessage);    //Arraylist that stores all those values
+                   } catch (Exception e) {
+                       e.printStackTrace();
+                   }
+
                }
 
                prodList.setHasFixedSize(true);
