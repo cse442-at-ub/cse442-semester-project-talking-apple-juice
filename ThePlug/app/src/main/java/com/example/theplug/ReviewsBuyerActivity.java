@@ -278,17 +278,18 @@ public class ReviewsBuyerActivity extends AppCompatActivity {
                 }
 
                 }else if (s.equals("Scores Recieved")) {
-                    float scoreAvg = 0;
+                float scoreAvg = 0;
+                if(scoreList[0].equals("nothing found")){
+                    rateUser.setText("No reviews yet.");
+                }else{
                     for (String score : scoreList) {
                         if(!score.equals("")){
-                            scoreAvg = scoreAvg + Integer.parseInt(score);
-                        }else{
-
+                            scoreAvg += Integer.parseInt(score);
                         }
                     }
                     scoreAvg = (scoreAvg / scoreList.length);
-                    rateUser.setText("Avg. Rating: " + Float.toString(scoreAvg));
-
+                    rateUser.setText(Float.toString(scoreAvg));
+                }
             }
         }
     }

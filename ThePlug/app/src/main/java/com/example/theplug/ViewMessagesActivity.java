@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -139,7 +140,7 @@ public class ViewMessagesActivity extends AppCompatActivity {
                     httpCon.setRequestMethod("GET");
 
                     //read the response from the script, which will be EACH SENDER WITH THEIR MOST RECENT TIME separated by a '*' character. EACH USER/TIME COMBO SEPARATED BY "|"
-                    //TODO: prevent users from creating usernames containing '|' or '*' characters. EASY
+
                     InputStream inStr = httpCon.getInputStream();
                     BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
                     String line = ""; //build our response with the bufferedreader.
@@ -222,22 +223,20 @@ public class ViewMessagesActivity extends AppCompatActivity {
                 //update recyclerview to show the messages
                 msgList = new ArrayList();
 
-                for (String message : parsedResp) {
-                    String[] contents = message.split("\\*");
-                    msgList.add("From: " +contents[3] +" at " +contents[1] +"\n" +contents[0]);    //Arraylist that stores all those values
+                if(parsedResp[0].equals(""))
+                {
+                    Toast suc = Toast.makeText(getApplicationContext(), "No messages yet.", Toast.LENGTH_SHORT);
+                    suc.show();
+                }else{
+                    for (String message : parsedResp) {
+                        String[] contents = message.split("\\*");
+                        msgList.add("From: " + contents[3] + " at " + contents[1] + "\n" + contents[0]);    //Arraylist that stores all those values
+                    }
+                    prevMsgs.setHasFixedSize(true);
+                    prevMsgs.setLayoutManager(new LinearLayoutManager(new TransactionsActivity()));
+                    prevMsgsAdapter = new ViewProductAdapter(msgList);
+                    prevMsgs.setAdapter(prevMsgsAdapter);
                 }
-                prevMsgs.setHasFixedSize(true);
-                prevMsgs.setLayoutManager(new LinearLayoutManager(new TransactionsActivity()));
-                prevMsgsAdapter = new ViewProductAdapter(msgList);
-                prevMsgs.setAdapter(prevMsgsAdapter);
-
-                //message sent successfully! let the user know, then FINISH THIS INSTANCE OF VIEWMESSAGESACTIVITY.
-               // Toast good = Toast.makeText(getApplicationContext(), "Message sent.", Toast.LENGTH_SHORT);
-                //good.show();
-                //finish();
-                //!!!CALLING FINISH WHEN YOU'RE DONE USING AN ACTIVITY, INSTEAD OF JUST MAKING A NEW INTENT, IS EXTREMELY IMPORTANT!!!
-                //MAKING AND GOING TO A NEW INTENT JUST STACKS A NEW ACTIVITY ON TOP OF WHATEVER ACTIVITIES EXIST BEFORE IT, IT DOES NOT CLOSE THE PREVIOUS ACTIVITY.
-                //FINISH CLOSES THE CURRENT ACTIVITY AND GOES BACK TO THE PREVIOUS ONE ON THE STACK. THIS MAKES THE APP FLOW BETTER, AND KEEPS IT RUNNING SMOOTHLY/AVOIDS CRASHES.
             }else if(s.equals("Sent!")){
                 Toast suc = Toast.makeText(getApplicationContext(), "Message sent.", Toast.LENGTH_SHORT);
                 suc.show();

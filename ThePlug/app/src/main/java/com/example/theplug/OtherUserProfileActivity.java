@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -178,29 +179,33 @@ public class OtherUserProfileActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s)
         {
-            if(s.equals("Scores Received")) {
+            Log.d("HEY", s);
+            if(s.equals("Scores Received")){
                 float scoreAvg = 0;
+                if(scoreList[0].equals("nothing found")){
+                    otherUserRating.setText("No reviews yet.");
+                }else{
                 for (String score : scoreList) {
                     if(!score.equals("")){
                         scoreAvg += Integer.parseInt(score);
-                    }else{
-
                     }
                 }
                     scoreAvg = (scoreAvg / scoreList.length);
                     otherUserRating.setText(Float.toString(scoreAvg));
-
+                }
             }else if(s.equals("Buyer Scores Received")){
                 float scoreAvg = 0;
+                if(buyerScoreList[0].equals("nothing found")){
+                    buyerRatingValue.setText("No reviews yet.");
+                }else{
                 for (String score : buyerScoreList) {
                     if(!score.equals("")){
                         scoreAvg += Integer.parseInt(score);
-                    }else{
-
                     }
                 }
-                scoreAvg = (scoreAvg / buyerScoreList.length);
-                buyerRatingValue.setText(Float.toString(scoreAvg));
+                    scoreAvg = (scoreAvg / buyerScoreList.length);
+                    buyerRatingValue.setText(Float.toString(scoreAvg));
+                }
             }
             else if(s.equals("Image Retrieved"))
             {

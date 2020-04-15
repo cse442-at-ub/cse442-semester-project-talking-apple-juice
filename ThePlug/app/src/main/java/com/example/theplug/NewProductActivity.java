@@ -65,7 +65,7 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
                         + "&" + URLEncoder.encode("ei", "UTF-8") + "=" + URLEncoder.encode(encImg, "UTF-8")
                         + "&" + URLEncoder.encode("co", "UTF-8") + "=" + URLEncoder.encode("No comments yet.", "UTF-8")
                         + "&" + URLEncoder.encode("uname", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
-                ;
+
                 buffW.write(req);
                 buffW.flush();
                 buffW.close();

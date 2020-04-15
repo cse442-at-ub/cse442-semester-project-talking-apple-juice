@@ -106,6 +106,7 @@ public class NewSaleActivity extends AppCompatActivity {
         class getLatestID extends AsyncTask<String, Void, String> {
 
             URL url = null;
+            String[] ids;
 
             @Override
             protected String doInBackground(String... strings) {
@@ -125,7 +126,8 @@ public class NewSaleActivity extends AppCompatActivity {
                     buffR.close();
                     inStr.close();
                     httpCon.disconnect();
-                    latestID = Integer.parseInt(result);
+                    ids = result.split("\\|");
+                    latestID = Integer.parseInt(ids[0]);
                     Log.d("latestID:", Integer.toString(latestID));
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -160,7 +162,7 @@ public class NewSaleActivity extends AppCompatActivity {
         byte[] imageBytes = baos.toByteArray();
         String encImage = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
         
-        String userName =  storedUsername;
+        String userName = MainActivity.storedUsername;
 
         NewProductActivity npa = new NewProductActivity(this);
         npa.execute("upload", name, type, price, desc, id, selltype, encImage, userName);

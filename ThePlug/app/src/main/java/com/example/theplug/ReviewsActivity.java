@@ -258,7 +258,7 @@ public class ReviewsActivity extends AppCompatActivity {
                 finish();
             }
             else if(s.equals("Reviews Recieved")){
-                if(parsedResp.length == 0)
+                if(parsedResp[0].equals("nothing found"))
                 {
                     Toast noMsg = Toast.makeText(ReviewsActivity.this, "No Reviews made for this Seller", Toast.LENGTH_SHORT);
                     noMsg.show();
@@ -278,17 +278,18 @@ public class ReviewsActivity extends AppCompatActivity {
                     prodList.setAdapter(mAdapter);
                     }
                 }else if(s.equals("Scores Received")){
-                    float scoreAvg = 0;
-                    for(String score : scoreList)
-                    {
+                float scoreAvg = 0;
+                if(scoreList[0].equals("nothing found")){
+                    ratingUser.setText("No reviews yet.");
+                }else{
+                    for (String score : scoreList) {
                         if(!score.equals("")){
-                            scoreAvg = scoreAvg + Integer.parseInt(score);
-                        }else{
-
+                            scoreAvg += Integer.parseInt(score);
                         }
                     }
                     scoreAvg = (scoreAvg / scoreList.length);
-                    ratingUser.setText("Avg. Rating: " +Float.toString(scoreAvg));
+                    ratingUser.setText(Float.toString(scoreAvg));
+                }
             }
 
             }
