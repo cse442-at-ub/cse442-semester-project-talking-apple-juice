@@ -41,12 +41,12 @@ public class ViewProductActivity extends AppCompatActivity {
     public ImageView ProductImg;
     public TextView Name , Desc, Price, Comment, SellerUser, statusTV;
     public String ID = "";
+    public String selltype = "";
     public String[] parsedResp;
     public Bitmap temp = null;
 
-    public EditText commentData;
-    public Button addComment, contactSeller, status;
-
+    public EditText commentData, bidPrice;
+    public Button addComment, contactSeller, status, placeBid;
 
     public ToggleButton soldToggle;
 
@@ -116,9 +116,33 @@ public class ViewProductActivity extends AppCompatActivity {
             }
         });
 
+        placeBid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(bidPrice.getText().toString().equals(""))
+                {
+                    Toast bad = Toast.makeText(getApplicationContext(), "Please enter an amount up to 5 dollars greater than the current price.", Toast.LENGTH_SHORT);
+                    bad.show();
+                }else if(Integer.parseInt(bidPrice.getText().toString()) > Integer.parseInt(Price.getText().toString().substring(1)) + 5)
+                {
+                    Toast bad = Toast.makeText(getApplicationContext(), "Too high! Please enter an amount up to 5 dollars greater than the current price.", Toast.LENGTH_SHORT);
+                    bad.show();
+                }else if(Integer.parseInt(bidPrice.getText().toString()) <= Integer.parseInt(Price.getText().toString().substring(1)))
+                {
+                    Toast bad = Toast.makeText(getApplicationContext(), "Too low! Please enter an amount up to 5 dollars greater than the current price.", Toast.LENGTH_SHORT);
+                    bad.show();
+                } else if(MainActivity.storedUsername.equals(sellUSER)) {
+                    Toast bad = Toast.makeText(getApplicationContext(), "Can't bid on your own product!", Toast.LENGTH_SHORT);
+                    bad.show();
+                }else{
+                    new GetProductData().execute("PlaceBid", ID, MainActivity.storedUsername, bidPrice.getText().toString());
+                    Toast good = Toast.makeText(getApplicationContext(), "Bid sent.", Toast.LENGTH_SHORT);
+                    good.show();
+                }
+            }
+        });
+
         getData();
-
-
     }
 
     public void init(){
@@ -128,13 +152,13 @@ public class ViewProductActivity extends AppCompatActivity {
         Price = findViewById(R.id.itemPriceTextView);
         Comment = findViewById(R.id.itemCommentTextView);
         SellerUser = findViewById(R.id.soldByUser);
+        bidPrice = findViewById(R.id.bidEntry);
 
         commentData = findViewById(R.id.commentBox);
         addComment = findViewById(R.id.addComButton);
         contactSeller = findViewById(R.id.button2);
-
+        placeBid = findViewById(R.id.bidButton);
         status = findViewById(R.id.statusButton);
-
     }
 
     public void soldProd(){
@@ -157,12 +181,7 @@ public class ViewProductActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
         new TransactionsActivity.productSold().execute("sold", name, price, desc, id, img, com, user);
-
-
-
-
     }
 
     public void deleteSoldProd(){
@@ -289,6 +308,41 @@ public class ViewProductActivity extends AppCompatActivity {
                 }
                 return "Status Sent";
 
+            }else if(type.equals("PlaceBid")){
+                try {
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/placeBidSEC.php");
+                    HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+                    httpCon.setRequestMethod("POST");
+                    httpCon.setDoOutput(true);
+                    httpCon.setDoInput(true);
+                    OutputStream outStr = httpCon.getOutputStream();
+                    BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
+                    String req = URLEncoder.encode("id","UTF-8") + "=" +URLEncoder.encode(strings[1], "UTF-8")
+                            +"&" +URLEncoder.encode("un","UTF-8") + "=" +URLEncoder.encode(strings[2], "UTF-8")
+                            +"&" +URLEncoder.encode("bid","UTF-8") + "=" +URLEncoder.encode(strings[3], "UTF-8");
+                    buffW.write(req);
+                    buffW.flush();
+                    buffW.close();
+                    outStr.close();
+
+                    InputStream inStr = httpCon.getInputStream();
+                    BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                    String result = "";
+                    String line = "";
+                    while((line = buffR.readLine()) != null)
+                    {
+                        result += line;
+                    }
+                    buffR.close();
+                    inStr.close();
+                    httpCon.disconnect();
+                    return result;
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return "error";
             }
             else{
                 return "error";
@@ -310,6 +364,7 @@ public class ViewProductActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                selltype = parsedResp[6];
                 //code to go to user's profile page
                 SellerUser.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -319,6 +374,13 @@ public class ViewProductActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+
+                if(selltype.equals("1"))
+                {
+                    bidPrice.setVisibility(View.VISIBLE);
+                    placeBid.setVisibility(View.VISIBLE);
+                    //show bid shit
+                }
 
                 sellUSER = SellerUser.getText().toString();
             }else if(s.equals("Comment Sent")){
@@ -337,8 +399,11 @@ public class ViewProductActivity extends AppCompatActivity {
                     }
                 });
 
-
             }else if(s.equals("Status Sent")){
+                finish();
+                startActivity(getIntent());
+            }else if(s.equals("Bid Updated Successfully"))
+            {
                 finish();
                 startActivity(getIntent());
             }
