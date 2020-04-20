@@ -11,12 +11,12 @@
         android:layout_width="99dp"
         android:layout_height="32dp"
         android:layout_marginTop="8dp"
+        android:clickable="true"
         android:gravity="left"
         android:text="..."
         android:textColor="#FAFAFA"
         android:textSize="22sp"
         android:textStyle="normal|bold"
-        android:clickable="true"
         app:layout_constraintStart_toEndOf="@+id/soldByText"
         app:layout_constraintTop_toBottomOf="@+id/productImg" />
 
@@ -52,11 +52,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="176dp"
+        android:gravity="left"
         android:text="test"
         android:textColor="?attr/textColor"
         android:textSize="15sp"
         android:textStyle="normal"
-        android:gravity="left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.383"
@@ -79,12 +79,12 @@
 
     <TextView
         android:id="@+id/itemNameTextView8"
-        android:layout_width="122dp"
-        android:layout_height="42dp"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:textColor="?attr/textColor"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toTopOf="@+id/productImg"
         app:layout_constraintEnd_toStartOf="@+id/textView8"
@@ -140,51 +140,53 @@
         android:id="@+id/commentBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Your Comment"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/bidEntry"
         app:layout_constraintEnd_toStartOf="@+id/addComButton"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <!--    <ToggleButton-->
+    <!--        android:id="@+id/toggleButton"-->
+    <!--        android:layout_width="80dp"-->
+    <!--        android:layout_height="46dp"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:layout_marginLeft="12dp"-->
+    <!--        android:layout_marginTop="24dp"-->
+    <!--        android:text="ToggleButton"-->
+    <!--        android:textOff="Active"-->
+    <!--        android:textOn="Sold"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/productImg"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/itemNameTextView8"-->
+    <!--        app:layout_constraintHorizontal_bias="0.0"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.0" />-->
 
     <Button
         android:id="@+id/addComButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="16dp"
         android:text="Add Comment"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/bidButton"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="contact seller"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-<!--    <ToggleButton-->
-<!--        android:id="@+id/toggleButton"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="46dp"-->
-<!--        android:layout_marginStart="12dp"-->
-<!--        android:layout_marginLeft="12dp"-->
-<!--        android:layout_marginTop="24dp"-->
-<!--        android:text="ToggleButton"-->
-<!--        android:textOff="Active"-->
-<!--        android:textOn="Sold"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/productImg"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/itemNameTextView8"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.0" />-->
+        app:layout_constraintTop_toBottomOf="@+id/productImg" />
 
     <Button
         android:id="@+id/statusButton"
@@ -201,6 +203,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <EditText
+        android:id="@+id/bidEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Your bid (In USD)"
+        android:inputType="number"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bidButton"
+        android:layout_width="133dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="16dp"
+        android:text="Place Bid"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="gone" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
