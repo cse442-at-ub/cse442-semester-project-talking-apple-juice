@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,7 +47,7 @@ import static com.example.theplug.MainActivity.storedUsername;
 public class NewSaleActivity extends AppCompatActivity {
 
     private ProgressDialog pDialog;
-    EditText editName, editPrice, editType, editDesc;
+    EditText editName, editPrice, editType, editDesc, editLength;
     Button putforSale,  putforBid;
     ImageButton takePic;
     ImageView prodView;
@@ -67,7 +68,7 @@ public class NewSaleActivity extends AppCompatActivity {
 
         init();
 
-        //CALL A PHP SCRIPT TO GET THE ID OF THE 4 MOST RECENT PRODUCT : TODO: GET 4 MOST RECENT IDS INSTEAD OF MOST RECENT
+        //CALL A PHP SCRIPT TO GET THE ID OF THE 4 MOST RECENT PRODUCT
 
         takePic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +84,19 @@ public class NewSaleActivity extends AppCompatActivity {
                 prodUpLoader();
             }
         });
+
+        putforBid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String hrs = editLength.getText().toString();
+                if(hrs.equals("1") || hrs.equals("2") || hrs.equals("3") || hrs.equals("4") || hrs.equals("5") || hrs.equals("6")) {
+                    bidUpLoader(hrs);
+                }else{
+                    Toast bad = Toast.makeText(getApplicationContext(), "Please enter a valid time", Toast.LENGTH_SHORT);
+                    bad.show();
+                }
+            }
+        });
     }
 
     // Allows user to choose image from gallery regardless of device after clicking image
@@ -96,6 +110,7 @@ public class NewSaleActivity extends AppCompatActivity {
     public void init(){
         editName = (EditText) findViewById(R.id.editText4);
         editPrice = (EditText) findViewById(R.id.editText2);
+        editLength = (EditText) findViewById(R.id.editText3);
         editType = (EditText) findViewById(R.id.editText6);
         editDesc = (EditText) findViewById(R.id.editText);
         prodView  =  (ImageView)  findViewById(R.id.imageView7);
@@ -166,6 +181,28 @@ public class NewSaleActivity extends AppCompatActivity {
 
         NewProductActivity npa = new NewProductActivity(this);
         npa.execute("upload", name, type, price, desc, id, selltype, encImage, userName);
+    }
+
+    public void bidUpLoader(String h){
+        String name = editName.getText().toString();
+        String price = editPrice.getText().toString();
+        String type = editType.getText().toString();
+        String desc = editDesc.getText().toString();
+        String id = Integer.toString(latestID+1);
+        String selltype = "1";
+        String len = h;
+
+        BitmapDrawable bmd = (BitmapDrawable) prodView.getDrawable();
+        Bitmap itemImg = bmd.getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        itemImg.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encImage = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
+
+        String userName = MainActivity.storedUsername;
+
+        NewProductActivity npa = new NewProductActivity(this);
+        npa.execute("uploadBid", name, type, price, desc, id, selltype, encImage, userName, len);
     }
 
     @Override

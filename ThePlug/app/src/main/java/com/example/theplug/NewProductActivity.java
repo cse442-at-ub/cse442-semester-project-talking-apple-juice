@@ -163,6 +163,61 @@ public class NewProductActivity extends AsyncTask<String, Void, String> {
                 e.printStackTrace();
             }
 
+        }else if(check.equals("uploadBid")){
+                try {
+                    String name = params[1];
+                    String type = params[2];
+                    String price = params[3];
+                    String desc = params[4];
+                    String id = params[5];
+                    String selltype = params[6];
+                    String encImg = params[7];
+                    String userName = params[8];
+                    String length = params[9];
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/uploadBidInfoSEC.php");
+                    HttpURLConnection httpCon;
+                    httpCon = (HttpURLConnection) url.openConnection();
+                    httpCon.setRequestMethod("POST");
+                    httpCon.setDoOutput(true);
+                    httpCon.setDoInput(true);
+                    OutputStream outStr = httpCon.getOutputStream();
+                    BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
+                    String req = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8")
+                            + "&" + URLEncoder.encode("type", "UTF-8") + "=" + URLEncoder.encode(type, "UTF-8")
+                            + "&" + URLEncoder.encode("price", "UTF-8") + "=" + URLEncoder.encode(price, "UTF-8")
+                            + "&" + URLEncoder.encode("desc", "UTF-8") + "=" + URLEncoder.encode(desc, "UTF-8")
+                            + "&" + URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8")
+                            + "&" + URLEncoder.encode("sb", "UTF-8") + "=" + URLEncoder.encode(selltype, "UTF-8")
+                            + "&" + URLEncoder.encode("ei", "UTF-8") + "=" + URLEncoder.encode(encImg, "UTF-8")
+                            + "&" + URLEncoder.encode("co", "UTF-8") + "=" + URLEncoder.encode("No comments yet.", "UTF-8")
+                            + "&" + URLEncoder.encode("uname", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8")
+                            + "&" + URLEncoder.encode("hrs", "UTF-8") + "=" + URLEncoder.encode(length, "UTF-8");
+
+                    buffW.write(req);
+                    buffW.flush();
+                    buffW.close();
+                    outStr.close();
+
+                    InputStream inStr = httpCon.getInputStream();
+                    BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                    String result = "";
+                    String line = "";
+                    while ((line = buffR.readLine()) != null) {
+                        result += line;
+                    }
+                    buffR.close();
+                    inStr.close();
+                    httpCon.disconnect();
+                    return result;
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (ProtocolException e) {
+                    e.printStackTrace();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
         }
         return null;
     }
