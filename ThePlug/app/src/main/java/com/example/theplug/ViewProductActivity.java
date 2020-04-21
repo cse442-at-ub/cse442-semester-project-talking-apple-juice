@@ -1,6 +1,7 @@
 package com.example.theplug;
 
 import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -48,7 +49,6 @@ public class ViewProductActivity extends AppCompatActivity {
     public EditText commentData, bidPrice;
     public Button addComment, contactSeller, status, placeBid;
 
-    public ToggleButton soldToggle;
 
     public static String sellUSER;
     @Override
@@ -66,6 +66,8 @@ public class ViewProductActivity extends AppCompatActivity {
         ID = intent.getStringExtra("ID");
 
         init();
+
+        final HomeScreen test = new HomeScreen();
 
         addComment.setOnClickListener(new View.OnClickListener()
         {
@@ -143,6 +145,8 @@ public class ViewProductActivity extends AppCompatActivity {
         });
 
         getData();
+
+
     }
 
     public void init(){
@@ -159,6 +163,7 @@ public class ViewProductActivity extends AppCompatActivity {
         contactSeller = findViewById(R.id.button2);
         placeBid = findViewById(R.id.bidButton);
         status = findViewById(R.id.statusButton);
+
     }
 
     public void soldProd(){
@@ -181,7 +186,12 @@ public class ViewProductActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+
         new TransactionsActivity.productSold().execute("sold", name, price, desc, id, img, com, user);
+
+
+
+
     }
 
     public void deleteSoldProd(){
@@ -398,6 +408,7 @@ public class ViewProductActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+
 
             }else if(s.equals("Status Sent")){
                 finish();

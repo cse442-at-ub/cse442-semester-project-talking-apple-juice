@@ -4,15 +4,24 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.app.TaskStackBuilder;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +31,8 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,15 +45,25 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import static com.example.theplug.ViewProductActivity.sellUSER;
+import static com.example.theplug.MainActivity.storedUsername;
+
+
 public class HomeScreen extends AppCompatActivity {
 
+    private static final String CHANNEL_ID = "1";
     public ImageView bid1, bid2;
     public ImageView sale1, sale2;
     public int imageIndex = 0;
     public int[] recentIDs = {0,0,0,0};
+    public String[] recentProdSeller = {"","","",""};
     public Bitmap temp = null;
 
     public TextView searchProd;
+
+    public int notificationId = 0;
+
+    public String prodOwner;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -62,6 +83,8 @@ public class HomeScreen extends AppCompatActivity {
 
         getProduct();
 
+        createNotificationChannel();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -75,6 +98,72 @@ public class HomeScreen extends AppCompatActivity {
         bid2 = findViewById(R.id.bid2);
         sale1 = findViewById(R.id.sale1);
         sale2 = findViewById(R.id.sale2);
+
+    }
+
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.channel_01);
+            String description = getString(R.string.channel_Desc);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+    }
+
+    //notiies sellers when a user views their product
+    public void addNotification() {
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        String viewer = storedUsername;
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.deafulticon)
+                .setContentTitle("An item has been viewed!!")
+                .setContentText("The user " + viewer + " has viewed your product ")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(notificationId, builder.build());
+
+    }
+
+    // Notifies users when a product has be sold or has been placed back in the market
+    public void addSoldNotification() {
+        Intent intent = new Intent(this, ViewProductActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.deafulticon)
+                .setContentTitle("An item has been sold!!")
+                .setContentText("This product had been sold!!")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(notificationId, builder.build());
+
 
     }
     public void gotoSearch(View view){
@@ -107,12 +196,19 @@ public class HomeScreen extends AppCompatActivity {
                     bid1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            prodOwner = recentProdSeller[0];
+                            if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
+                                addNotification();                 //notify product seller
+                            }
+
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[0]);
                             intent.putExtra("ID", assocID);
                             startActivity(intent);
+
                         }
                     });
+
                     new GetImageData().execute("images", Integer.toString(recentIDs[1]));
                 }else if(s.equals("Image2 Retrieved"))
                 {
@@ -120,6 +216,10 @@ public class HomeScreen extends AppCompatActivity {
                     bid2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            prodOwner = recentProdSeller[1];
+                            if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
+                                addNotification();                 //notify product seller
+                            }
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[1]);
                             intent.putExtra("ID", assocID);
@@ -133,6 +233,10 @@ public class HomeScreen extends AppCompatActivity {
                     sale1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            prodOwner = recentProdSeller[2];
+                            if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller. SELLUSER IS NULL.... Y?
+                                addNotification();                 //notify product owner
+                            }
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[2]);
                             intent.putExtra("ID", assocID);
@@ -145,6 +249,11 @@ public class HomeScreen extends AppCompatActivity {
                     sale2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            prodOwner = recentProdSeller[3];
+                            if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
+                                addNotification();                 //notify product seller
+                            }
+
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[3]);
                             intent.putExtra("ID", assocID);
@@ -176,10 +285,19 @@ public class HomeScreen extends AppCompatActivity {
                         httpCon.disconnect();
                         //at this point, we have 4 id's separated by "|"
                         String[] collection = result.split("\\|");
+
+                        //Store ID of the 4 recents products
                         recentIDs[0] = Integer.parseInt(collection[0]);
-                        recentIDs[1] = Integer.parseInt(collection[1]);
-                        recentIDs[2] = Integer.parseInt(collection[2]);
-                        recentIDs[3] = Integer.parseInt(collection[3]);
+                        recentIDs[1] = Integer.parseInt(collection[2]);
+                        recentIDs[2] = Integer.parseInt(collection[4]);
+                        recentIDs[3] = Integer.parseInt(collection[6]);
+
+                        //Store the username of those 4 recent products
+                        recentProdSeller[0] = collection[1];
+                        recentProdSeller[1] = collection[3];
+                        recentProdSeller[2] = collection[5];
+                        recentProdSeller[3] = collection[7];
+
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     } catch (UnsupportedEncodingException e) {

@@ -10,23 +10,23 @@
 
     <ImageView
         android:id="@+id/sale2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="169dp"
+        android:layout_height="129dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="100dp"
         android:clickable="true"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/sale1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="171dp"
+        android:layout_height="133dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
@@ -40,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView5"
@@ -59,12 +59,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bid1"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintVertical_bias="0.056" />
 
     <ImageView
         android:id="@+id/bid2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="169dp"
+        android:layout_height="133dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
@@ -115,8 +115,8 @@
 
     <ImageView
         android:id="@+id/bid1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="163dp"
+        android:layout_height="130dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
