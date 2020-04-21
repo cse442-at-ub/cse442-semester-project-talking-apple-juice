@@ -66,6 +66,8 @@ public class ViewProductActivity extends AppCompatActivity {
 
         init();
 
+        final HomeScreen test = new HomeScreen();
+
         addComment.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -92,7 +94,6 @@ public class ViewProductActivity extends AppCompatActivity {
                         status.setText("Sold");
                         new GetProductData().execute("Status", ID, status.getText().toString());
                         soldProd();
-                        //statusTV.setText("Sold");
                         Toast good = Toast.makeText(getApplicationContext(), "Item has been Sold", Toast.LENGTH_SHORT);
                         good.show();
                     }else{
@@ -104,7 +105,6 @@ public class ViewProductActivity extends AppCompatActivity {
                         status.setText("Active");
                         new GetProductData().execute("Status", ID, status.getText().toString());
                         deleteSoldProd();
-                       // statusTV.setText("Available");
                         Toast good = Toast.makeText(getApplicationContext(), "Item is Available", Toast.LENGTH_SHORT);
                         good.show();
                     }else{

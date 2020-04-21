@@ -56,11 +56,15 @@ public class HomeScreen extends AppCompatActivity {
     public ImageView sale1, sale2;
     public int imageIndex = 0;
     public int[] recentIDs = {0,0,0,0};
+    public String[] recentProdSeller = {"","","",""};
     public Bitmap temp = null;
 
     public TextView searchProd;
 
     public int notificationId = 0;
+
+    public String prodOwner;
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -115,19 +119,41 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-
-    private void addNotification() {
+    //notiies sellers when a user views their product
+    public void addNotification() {
         Intent intent = new Intent(this, HomeScreen.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         String viewer = storedUsername;
-        String test = sellUSER;
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.deafulticon)
                 .setContentTitle("An item has been viewed!!")
-                .setContentText("The user " + viewer + " has viewed your product " + test)
+                .setContentText("The user " + viewer + " has viewed your product ")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(notificationId, builder.build());
+
+    }
+
+    // Notifies users when a product has be sold or has been placed back in the market
+    public void addSoldNotification() {
+        Intent intent = new Intent(this, ViewProductActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.deafulticon)
+                .setContentTitle("An item has been sold!!")
+                .setContentText("This product had been sold!!")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
@@ -140,7 +166,6 @@ public class HomeScreen extends AppCompatActivity {
 
 
     }
-
     public void gotoSearch(View view){
         Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
@@ -167,12 +192,12 @@ public class HomeScreen extends AppCompatActivity {
                     new GetImageData().execute("images", Integer.toString(recentIDs[0]));
                 }else if(s.equals("Image1 Retrieved"))
                 {
-
                     bid1.setImageBitmap(temp);
                     bid1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if(!storedUsername.equals(sellUSER)) { //If the current user is not the same as the product seller.
+                            prodOwner = recentProdSeller[0];
+                            if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
                                 addNotification();                 //notify product seller
                             }
 
@@ -191,7 +216,8 @@ public class HomeScreen extends AppCompatActivity {
                     bid2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if(!storedUsername.equals(sellUSER)) { //If the current user is not the same as the product seller.
+                            prodOwner = recentProdSeller[1];
+                            if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
                                 addNotification();                 //notify product seller
                             }
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
@@ -207,8 +233,9 @@ public class HomeScreen extends AppCompatActivity {
                     sale1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if(!storedUsername.equals(sellUSER)) { //If the current user is not the same as the product seller.
-                                addNotification();                 //notify product seller
+                            prodOwner = recentProdSeller[2];
+                            if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller. SELLUSER IS NULL.... Y?
+                                addNotification();                 //notify product owner
                             }
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[2]);
@@ -222,7 +249,8 @@ public class HomeScreen extends AppCompatActivity {
                     sale2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if(!storedUsername.equals(sellUSER)) { //If the current user is not the same as the product seller.
+                            prodOwner = recentProdSeller[3];
+                            if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
                                 addNotification();                 //notify product seller
                             }
 
@@ -257,10 +285,18 @@ public class HomeScreen extends AppCompatActivity {
                         httpCon.disconnect();
                         //at this point, we have 4 id's separated by "|"
                         String[] collection = result.split("\\|");
+
+                        //Store ID of the 4 recents products
                         recentIDs[0] = Integer.parseInt(collection[0]);
-                        recentIDs[1] = Integer.parseInt(collection[1]);
-                        recentIDs[2] = Integer.parseInt(collection[2]);
-                        recentIDs[3] = Integer.parseInt(collection[3]);
+                        recentIDs[1] = Integer.parseInt(collection[2]);
+                        recentIDs[2] = Integer.parseInt(collection[4]);
+                        recentIDs[3] = Integer.parseInt(collection[6]);
+
+                        //Store the username of those 4 recent products
+                        recentProdSeller[0] = collection[1];
+                        recentProdSeller[1] = collection[3];
+                        recentProdSeller[2] = collection[5];
+                        recentProdSeller[3] = collection[7];
 
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
