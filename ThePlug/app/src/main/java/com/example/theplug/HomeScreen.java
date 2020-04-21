@@ -4,15 +4,24 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.app.TaskStackBuilder;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +31,8 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,8 +45,13 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import static com.example.theplug.ViewProductActivity.sellUSER;
+import static com.example.theplug.MainActivity.storedUsername;
+
+
 public class HomeScreen extends AppCompatActivity {
 
+    private static final String CHANNEL_ID = "1";
     public ImageView bid1, bid2;
     public ImageView sale1, sale2;
     public int imageIndex = 0;
@@ -44,6 +60,7 @@ public class HomeScreen extends AppCompatActivity {
 
     public TextView searchProd;
 
+    public int notificationId = 0;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -62,6 +79,8 @@ public class HomeScreen extends AppCompatActivity {
 
         getProduct();
 
+        createNotificationChannel();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -77,6 +96,51 @@ public class HomeScreen extends AppCompatActivity {
         sale2 = findViewById(R.id.sale2);
 
     }
+
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.channel_01);
+            String description = getString(R.string.channel_Desc);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+    }
+
+
+    private void addNotification() {
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        String viewer = storedUsername;
+        String test = sellUSER;
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.deafulticon)
+                .setContentTitle("An item has been viewed!!")
+                .setContentText("The user " + viewer + " has viewed your product " + test)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(notificationId, builder.build());
+
+
+    }
+
     public void gotoSearch(View view){
         Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
@@ -103,16 +167,23 @@ public class HomeScreen extends AppCompatActivity {
                     new GetImageData().execute("images", Integer.toString(recentIDs[0]));
                 }else if(s.equals("Image1 Retrieved"))
                 {
+
                     bid1.setImageBitmap(temp);
                     bid1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            if(!storedUsername.equals(sellUSER)) { //If the current user is not the same as the product seller.
+                                addNotification();                 //notify product seller
+                            }
+
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[0]);
                             intent.putExtra("ID", assocID);
                             startActivity(intent);
+
                         }
                     });
+
                     new GetImageData().execute("images", Integer.toString(recentIDs[1]));
                 }else if(s.equals("Image2 Retrieved"))
                 {
@@ -120,6 +191,9 @@ public class HomeScreen extends AppCompatActivity {
                     bid2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            if(!storedUsername.equals(sellUSER)) { //If the current user is not the same as the product seller.
+                                addNotification();                 //notify product seller
+                            }
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[1]);
                             intent.putExtra("ID", assocID);
@@ -133,6 +207,9 @@ public class HomeScreen extends AppCompatActivity {
                     sale1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            if(!storedUsername.equals(sellUSER)) { //If the current user is not the same as the product seller.
+                                addNotification();                 //notify product seller
+                            }
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[2]);
                             intent.putExtra("ID", assocID);
@@ -145,6 +222,10 @@ public class HomeScreen extends AppCompatActivity {
                     sale2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            if(!storedUsername.equals(sellUSER)) { //If the current user is not the same as the product seller.
+                                addNotification();                 //notify product seller
+                            }
+
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[3]);
                             intent.putExtra("ID", assocID);
@@ -180,6 +261,7 @@ public class HomeScreen extends AppCompatActivity {
                         recentIDs[1] = Integer.parseInt(collection[1]);
                         recentIDs[2] = Integer.parseInt(collection[2]);
                         recentIDs[3] = Integer.parseInt(collection[3]);
+
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     } catch (UnsupportedEncodingException e) {

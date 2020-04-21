@@ -79,8 +79,8 @@
 
     <TextView
         android:id="@+id/itemNameTextView8"
-        android:layout_width="122dp"
-        android:layout_height="42dp"
+        android:layout_width="190dp"
+        android:layout_height="47dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:textColor="?attr/textColor"

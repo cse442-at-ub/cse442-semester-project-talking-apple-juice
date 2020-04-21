@@ -48,4 +48,6 @@
     <string name="item1_Desc">Barely worn black and white old school vans.</string>
     <string name="item_Name">Old Skool Pro Skate Shoes</string>
     <string name="prodName" > Product Name </string>
+    <string name="channel_01"> Item Notification </string>
+    <string name="channel_Desc">Channel Description</string>
 </resources>
