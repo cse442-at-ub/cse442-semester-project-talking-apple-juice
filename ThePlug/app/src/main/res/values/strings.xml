@@ -50,4 +50,5 @@
     <string name="prodName" > Product Name </string>
     <string name="channel_01"> Item Notification </string>
     <string name="channel_Desc">Channel Description</string>
+    <string name="watching"> Watch List </string>
 </resources>
