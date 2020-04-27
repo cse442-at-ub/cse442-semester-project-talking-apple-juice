@@ -58,13 +58,13 @@ public class HomeScreen extends AppCompatActivity {
     public int[] recentIDs = {0,0,0,0};
     public String[] recentProdSeller = {"","","",""};
     public Bitmap temp = null;
+    public String[] watchedIDs;
 
     public TextView searchProd;
 
     public int notificationId = 0;
 
     public String prodOwner;
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -143,8 +143,8 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-    // Notifies users when a product has be sold or has been placed back in the market
-    public void addSoldNotification() {
+    // Notifies users when a watched product has been sold
+    public void addWatchedSoldNotification(String s) {
         Intent intent = new Intent(this, ViewProductActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
@@ -152,8 +152,8 @@ public class HomeScreen extends AppCompatActivity {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.deafulticon)
-                .setContentTitle("An item has been sold!!")
-                .setContentText("This product had been sold!!")
+                .setContentTitle("Update on an item you're watching!")
+                .setContentText(s)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
@@ -260,6 +260,20 @@ public class HomeScreen extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
+                }else if(s.equals("Watches Retrieved")){
+                    if(watchedIDs.length > 0)
+                    {
+                        for(String anID: watchedIDs)
+                        {
+                            new GetImageData().execute("checkSold", anID);
+                            //new script to check if this id exists in Sold
+                        }
+                    }
+                }else if(s.endsWith("has been sold!"))
+                {
+                    addWatchedSoldNotification(s); //show a notif
+                }else{
+
                 }
             }
             @Override
@@ -324,6 +338,67 @@ public class HomeScreen extends AppCompatActivity {
                     temp = img;
                     imageIndex++;
                     return "Image" +imageIndex +" Retrieved";
+                }else if(type.equals("getWatched"))
+                {
+                    String result = "";
+                    try {
+                        URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getWatchedItemsSEC.php?un=" +storedUsername);
+                        HttpURLConnection httpCon;
+                        httpCon = (HttpURLConnection) url.openConnection();
+                        httpCon.setRequestMethod("GET");
+
+                        InputStream inStr = httpCon.getInputStream();
+                        BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                        String line = "";
+                        while ((line = buffR.readLine()) != null) {
+                            result += line;
+                        }
+                        buffR.close();
+                        inStr.close();
+                        httpCon.disconnect();
+                        //at this point, we have some id's separated by "|"
+                        watchedIDs = result.split("\\|");
+                        return "Watches Retrieved";
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    } catch (ProtocolException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return "error";
+                }else if(type.equals("checkSold"))
+                {
+                    String result = "";
+                    try {
+                        URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/checkForSoldItemSEC.php?id=" +strings[1]);
+                        HttpURLConnection httpCon;
+                        httpCon = (HttpURLConnection) url.openConnection();
+                        httpCon.setRequestMethod("GET");
+
+                        InputStream inStr = httpCon.getInputStream();
+                        BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                        String line = "";
+                        while ((line = buffR.readLine()) != null) {
+                            result += line;
+                        }
+                        buffR.close();
+                        inStr.close();
+                        httpCon.disconnect();
+                        //at this point, we have some id's separated by "|"
+                        return result;
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    } catch (ProtocolException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return "error";
                 }else{
                     return "error";
                 }
@@ -331,6 +406,9 @@ public class HomeScreen extends AppCompatActivity {
         }
         GetImageData get = new GetImageData();
         get.execute("ID");
+
+        GetImageData watch = new GetImageData();
+        watch.execute("getWatched");
     }
 
 
