@@ -44,6 +44,9 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import static com.example.theplug.ViewProductActivity.sellUSER;
 import static com.example.theplug.MainActivity.storedUsername;
@@ -59,6 +62,8 @@ public class HomeScreen extends AppCompatActivity {
     public String[] recentProdSeller = {"","","",""};
     public Bitmap temp = null;
     public String[] watchedIDs;
+    public String[] biddedIDs;
+    public HashMap<String, String> bidWinners;
 
     public TextView searchProd;
 
@@ -78,6 +83,8 @@ public class HomeScreen extends AppCompatActivity {
         }
         //REQUEST 4 PRODUCTS FROM DATABASE, RECENT 2 OF SALEBID 1 AND RECENT 2 OF SALEBID 0
         setContentView(R.layout.activity_home_screen);
+
+        bidWinners = new HashMap<String, String>();
 
         init();
 
@@ -272,6 +279,24 @@ public class HomeScreen extends AppCompatActivity {
                 }else if(s.endsWith("has been sold!"))
                 {
                     addWatchedSoldNotification(s); //show a notif
+                }else if(s.equals("Bids Retrieved")){
+                    for(String id: biddedIDs)
+                    {
+                        new GetImageData().execute("checkBidLeader", id);
+                    }
+                }else if(s.equals("Checked...")){
+                    if(bidWinners.size() == biddedIDs.length)
+                    {
+                        Iterator biderator = bidWinners.entrySet().iterator();
+                        while(biderator.hasNext())
+                        {
+                            Map.Entry en = (Map.Entry)biderator.next();
+                            if(!(en.getKey()).equals(storedUsername)) //a bid has been lost.
+                            {
+                                addWatchedSoldNotification("You have been outbid on item: " +en.getValue());
+                            }
+                        }
+                    }
                 }else{
 
                 }
@@ -387,8 +412,75 @@ public class HomeScreen extends AppCompatActivity {
                         buffR.close();
                         inStr.close();
                         httpCon.disconnect();
-                        //at this point, we have some id's separated by "|"
+
                         return result;
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    } catch (ProtocolException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return "error";
+                }else if(type.equals("updateBidStats")){
+                    String result = "";
+                    try {
+                        URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getBidIDs.php?un=" +storedUsername);
+                        HttpURLConnection httpCon;
+                        httpCon = (HttpURLConnection) url.openConnection();
+                        httpCon.setRequestMethod("GET");
+
+                        InputStream inStr = httpCon.getInputStream();
+                        BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                        String line = "";
+                        while ((line = buffR.readLine()) != null) {
+                            result += line;
+                        }
+                        buffR.close();
+                        inStr.close();
+                        httpCon.disconnect();
+                        //at this point, we have some id's separated by "|"
+                        if(!result.equals("")) {
+                            biddedIDs = result.split("\\|");
+                            return "Bids Retrieved";
+                        }
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    } catch (ProtocolException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return "error";
+                }else if(type.equals("checkBidLeader")) {
+                    String result = "";
+                    try {
+                        URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getCurrentBidWinner.php?id=" +strings[1]);
+                        HttpURLConnection httpCon;
+                        httpCon = (HttpURLConnection) url.openConnection();
+                        httpCon.setRequestMethod("GET");
+
+                        InputStream inStr = httpCon.getInputStream();
+                        BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                        String line = "";
+                        while ((line = buffR.readLine()) != null) {
+                            result += line;
+                        }
+                        buffR.close();
+                        inStr.close();
+                        httpCon.disconnect();
+
+                        Log.d("RESULT", result);
+                        String[] winnerAndItem = result.split("\\|");
+                        Log.d("WIN", winnerAndItem[0]);
+                        Log.d("ITEM", winnerAndItem[1]);
+                        bidWinners.put(winnerAndItem[0], winnerAndItem[1]); //place the winner user and item name into a hashmap
+
+                        return "Checked...";
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     } catch (UnsupportedEncodingException e) {
@@ -409,6 +501,9 @@ public class HomeScreen extends AppCompatActivity {
 
         GetImageData watch = new GetImageData();
         watch.execute("getWatched");
+
+        GetImageData bidCheck = new GetImageData();
+        bidCheck.execute("updateBidStats");
     }
 
 

@@ -452,6 +452,7 @@ public class ViewProductActivity extends AppCompatActivity {
                     buffR.close();
                     inStr.close();
                     httpCon.disconnect();
+
                     return result;
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -459,8 +460,44 @@ public class ViewProductActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 return "error";
-            }
-            else{
+            }else if(type.equals("BidTable")) {
+                try {
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/addToBidTableSEC.php");
+                    HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+                    httpCon.setRequestMethod("POST");
+                    httpCon.setDoOutput(true);
+                    httpCon.setDoInput(true);
+                    OutputStream outStr = httpCon.getOutputStream();
+                    BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
+                    String req = URLEncoder.encode("id","UTF-8") + "=" +URLEncoder.encode(strings[1], "UTF-8")
+                            +"&" +URLEncoder.encode("item","UTF-8") + "=" +URLEncoder.encode(strings[4], "UTF-8")
+                            +"&" +URLEncoder.encode("seller","UTF-8") + "=" +URLEncoder.encode(strings[3], "UTF-8")
+                            +"&" +URLEncoder.encode("un","UTF-8") + "=" +URLEncoder.encode(strings[2], "UTF-8");
+                    buffW.write(req);
+                    buffW.flush();
+                    buffW.close();
+                    outStr.close();
+
+                    InputStream inStr = httpCon.getInputStream();
+                    BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                    String result = "";
+                    String line = "";
+                    while((line = buffR.readLine()) != null)
+                    {
+                        result += line;
+                    }
+                    buffR.close();
+                    inStr.close();
+                    httpCon.disconnect();
+
+                    return result;
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return "error";
+            }else{
                 return "error";
             }
         }
@@ -521,6 +558,7 @@ public class ViewProductActivity extends AppCompatActivity {
                 startActivity(getIntent());
             }else if(s.equals("Bid Updated Successfully"))
             {
+                new GetProductData().execute("BidTable", ID, MainActivity.storedUsername, SellerUser.getText().toString(), Name.getText().toString());
                 finish();
                 startActivity(getIntent());
             }
