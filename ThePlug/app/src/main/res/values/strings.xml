@@ -51,4 +51,8 @@
     <string name="channel_01"> Item Notification </string>
     <string name="channel_Desc">Channel Description</string>
     <string name="watching"> Watch List </string>
+    <string name="reason1"> Frauduelent Post</string>
+    <string name="reason2"> False Contact Information </string>
+    <string name="reason3"> Post of Illegal Product </string>
+    <string name="reason"> What is the reason for reporting this user: (Select One) </string>
 </resources>

@@ -66,11 +66,11 @@
 
     <TextView
         android:id="@+id/otherUsername"
-        android:layout_width="179dp"
-        android:layout_height="51dp"
+        android:layout_width="185dp"
+        android:layout_height="54dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:gravity="center"
@@ -121,5 +121,18 @@
         app:layout_constraintHorizontal_bias="0.855"
         app:layout_constraintStart_toEndOf="@+id/buyerRating"
         app:layout_constraintTop_toBottomOf="@+id/otherUserAvgRating" />
+
+    <Button
+        android:id="@+id/reportButton"
+        android:layout_width="129dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="16dp"
+        android:text="Report User"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/otherUserProfile"
+        app:layout_constraintTop_toBottomOf="@+id/otherUsername" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
