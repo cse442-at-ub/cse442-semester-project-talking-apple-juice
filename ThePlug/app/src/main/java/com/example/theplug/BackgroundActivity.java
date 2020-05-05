@@ -167,6 +167,9 @@ public class BackgroundActivity extends AsyncTask<String, Void, String> {
         }else if(aStr.equals("Profile Picture Uploaded Successfully")){
             Toast upl = Toast.makeText(con, "Picture Updated.", Toast.LENGTH_SHORT);
             upl.show();
+        }else if(aStr.startsWith("Your account has been banned.")) {
+            Toast ban = Toast.makeText(con, aStr, Toast.LENGTH_SHORT);
+            ban.show();
         }else{
             Toast incorrect = Toast.makeText(con, "ERROR!!! Please Try Again", Toast.LENGTH_SHORT);
             incorrect.show();
