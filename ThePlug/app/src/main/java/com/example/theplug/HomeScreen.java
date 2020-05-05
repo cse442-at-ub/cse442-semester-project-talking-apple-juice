@@ -51,6 +51,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Random;
 
 import static com.example.theplug.MainActivity.storedUsername;
 
@@ -73,7 +74,7 @@ public class HomeScreen extends AppCompatActivity {
     public int notificationId = 0;
 
     public String prodOwner;
-    public String seen;
+    public String[] seen;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -137,8 +138,6 @@ public class HomeScreen extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
-
-
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.deafulticon)
                 .setContentTitle("An item has been viewed!!")
@@ -147,12 +146,10 @@ public class HomeScreen extends AppCompatActivity {
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
-
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-        // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(notificationId, builder.build());
-
+        Random rand = new Random();
+        // notificationId is a unique int for each notification that you must define. if they're all the same number, they will overwrite each other.
+        notificationManager.notify(rand.nextInt(100000), builder.build()); // admittedly, 1/100000 chance a notif will be overwritten.
     }
 
     // Notifies users when a watched product has been sold
@@ -160,7 +157,6 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(this, ViewProductActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.deafulticon)
@@ -170,14 +166,12 @@ public class HomeScreen extends AppCompatActivity {
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
-
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-        // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(notificationId, builder.build());
-
-
+        Random rand = new Random();
+        // notificationId is a unique int for each notification that you must define. if they're all the same number, they will overwrite each other.
+        notificationManager.notify(rand.nextInt(100000) + 100000, builder.build()); // add 100000 so notifs from previous method CANNOT interfere. odds still 1/100000 of overwrite.
     }
+
     public void gotoSearch(View view){
         Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
@@ -212,16 +206,12 @@ public class HomeScreen extends AppCompatActivity {
                             prodOwner = recentProdSeller[0];
                             if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
                                 new GetImageData().execute("view", ID, storedUsername );
-
-                                 //notify product seller
-
                             }
 
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[0]);
                             intent.putExtra("ID", assocID);
                             startActivity(intent);
-
                         }
                     });
 
@@ -236,9 +226,6 @@ public class HomeScreen extends AppCompatActivity {
                             String ID = Integer.toString(recentIDs[1]);
                             if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
                                 new GetImageData().execute("view", ID, storedUsername );
-                               // addNotification();                 //notify product seller
-
-
                             }
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[1]);
@@ -257,9 +244,6 @@ public class HomeScreen extends AppCompatActivity {
                             String ID = Integer.toString(recentIDs[2]);
                             if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller. SELLUSER IS NULL.... Y?
                                 new GetImageData().execute("view", ID, storedUsername);
-                              //  addNotification();                 //notify product owner
-
-
                             }
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[2]);
@@ -277,8 +261,6 @@ public class HomeScreen extends AppCompatActivity {
                             String ID = Integer.toString(recentIDs[3]);
                             if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
                                 new GetImageData().execute("view", ID, storedUsername );
-                               // addNotification();                 //notify product seller
-
                             }
 
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
@@ -288,11 +270,11 @@ public class HomeScreen extends AppCompatActivity {
                         }
                     });
                 }else if(s.contains(" has viewed ")){
-
-                        addNotification(s);
-                        new GetImageData().execute("removeView", s.split(" has viewed ")[1]);
-                        //SET THE VIEWS ON THIS PRODUCT TO BE NULL
-
+                        for(String r : seen)
+                        {
+                            addNotification(r);
+                            new GetImageData().execute("removeView", r.split(" has viewed ")[1]); //SET THE VIEWS ON THIS PRODUCT TO BE NULL
+                        }
                 }else if(s.equals("Watches Retrieved")){
                     if(watchedIDs.length > 0)
                     {
@@ -352,9 +334,6 @@ public class HomeScreen extends AppCompatActivity {
                         httpCon.disconnect();
                         //at this point, we have 4 id's separated by "|"
                         String[] collection = result.split("\\|");
-
-                        GetImageData test = new GetImageData();
-                        test.execute("getViews", Integer.toString(recentIDs[0]));
 
                         //Store ID of the 4 recents products
                         recentIDs[0] = Integer.parseInt(collection[0]);
@@ -452,7 +431,7 @@ public class HomeScreen extends AppCompatActivity {
                         inStr.close();
                         httpCon.disconnect();
 
-                        seen = result;
+                        seen = result.split("\\|");
                         return result; //This variable result returns the return string from the php file which is the echos
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
