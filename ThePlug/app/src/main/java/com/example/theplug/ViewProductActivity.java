@@ -1,7 +1,9 @@
 package com.example.theplug;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -110,7 +112,9 @@ public class ViewProductActivity extends AppCompatActivity {
                         watchLIST();
 
                     }else if(watchers.contains(MainActivity.storedUsername)){
-                        Toast.makeText(getApplicationContext(), "You are already watching this item", Toast.LENGTH_SHORT).show();
+                        confirmUnWatched();
+//                        new GetProductData().execute("unWatch", MainActivity.storedUsername, ID);
+//                        Toast.makeText(getApplicationContext(), "You have unWatched this item", Toast.LENGTH_SHORT).show();
 
                     }else if(MainActivity.storedUsername.equals(sellUSER)){
                         Toast.makeText(getApplicationContext(), "You can not watch your own item!!", Toast.LENGTH_SHORT).show();
@@ -118,7 +122,6 @@ public class ViewProductActivity extends AppCompatActivity {
                     }else{
                         watchLIST();
                     }
-
 
 
                 } catch (Exception e) {
@@ -188,8 +191,6 @@ public class ViewProductActivity extends AppCompatActivity {
         });
 
         getData();
-
-
     }
 
     public void init(){
@@ -207,7 +208,6 @@ public class ViewProductActivity extends AppCompatActivity {
         placeBid = findViewById(R.id.bidButton);
         status = findViewById(R.id.statusButton);
         watch = findViewById(R.id.watchButton);
-
     }
 
     public void watchLIST(){
@@ -237,6 +237,29 @@ public class ViewProductActivity extends AppCompatActivity {
 
         Toast err = Toast.makeText(ViewProductActivity.this, "Product Added To Watch List", Toast.LENGTH_SHORT);
         err.show();
+    }
+
+    public void confirmUnWatched(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Dialog");
+        builder.setMessage("You are about to remove item from watchlist! Are you sure?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                new GetProductData().execute("unWatch", MainActivity.storedUsername, ID);
+                Toast.makeText(getApplicationContext(), "You've chosen to remove this item!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "You have chosen to continue watching this item!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.show();
     }
 
     public void soldProd(){
@@ -280,13 +303,51 @@ public class ViewProductActivity extends AppCompatActivity {
         get.execute("checkWatch");
     }
 
-    class GetProductData extends AsyncTask<String, Void, String>{
+    class GetProductData extends AsyncTask<String, Void, String> {
 
 
         @Override
         protected String doInBackground(String... strings) {
             String type = strings[0];
-            if(type.equals("checkWatch")){
+
+            if (type.equals("unWatch")) {
+                try {
+                    String watcher = strings[1];
+                    String id = strings[2];
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/deleteIFwatching.php");
+                    HttpURLConnection httpCon;
+                    httpCon = (HttpURLConnection) url.openConnection();
+                    httpCon.setRequestMethod("POST");
+                    httpCon.setDoOutput(true);
+                    httpCon.setDoInput(true);
+                    OutputStream outStr = httpCon.getOutputStream();
+                    BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
+                    String req = URLEncoder.encode("watcher", "UTF-8") + "=" + URLEncoder.encode(watcher, "UTF-8") +
+                            "&" + URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8");
+                    buffW.write(req);
+                    buffW.flush();
+                    buffW.close();
+                    outStr.close();
+
+                    InputStream inStr = httpCon.getInputStream();
+                    BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                    String result = "";
+                    String line = "";
+                    while ((line = buffR.readLine()) != null) {
+                        result += line;
+                    }
+                    buffR.close();
+                    inStr.close();
+                    httpCon.disconnect();
+                    return result;
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return  "unWatched";
+
+            } else if (type.equals("checkWatch")) {
                 String response = "";
                 try {
                     URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/checkIFwatching.php?id=" + ID);
@@ -305,11 +366,9 @@ public class ViewProductActivity extends AppCompatActivity {
                     httpCon.disconnect();
                     parsedResp = response.split("\\|");
                     watchers = new ArrayList<String>();
-                    for(String s : parsedResp){
+                    for (String s : parsedResp) {
                         watchers.add(s);
                     }
-
-
 
 
                 } catch (MalformedURLException e) {
@@ -323,7 +382,7 @@ public class ViewProductActivity extends AppCompatActivity {
                 }
                 return "Watchers Retrieved";
 
-            } else if(type.equals("watchlist")){
+            } else if (type.equals("watchlist")) {
                 String response = "";
                 try {
                     URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getWatchInfo.php?id=" + ID);
@@ -358,8 +417,8 @@ public class ViewProductActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 return "Watch List Retrieved";
-            }
-            else if (type.equals("Data")) {
+
+            } else if (type.equals("Data")) {
                 String response = "";
                 try {
                     URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getProductInfo.php?id=" + ID);
@@ -387,6 +446,7 @@ public class ViewProductActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 return "Data Retrieved";
+
             } else if (type.equals("Image")) {
                 Bitmap img = null;
                 try {
@@ -399,7 +459,8 @@ public class ViewProductActivity extends AppCompatActivity {
                 }
                 temp = img;
                 return "Image Retrieved";
-            }else if(type.equals("Com")){
+
+            } else if (type.equals("Com")) {
                 try {
                     URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/leaveComment.php");
                     HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
@@ -408,8 +469,8 @@ public class ViewProductActivity extends AppCompatActivity {
                     httpCon.setDoInput(true);
                     OutputStream outStr = httpCon.getOutputStream();
                     BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
-                    String req = URLEncoder.encode("id","UTF-8") + "=" +URLEncoder.encode(strings[1], "UTF-8")
-                            +"&" +URLEncoder.encode("com","UTF-8") + "=" +URLEncoder.encode(strings[2], "UTF-8");
+                    String req = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(strings[1], "UTF-8")
+                            + "&" + URLEncoder.encode("com", "UTF-8") + "=" + URLEncoder.encode(strings[2], "UTF-8");
                     buffW.write(req);
                     buffW.flush();
                     buffW.close();
@@ -419,8 +480,7 @@ public class ViewProductActivity extends AppCompatActivity {
                     BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
                     String result = "";
                     String line = "";
-                    while((line = buffR.readLine()) != null)
-                    {
+                    while ((line = buffR.readLine()) != null) {
                         result += line;
                     }
                     buffR.close();
@@ -432,7 +492,8 @@ public class ViewProductActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 return "Comment Sent";
-            } else if(type.equals("Status")){
+
+            } else if (type.equals("Status")) {
                 try {
                     URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/leaveStatus.php");
                     HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
@@ -441,8 +502,8 @@ public class ViewProductActivity extends AppCompatActivity {
                     httpCon.setDoInput(true);
                     OutputStream outStr = httpCon.getOutputStream();
                     BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
-                    String req = URLEncoder.encode("id","UTF-8") + "=" +URLEncoder.encode(strings[1], "UTF-8")
-                            +"&" +URLEncoder.encode("com","UTF-8") + "=" +URLEncoder.encode(strings[2], "UTF-8");
+                    String req = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(strings[1], "UTF-8")
+                            + "&" + URLEncoder.encode("com", "UTF-8") + "=" + URLEncoder.encode(strings[2], "UTF-8");
                     buffW.write(req);
                     buffW.flush();
                     buffW.close();
@@ -452,8 +513,7 @@ public class ViewProductActivity extends AppCompatActivity {
                     BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
                     String result = "";
                     String line = "";
-                    while((line = buffR.readLine()) != null)
-                    {
+                    while ((line = buffR.readLine()) != null) {
                         result += line;
                     }
                     buffR.close();
@@ -466,7 +526,7 @@ public class ViewProductActivity extends AppCompatActivity {
                 }
                 return "Status Sent";
 
-            }else if(type.equals("PlaceBid")){
+            } else if (type.equals("PlaceBid")) {
                 try {
                     URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/placeBidSEC.php");
                     HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
@@ -475,9 +535,9 @@ public class ViewProductActivity extends AppCompatActivity {
                     httpCon.setDoInput(true);
                     OutputStream outStr = httpCon.getOutputStream();
                     BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
-                    String req = URLEncoder.encode("id","UTF-8") + "=" +URLEncoder.encode(strings[1], "UTF-8")
-                            +"&" +URLEncoder.encode("un","UTF-8") + "=" +URLEncoder.encode(strings[2], "UTF-8")
-                            +"&" +URLEncoder.encode("bid","UTF-8") + "=" +URLEncoder.encode(strings[3], "UTF-8");
+                    String req = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(strings[1], "UTF-8")
+                            + "&" + URLEncoder.encode("un", "UTF-8") + "=" + URLEncoder.encode(strings[2], "UTF-8")
+                            + "&" + URLEncoder.encode("bid", "UTF-8") + "=" + URLEncoder.encode(strings[3], "UTF-8");
                     buffW.write(req);
                     buffW.flush();
                     buffW.close();
@@ -487,8 +547,7 @@ public class ViewProductActivity extends AppCompatActivity {
                     BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
                     String result = "";
                     String line = "";
-                    while((line = buffR.readLine()) != null)
-                    {
+                    while ((line = buffR.readLine()) != null) {
                         result += line;
                     }
                     buffR.close();
@@ -502,7 +561,8 @@ public class ViewProductActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 return "error";
-            }else if(type.equals("BidTable")) {
+
+            } else if (type.equals("BidTable")) {
                 try {
                     URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/addToBidTableSEC.php");
                     HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
@@ -511,10 +571,10 @@ public class ViewProductActivity extends AppCompatActivity {
                     httpCon.setDoInput(true);
                     OutputStream outStr = httpCon.getOutputStream();
                     BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
-                    String req = URLEncoder.encode("id","UTF-8") + "=" +URLEncoder.encode(strings[1], "UTF-8")
-                            +"&" +URLEncoder.encode("item","UTF-8") + "=" +URLEncoder.encode(strings[4], "UTF-8")
-                            +"&" +URLEncoder.encode("seller","UTF-8") + "=" +URLEncoder.encode(strings[3], "UTF-8")
-                            +"&" +URLEncoder.encode("un","UTF-8") + "=" +URLEncoder.encode(strings[2], "UTF-8");
+                    String req = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(strings[1], "UTF-8")
+                            + "&" + URLEncoder.encode("item", "UTF-8") + "=" + URLEncoder.encode(strings[4], "UTF-8")
+                            + "&" + URLEncoder.encode("seller", "UTF-8") + "=" + URLEncoder.encode(strings[3], "UTF-8")
+                            + "&" + URLEncoder.encode("un", "UTF-8") + "=" + URLEncoder.encode(strings[2], "UTF-8");
                     buffW.write(req);
                     buffW.flush();
                     buffW.close();
@@ -524,8 +584,7 @@ public class ViewProductActivity extends AppCompatActivity {
                     BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
                     String result = "";
                     String line = "";
-                    while((line = buffR.readLine()) != null)
-                    {
+                    while ((line = buffR.readLine()) != null) {
                         result += line;
                     }
                     buffR.close();
@@ -539,12 +598,12 @@ public class ViewProductActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 return "error";
-            }else{
+            } else {
                 return "error";
             }
 
 
-        }
+    }
 
         @Override
         protected void onPostExecute(String s)
