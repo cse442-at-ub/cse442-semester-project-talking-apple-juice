@@ -31,11 +31,15 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class ViewProductActivity extends AppCompatActivity {
 
@@ -55,6 +59,8 @@ public class ViewProductActivity extends AppCompatActivity {
     public static String watchSeller; //check to make sure current user is not same user
     public static String watcher;
 
+   public static ArrayList<String> watchers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +77,7 @@ public class ViewProductActivity extends AppCompatActivity {
 
         init();
 
-        new GetProductData().execute("WatchList");
+
 
         addComment.setOnClickListener(new View.OnClickListener()
         {
@@ -89,40 +95,35 @@ public class ViewProductActivity extends AppCompatActivity {
             }
         });
 
+        new  GetProductData().execute("watchlist");
+        new GetProductData().execute("checkWatch");
+
+        final ArrayList<String> test;
+        test = watchers;
+
         watch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try{
-                    if(watcher.equals("nothing found")){
-                        if(!MainActivity.storedUsername.equals(sellUSER)){
-                            watchLIST();
-                        }else {
-                            Toast incorrect = Toast.makeText(getApplicationContext(), "You can not watch your own item!", Toast.LENGTH_SHORT);
-                            incorrect.show();
-                        }
 
-                    }
-                    if(MainActivity.storedUsername.equals(watchSeller)){
-                        Toast incorrect = Toast.makeText(getApplicationContext(), "You can not watch your own item!", Toast.LENGTH_SHORT);
-                        incorrect.show();
+                    if(!watchers.contains(MainActivity.storedUsername) && !MainActivity.storedUsername.equals(sellUSER)){
+                        watchLIST();
+
+                    }else if(watchers.contains(MainActivity.storedUsername)){
+                        Toast.makeText(getApplicationContext(), "You are already watching this item", Toast.LENGTH_SHORT).show();
+
+                    }else if(MainActivity.storedUsername.equals(sellUSER)){
+                        Toast.makeText(getApplicationContext(), "You can not watch your own item!!", Toast.LENGTH_SHORT).show();
+
                     }else{
-                        if(watchChecker.equals("W") && watcher.equals(MainActivity.storedUsername)){
-                            Toast incorrect = Toast.makeText(getApplicationContext(), "You are already watching this item", Toast.LENGTH_SHORT);
-                            incorrect.show();
-                        }else if(watchChecker.equals("W") || watcher.equals(MainActivity.storedUsername)){
-                            Toast incorrect = Toast.makeText(getApplicationContext(), "You can not watch this item", Toast.LENGTH_SHORT);
-                            incorrect.show();
-                        }else{
-                            watchLIST();
-                        }
+                        watchLIST();
                     }
+
+
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
-
-
             }
         });
 
@@ -149,7 +150,7 @@ public class ViewProductActivity extends AppCompatActivity {
                         status.setText("Active");
                         new GetProductData().execute("Status", ID, status.getText().toString());
                         deleteSoldProd();
-                       // statusTV.setText("Available");
+                        // statusTV.setText("Available");
                         Toast good = Toast.makeText(getApplicationContext(), "Item is Available", Toast.LENGTH_SHORT);
                         good.show();
                     }else{
@@ -232,7 +233,7 @@ public class ViewProductActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        new TransactionsActivity.productSold().execute("watch", name, price, desc, id, img, user, watcher, watchStatus);
+       new TransactionsActivity.productSold().execute("watch", name, price, desc, id, img, user, watcher, watchStatus);
 
         Toast err = Toast.makeText(ViewProductActivity.this, "Product Added To Watch List", Toast.LENGTH_SHORT);
         err.show();
@@ -272,14 +273,57 @@ public class ViewProductActivity extends AppCompatActivity {
     public void getData(){
         GetProductData get = new GetProductData();
         get.execute("Data");
+
+    }
+    public void getWatchers(){
+        GetProductData get = new GetProductData();
+        get.execute("checkWatch");
     }
 
     class GetProductData extends AsyncTask<String, Void, String>{
 
+
         @Override
         protected String doInBackground(String... strings) {
             String type = strings[0];
-            if(type.equals("WatchList")){
+            if(type.equals("checkWatch")){
+                String response = "";
+                try {
+                    URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/checkIFwatching.php?id=" + ID);
+                    HttpURLConnection httpCon;
+                    httpCon = (HttpURLConnection) url.openConnection();
+                    httpCon.setRequestMethod("GET");
+
+                    InputStream inStr = httpCon.getInputStream();
+                    BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                    String line = "";
+                    while ((line = buffR.readLine()) != null) {
+                        response += line;
+                    }
+                    buffR.close();
+                    inStr.close();
+                    httpCon.disconnect();
+                    parsedResp = response.split("\\|");
+                    watchers = new ArrayList<String>();
+                    for(String s : parsedResp){
+                        watchers.add(s);
+                    }
+
+
+
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (ProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return "Watchers Retrieved";
+
+            } else if(type.equals("watchlist")){
                 String response = "";
                 try {
                     URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getWatchInfo.php?id=" + ID);
@@ -302,9 +346,7 @@ public class ViewProductActivity extends AppCompatActivity {
                         watcher = parsedResp[0];
                     } else {
                         parsedResp = response.split("\\|");
-                        watchSeller = parsedResp[3];
-                        watcher = parsedResp[4];
-                        watchChecker = parsedResp[5];
+
                     }
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -317,7 +359,7 @@ public class ViewProductActivity extends AppCompatActivity {
                 }
                 return "Watch List Retrieved";
             }
-           else if (type.equals("Data")) {
+            else if (type.equals("Data")) {
                 String response = "";
                 try {
                     URL url = new URL("https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/getProductInfo.php?id=" + ID);
@@ -500,6 +542,8 @@ public class ViewProductActivity extends AppCompatActivity {
             }else{
                 return "error";
             }
+
+
         }
 
         @Override
@@ -563,6 +607,7 @@ public class ViewProductActivity extends AppCompatActivity {
                 startActivity(getIntent());
             }
             else {
+
                 super.onPostExecute(s);
             }
         }
