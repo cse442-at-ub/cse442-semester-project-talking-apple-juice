@@ -21,6 +21,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
@@ -76,6 +77,8 @@ public class HomeScreen extends AppCompatActivity {
     public String prodOwner;
     public String[] seen;
 
+    public Handler handler;
+    public Runnable runnable;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -100,6 +103,17 @@ public class HomeScreen extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        handler = new Handler();
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                Log.d("Running!", "Now!");
+                getProduct();
+                handler.postDelayed(this, 10000);
+            }
+        };
+        handler.postDelayed(runnable, 10000);
 
     }
 
