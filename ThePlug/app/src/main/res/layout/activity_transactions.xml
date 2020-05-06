@@ -8,15 +8,15 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/bids"
+        android:id="@+id/watching"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/bids"
+        android:layout_marginTop="28dp"
+        android:text="@string/watching"
         android:textColor="?attr/textColor"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,75 +26,46 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="196dp"
+        android:layout_marginTop="12dp"
         android:text="@string/sales"
         android:textColor="?attr/textColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bids" />
+        app:layout_constraintTop_toBottomOf="@+id/watchRecycler" />
 
     <TextView
         android:id="@+id/purchases"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="336dp"
         android:text="@string/purchases"
         android:textColor="?attr/textColor"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sales"
-        app:layout_constraintVertical_bias="0.062" />
-
-    <ImageView
-        android:id="@+id/itemView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginBottom="52dp"
-        android:contentDescription="Item"
-        app:layout_constraintBottom_toTopOf="@+id/sales"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:color/holo_purple" />
-
-    <TextView
-        android:id="@+id/itemName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/item_name"
-        android:textColor="?attr/textColor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemView" />
-
-    <TextView
-        android:id="@+id/itemPrice"
-        android:layout_width="68dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/_6"
-        android:textColor="#3E810E"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/itemView"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/soldRecycler"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/soldRecycler"
-        android:layout_width="385dp"
-        android:layout_height="169dp"
+        android:layout_width="319dp"
+        android:layout_height="138dp"
         android:layout_marginTop="12dp"
         android:scrollbars="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/purchases"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sales"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintTop_toBottomOf="@+id/sales" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/watchRecycler"
+        android:layout_width="321dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="24dp"
+        android:scrollbars="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/watching" />
 </androidx.constraintlayout.widget.ConstraintLayout>

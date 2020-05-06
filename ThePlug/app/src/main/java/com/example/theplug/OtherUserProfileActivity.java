@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -33,7 +34,7 @@ public class OtherUserProfileActivity extends AppCompatActivity {
     public String[] scoreList;
     public String[] buyerScoreList;
     public Bitmap temp;
-    public Button leaveBuyerRating, leaveSellerRating;
+    public Button leaveBuyerRating, leaveSellerRating, leaveReport;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,23 @@ public class OtherUserProfileActivity extends AppCompatActivity {
         });
 
 
+        leaveReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!MainActivity.storedUsername.equals(sellUSER)) {
+
+                    Intent intent = new Intent(OtherUserProfileActivity.this, ReportActivity.class);
+                    intent.putExtra("Sender", sellUSER);
+                    startActivity(intent);
+
+                }else{
+
+                    Toast error = Toast.makeText(getApplicationContext(), "You can not make a report on yourself", Toast.LENGTH_SHORT);
+                    error.show();
+                }
+            }
+        });
+
 
     }
 
@@ -94,6 +112,7 @@ public class OtherUserProfileActivity extends AppCompatActivity {
         leaveBuyerRating = findViewById(R.id.leaveBuyerRating);
         leaveSellerRating = findViewById(R.id.leaveSellerRating);
 
+        leaveReport = findViewById(R.id.reportButton);
 
     }
 
@@ -172,6 +191,9 @@ public class OtherUserProfileActivity extends AppCompatActivity {
 
                 temp = img;
                 return "Image Retrieved";
+
+            }else if(strings[0].equals("report")){
+
             }
             return "error";
         }
