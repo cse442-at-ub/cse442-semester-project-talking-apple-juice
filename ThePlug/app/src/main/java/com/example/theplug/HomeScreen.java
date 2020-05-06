@@ -21,6 +21,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
@@ -51,6 +52,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Random;
 
 import static com.example.theplug.MainActivity.storedUsername;
 
@@ -73,8 +75,10 @@ public class HomeScreen extends AppCompatActivity {
     public int notificationId = 0;
 
     public String prodOwner;
-    public String seen;
+    public String[] seen;
 
+    public Handler handler;
+    public Runnable runnable;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -99,6 +103,17 @@ public class HomeScreen extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        handler = new Handler();
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                Log.d("Running!", "Now!");
+                getProduct();
+                handler.postDelayed(this, 10000);
+            }
+        };
+        handler.postDelayed(runnable, 10000);
 
     }
 
@@ -137,8 +152,6 @@ public class HomeScreen extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
-
-
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.deafulticon)
                 .setContentTitle("An item has been viewed!!")
@@ -147,12 +160,10 @@ public class HomeScreen extends AppCompatActivity {
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
-
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-        // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(notificationId, builder.build());
-
+        Random rand = new Random();
+        // notificationId is a unique int for each notification that you must define. if they're all the same number, they will overwrite each other.
+        notificationManager.notify(rand.nextInt(100000), builder.build()); // admittedly, 1/100000 chance a notif will be overwritten.
     }
 
     // Notifies users when a watched product has been sold
@@ -160,7 +171,6 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(this, ViewProductActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.deafulticon)
@@ -170,14 +180,12 @@ public class HomeScreen extends AppCompatActivity {
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
-
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-        // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(notificationId, builder.build());
-
-
+        Random rand = new Random();
+        // notificationId is a unique int for each notification that you must define. if they're all the same number, they will overwrite each other.
+        notificationManager.notify(rand.nextInt(100000) + 100000, builder.build()); // add 100000 so notifs from previous method CANNOT interfere. odds still 1/100000 of overwrite.
     }
+
     public void gotoSearch(View view){
         Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
@@ -212,16 +220,12 @@ public class HomeScreen extends AppCompatActivity {
                             prodOwner = recentProdSeller[0];
                             if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
                                 new GetImageData().execute("view", ID, storedUsername );
-
-                                 //notify product seller
-
                             }
 
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[0]);
                             intent.putExtra("ID", assocID);
                             startActivity(intent);
-
                         }
                     });
 
@@ -236,9 +240,6 @@ public class HomeScreen extends AppCompatActivity {
                             String ID = Integer.toString(recentIDs[1]);
                             if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
                                 new GetImageData().execute("view", ID, storedUsername );
-                               // addNotification();                 //notify product seller
-
-
                             }
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[1]);
@@ -257,9 +258,6 @@ public class HomeScreen extends AppCompatActivity {
                             String ID = Integer.toString(recentIDs[2]);
                             if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller. SELLUSER IS NULL.... Y?
                                 new GetImageData().execute("view", ID, storedUsername);
-                              //  addNotification();                 //notify product owner
-
-
                             }
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
                             String assocID = Integer.toString(recentIDs[2]);
@@ -277,8 +275,6 @@ public class HomeScreen extends AppCompatActivity {
                             String ID = Integer.toString(recentIDs[3]);
                             if(!storedUsername.equals(prodOwner)) { //If the current user is not the same as the product seller.
                                 new GetImageData().execute("view", ID, storedUsername );
-                               // addNotification();                 //notify product seller
-
                             }
 
                             Intent intent = new Intent(HomeScreen.this, ViewProductActivity.class);
@@ -288,10 +284,11 @@ public class HomeScreen extends AppCompatActivity {
                         }
                     });
                 }else if(s.contains(" has viewed ")){
-
-                        addNotification(s);
-
-
+                        for(String r : seen)
+                        {
+                            addNotification(r);
+                            new GetImageData().execute("removeView", r.split(" has viewed ")[1]); //SET THE VIEWS ON THIS PRODUCT TO BE NULL
+                        }
                 }else if(s.equals("Watches Retrieved")){
                     if(watchedIDs.length > 0)
                     {
@@ -304,6 +301,7 @@ public class HomeScreen extends AppCompatActivity {
                 }else if(s.endsWith("has been sold!"))
                 {
                     addWatchedSoldNotification(s); //show a notif
+                    new GetImageData().execute("removeWatch", storedUsername, s.substring(0, s.length() - 15)); //REMOVE FROM WATCHLIST THE PRODUCT WITH YOUR USERNAME AS WATCHER
                 }else if(s.equals("Bids Retrieved")){
                     for(String id: biddedIDs)
                     {
@@ -319,6 +317,7 @@ public class HomeScreen extends AppCompatActivity {
                             if(!(en.getKey()).equals(storedUsername)) //a bid has been lost.
                             {
                                 addWatchedSoldNotification("You have been outbid on item: " +en.getValue());
+                                new GetImageData().execute("removeBid", storedUsername, en.getValue().toString()); //REMOVE FROM BIDLIST ALL BIDS WITH PRODUCT NAME AND YOUR USERNAME AS BIDDER
                             }
                         }
                     }
@@ -349,9 +348,6 @@ public class HomeScreen extends AppCompatActivity {
                         httpCon.disconnect();
                         //at this point, we have 4 id's separated by "|"
                         String[] collection = result.split("\\|");
-
-                        GetImageData test = new GetImageData();
-                        test.execute("getViews", Integer.toString(recentIDs[0]));
 
                         //Store ID of the 4 recents products
                         recentIDs[0] = Integer.parseInt(collection[0]);
@@ -449,7 +445,7 @@ public class HomeScreen extends AppCompatActivity {
                         inStr.close();
                         httpCon.disconnect();
 
-                        seen = result;
+                        seen = result.split("\\|");
                         return result; //This variable result returns the return string from the php file which is the echos
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
@@ -573,10 +569,7 @@ public class HomeScreen extends AppCompatActivity {
                         inStr.close();
                         httpCon.disconnect();
 
-                        Log.d("RESULT", result);
                         String[] winnerAndItem = result.split("\\|");
-                        Log.d("WIN", winnerAndItem[0]);
-                        Log.d("ITEM", winnerAndItem[1]);
                         bidWinners.put(winnerAndItem[0], winnerAndItem[1]); //place the winner user and item name into a hashmap
 
                         return "Checked...";
@@ -585,6 +578,115 @@ public class HomeScreen extends AppCompatActivity {
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     } catch (ProtocolException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return "error";
+                }else if(type.equals("removeBid")){
+                    String updateBid ="https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/removeFromBidListSEC.php";
+                    try {
+                        String user = strings[1];
+                        String prod = strings[2];
+                        URL url = new URL(updateBid);
+                        HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+                        httpCon.setRequestMethod("POST");
+                        httpCon.setDoOutput(true);
+                        httpCon.setDoInput(true);
+                        OutputStream outStr = httpCon.getOutputStream();
+                        BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
+                        String req = URLEncoder.encode("un","UTF-8") + "=" +URLEncoder.encode(user, "UTF-8")
+                                +"&" +URLEncoder.encode("pn","UTF-8") + "=" +URLEncoder.encode(prod, "UTF-8");
+                        buffW.write(req);
+                        buffW.flush();
+                        buffW.close();
+                        outStr.close();
+
+                        InputStream inStr = httpCon.getInputStream();
+                        BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                        String result = "";
+                        String line = "";
+                        while((line = buffR.readLine()) != null)
+                        {
+                            result += line;
+                        }
+                        buffR.close();
+                        inStr.close();
+                        httpCon.disconnect();
+                        return result;
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return "error";
+                }else if(type.equals("removeWatch")){
+                    String updateWatch ="https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/removeFromWatchListSEC.php";
+                    try {
+                        String user = strings[1];
+                        String prod = strings[2];
+                        URL url = new URL(updateWatch);
+                        HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+                        httpCon.setRequestMethod("POST");
+                        httpCon.setDoOutput(true);
+                        httpCon.setDoInput(true);
+                        OutputStream outStr = httpCon.getOutputStream();
+                        BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
+                        String req = URLEncoder.encode("un","UTF-8") + "=" +URLEncoder.encode(user, "UTF-8")
+                                +"&" +URLEncoder.encode("pn","UTF-8") + "=" +URLEncoder.encode(prod, "UTF-8");
+                        buffW.write(req);
+                        buffW.flush();
+                        buffW.close();
+                        outStr.close();
+
+                        InputStream inStr = httpCon.getInputStream();
+                        BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                        String result = "";
+                        String line = "";
+                        while((line = buffR.readLine()) != null)
+                        {
+                            result += line;
+                        }
+                        buffR.close();
+                        inStr.close();
+                        httpCon.disconnect();
+                        return result;
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return "error";
+                }else if(type.equals("removeView")){
+                    String updateView ="https://www-student.cse.buffalo.edu/CSE442-542/2020-spring/cse-442ac/removeFromViewSEC.php";
+                    try {
+                        String prod = strings[1];
+                        URL url = new URL(updateView);
+                        HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+                        httpCon.setRequestMethod("POST");
+                        httpCon.setDoOutput(true);
+                        httpCon.setDoInput(true);
+                        OutputStream outStr = httpCon.getOutputStream();
+                        BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(outStr, "UTF-8"));
+                        String req = URLEncoder.encode("pn","UTF-8") + "=" +URLEncoder.encode(prod, "UTF-8");
+                        buffW.write(req);
+                        buffW.flush();
+                        buffW.close();
+                        outStr.close();
+
+                        InputStream inStr = httpCon.getInputStream();
+                        BufferedReader buffR = new BufferedReader(new InputStreamReader(inStr, "iso-8859-1"));
+                        String result = "";
+                        String line = "";
+                        while((line = buffR.readLine()) != null)
+                        {
+                            result += line;
+                        }
+                        buffR.close();
+                        inStr.close();
+                        httpCon.disconnect();
+                        return result;
+                    } catch (MalformedURLException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -600,7 +702,6 @@ public class HomeScreen extends AppCompatActivity {
 
         GetImageData one = new GetImageData();
         one.execute("getViews");
-
 
         GetImageData watch = new GetImageData();
         watch.execute("getWatched");
